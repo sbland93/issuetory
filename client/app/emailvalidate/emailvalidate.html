@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Sign up</h1>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="email.confirmNumber(email.user)" novalidate>
+
+        <div class="form-group">
+          <label>ValidationNumber</label>
+
+          <input type="text" name="number" class="form-control" ng-model="email.user.number"
+                 required/>
+          <p class="help-block" ng-show="form.name.$error.required">
+            A name is required
+          </p>
+        </div>
+
+        <div>
+          <button class="btn btn-inverse btn-lg btn-register" type="submit">
+            Submit
+          </button>
+        </div>
+
+        <hr/>
+      </form>
+    </div>
+  </div>
+  <hr>
+</div>

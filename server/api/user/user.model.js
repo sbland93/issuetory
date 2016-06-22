@@ -39,7 +39,25 @@ var UserSchema = new Schema({
   facebook: {},
   twitter: {},
   google: {},
+  validation: {
+    type: Boolean,
+    default: false
+  },
+  usernumber: Number,
   github: {}
+}, {
+  toJSON: {
+    transform: function(doc, ret) {
+      delete ret.__v;
+      delete ret._id;
+      delete ret.hashedPassword;
+      delete ret.salt;
+      delete ret.usernumber;
+      delete ret.validation;
+      
+      return ret;
+    }
+  }
 });
 
 /**
@@ -146,6 +164,8 @@ UserSchema
         next();
       });
     });
+
+    this.usernumber = this.makeUsernumber();
   });
 
 /**
@@ -177,6 +197,25 @@ UserSchema.methods = {
       }
     });
   },
+
+
+
+
+  /**
+   *
+   *
+   * make random validate code
+   *
+   * */
+
+  makeUsernumber() {
+
+    return Math.random();
+  },
+
+
+
+
 
   /**
    * Make salt
@@ -249,4 +288,4 @@ UserSchema.methods = {
   }
 };
 
-export default mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);

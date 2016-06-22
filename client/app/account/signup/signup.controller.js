@@ -21,9 +21,9 @@ class SignupController {
         email: this.user.email,
         password: this.user.password
       })
-      .then(() => {
+      .then((user) => {
         // Account created, redirect to home
-        this.$state.go('main');
+        this.$state.go('emailvalidate');
       })
       .catch(err => {
         err = err.data;

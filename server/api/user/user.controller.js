@@ -1,123 +1,193 @@
 'use strict';
 
-import User from './user.model';
-import passport from 'passport';
-import config from '../../config/environment';
-import jwt from 'jsonwebtoken';
+var UserService = require('./user.service');
+var Mailing = require('../../components/mails/mail.service');
 
-function validationError(res, statusCode) {
-  statusCode = statusCode || 422;
-  return function(err) {
-    res.status(statusCode).json(err);
-  }
-}
+var validationError = function(res, err) {
+  return res.json(422, err);
+};
 
-function handleError(res, statusCode) {
-  statusCode = statusCode || 500;
-  return function(err) {
-    res.status(statusCode).send(err);
-  };
-}
+exports.index = index;
+exports.create = create;
+exports.show = show;
+exports.destroy = destroy;
+exports.changePassword = changePassword;
+exports.me = me;
+exports.authCallback = authCallback;
+exports.getUsernumber = getUsernumber;
+exports.sendEmail = sendEmail;
+exports.emailValidate = emailValidate;
+exports.confirmNumber = confirmNumber;
 
 /**
  * Get list of users
  * restriction: 'admin'
  */
-export function index(req, res) {
-  return User.find({}, '-salt -password').exec()
-    .then(users => {
-      res.status(200).json(users);
+function index(req, res) {
+  UserService
+    .index()
+    .then(function(users) {
+      res.json(200, users);
     })
-    .catch(handleError(res));
-}
+    .catch(function(err) {
+      res.send(500, err);
+    });
+};
 
 /**
  * Creates a new user
  */
-export function create(req, res, next) {
-  var newUser = new User(req.body);
-  newUser.provider = 'local';
-  newUser.role = 'user';
-  newUser.save()
-    .then(function(user) {
-      var token = jwt.sign({ _id: user._id }, config.secrets.session, {
-        expiresIn: 60 * 60 * 5
-      });
-      res.json({ token });
+function create(req, res, next) {
+  UserService
+    .create(req.body)
+    .then(function(token) {
+      res.json({ token: token });
     })
-    .catch(validationError(res));
-}
+    .catch(function(err) {
+      return validationError(res, err);
+    });
+};
 
 /**
  * Get a single user
  */
-export function show(req, res, next) {
-  var userId = req.params.id;
-
-  return User.findById(userId).exec()
-    .then(user => {
-      if (!user) {
-        return res.status(404).end();
-      }
-      res.json(user.profile);
+function show(req, res, next) {
+  UserService
+    .show(req.params.id)
+    .then(function(profile) {
+      res.json(profile);
     })
-    .catch(err => next(err));
-}
+    .catch(function(err) {
+      if(err && err.code && err.code === 'USER_NOT_FOUND') {
+        return res.send(401);
+      } 
+      if (err) return next(err);
+    });
+};
 
 /**
  * Deletes a user
  * restriction: 'admin'
  */
-export function destroy(req, res) {
-  return User.findByIdAndRemove(req.params.id).exec()
+function destroy(req, res) {
+  UserService
+    .destroy(req.params.id)
     .then(function() {
-      res.status(204).end();
+      res.send(204);
     })
-    .catch(handleError(res));
-}
+    .catch(function(err) {
+      if (err) return res.send(500, err);
+    });
+};
 
 /**
  * Change a users password
  */
-export function changePassword(req, res, next) {
+function changePassword(req, res, next) {
   var userId = req.user._id;
   var oldPass = String(req.body.oldPassword);
   var newPass = String(req.body.newPassword);
 
-  return User.findById(userId).exec()
-    .then(user => {
-      if (user.authenticate(oldPass)) {
-        user.password = newPass;
-        return user.save()
-          .then(() => {
-            res.status(204).end();
-          })
-          .catch(validationError(res));
-      } else {
-        return res.status(403).end();
-      }
+  UserService
+    .changePassword(userId, oldPass, newPass)
+    .then(function() {
+      res.send(200);
+    })
+    .catch(function(err) {
+      if(err && err.code && err.code === 'FORBIDDEN') {
+        return res.send(403);
+      } 
+      return validationError(res, err);
     });
-}
+};
 
 /**
  * Get my info
  */
-export function me(req, res, next) {
-  var userId = req.user._id;
-
-  return User.findOne({ _id: userId }, '-salt -password').exec()
-    .then(user => { // don't ever give out the password or salt
-      if (!user) {
-        return res.status(401).end();
-      }
+function me(req, res, next) {
+  UserService
+    .me(req.user._id)
+    .then(function(user) {
       res.json(user);
     })
-    .catch(err => next(err));
-}
+    .catch(function(err) {
+      if(err && err.code && err.code === 'USER_NOT_FOUND') {
+        return res.send(401);
+      } 
+      if (err) return next(err);
+    });
+};
+
 
 /**
  * Authentication callback
  */
-export function authCallback(req, res, next) {
+function authCallback(req, res, next) {
   res.redirect('/');
+};
+
+//make email validate! From false to true
+function emailValidate(req, res, next) {
+
+  UserService.emailValidates(req.user._id).then(function(user){
+    res.sendStatus(200);
+  })
+  .catch(function(err){
+    if(err) return next(err);
+    console.log('For Test: emailvalidate error [user.controller.js 137]', error);
+  })
+
+}
+
+
+//getUsernumber (it is because of safety, because we delete ret.usernumber on to JSON)
+function getUsernumber(req, res, next) {
+  console.log('For Test: getUsernumber() is called......');
+  console.log('For Test: req.user is [called from user.controller.js 145]', req.user)
+  var id = req.user._id;
+
+
+  UserService.getUsernumber(id).then(function(number){
+    req.number = number;
+    console.log(req.number);
+    next();
+  })
+  .catch(function(err){
+    if(err) return next(err);
+  })
+
+}
+
+
+//sendEmail with usernumber(equipped into req by getUsernumber())
+
+function sendEmail(req, res, next) {
+  console.log('For Test: sendEmail..[called from user.controller.js 164]');
+  var options = {};
+  var html = '<div>validation number:'+req.number+'</div>';
+  var from = '"constructive" <rltmqj@yonsei.ac.kr>';
+  var subject = 'constructive validatation!';
+
+  options.html = html;
+  options.from = from;
+  options.to = req.user.email;
+  options.subject = subject;
+
+  Mailing.sendMail(options).then(function(){
+    res.sendStauts(204);
+  });
+}
+
+
+function confirmNumber(req, res, next) {
+  console.log('For Test: req.body.number is', req.body.number);
+  console.log('For Test: req.number is', req.number);
+  if(req.number == req.body.number){
+
+    next();
+  }
+  else{
+    res.sendStatus(400);
+  }
+
 }

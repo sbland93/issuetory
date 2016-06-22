@@ -40,6 +40,24 @@ describe('User Model', function() {
       }).should.be.rejected;
   });
 
+  describe('#deafult(related to email validation)', function(){
+      it('should have default random usernumber', function(){
+        user.save().then(function(u) {
+          u.usernumber.should.be.not.empty;
+        })
+      });
+
+      it('should have default validation false', function(){
+        user.save().then(function(u) {
+          u.validation.should.be.eql(false);
+        })
+      });
+
+    })
+
+
+  
+
   describe('#email', function() {
     it('should fail when saving with a blank email', function() {
       user.email = '';
@@ -138,6 +156,9 @@ describe('User Model', function() {
           }).should.eventually.be.true;
       });
     });
+
+
+    
 
     describe('given user provider is google', function() {
       beforeEach(function() {

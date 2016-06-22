@@ -11,6 +11,8 @@ var validateJwt = expressJwt({
   secret: config.secrets.session
 });
 
+
+
 /**
  * Attaches the user object to the request if authenticated
  * Otherwise returns 403
@@ -19,6 +21,7 @@ export function isAuthenticated() {
   return compose()
     // Validate jwt
     .use(function(req, res, next) {
+      console.log('For Test: req.headers.authorization', JSON.stringify(req.headers.authorization));
       // allow access_token to be passed through query parameter as well
       if (req.query && req.query.hasOwnProperty('access_token')) {
         req.headers.authorization = 'Bearer ' + req.query.access_token;
@@ -38,6 +41,15 @@ export function isAuthenticated() {
         .catch(err => next(err));
     });
 }
+
+
+
+
+export function checkValidation(){
+  if(!req.user.validation) return res.status(401).end();
+  next();
+}
+
 
 /**
  * Checks if the user role meets the minimum requirements of the route

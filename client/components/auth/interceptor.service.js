@@ -9,6 +9,7 @@ function authInterceptor($rootScope, $q, $cookies, $injector, Util) {
     request(config) {
       config.headers = config.headers || {};
       if ($cookies.get('token') && Util.isSameOrigin(config.url)) {
+        console.log('For Test: config.headers.Authorization!');
         config.headers.Authorization = 'Bearer ' + $cookies.get('token');
       }
       return config;
