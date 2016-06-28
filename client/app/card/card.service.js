@@ -20,13 +20,6 @@
     }
 
     function getCards(groupId, params) {
-      /*var card = {group: groupId, type: 'ALL', complete: 'ALL', sort: '-CREATED', limit: CARD_LIMIT.count};
-
-      if(params) {
-        params = angular.extend(card, params);
-      } else {
-        params = card;
-      }*/
 
       return Cards.customGET('', params);
     }
@@ -43,8 +36,6 @@
       return Cards.one(cardId).customPUT(params);
     }
     
-    function sortByType(card){
-      card.comments
-    }
+
   }
 })();
