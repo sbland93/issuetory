@@ -22,7 +22,7 @@ function makeCard(_userId){
 
 }
 
-function makeComments(_cardId){
+function makeComments(_userId, _cardId){
 
 var seedComments = [{
                   category: 'A',
@@ -96,38 +96,16 @@ var seedUsers = [{
 
 
 User.find({}).remove().then(function(){
-  User.create({
-      provider: 'local',
-      name: 'Test User',
-      email: 'test@example.com',
-      password: 'test'
-    }, {
-      provider: 'local',
-      role: 'admin',
-      name: 'Admin',
-      email: 'admin@example.com',
-      password: 'admin'
-    }).then(function(_user){
-      var _userId = _user._id;
+  User.create(seedUsers).then(function(_user){
+      var _userId = _user[0]._id;
       Card.find({}).remove().then(function(){
-        Card.create({
-          creator: _userId,
-          title: 'Can we make Euthopia?',
-          idea: 'I want to make world to discuss constructively. Really. It"s my pure insight and aspect. And you knwo, sharing constructive idea can help the world to make better. I believe our websites can help make world better than in the past. And this is the real and pure value of web ability.',
-          link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
-          }).then(function(_card){
+        Card.create(makeCard(_userId)).then(function(_card){
             var _cardId = _card._id;
             Comment.find({}).remove().then(function(){
-              Comment.create({
-                  category: 'A',
-                  card: _cardId,
-                  creator: _userId,
-                  title: 'What is Lorem Ipsum?',
-                  idea: ' it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-                  link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
-                }).then(function(_comment){
-                  var _commentId = _comment._id;
-                  _card.comments.push(_commentId);
+              Comment.create(makeComments(_userId, _cardId)).then(function(_comments){
+                  for (var i = 1; i < _comments.length; i++) {
+                      _card.comments.push(_comments[i]);
+                  }
                   _card.save();
                 })
             })
