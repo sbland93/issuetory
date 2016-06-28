@@ -97,6 +97,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
      * @return {Object|Promise}
      */
     getCurrentUser(callback) {
+      console.log('For Test: This is timing when getCurrentUser() is called and currentUser is [auth.service.js 100]', currentUser);
       if (arguments.length === 0) {
         return currentUser;
       }

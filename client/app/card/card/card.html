@@ -1,0 +1,11 @@
+<div ng-show="user === card.creator._id">
+<label class="btn btn-default btn-circle btn-xs pull-right" ng-click="remove({newVal: card._id})"><i class="glyphicon glyphicon-remove"></i></label>
+<label class="btn btn-default btn-xs pull-right" ui-sref="update({ id: card._id })" style="margin-right:10px"><i class="glyphicon glyphicon-pencil"></i></label>
+</div>
+<h1>{{card.title}}</h1>
+    <p>{{card.idea}}</p>
+    <div>
+	<span class="badge">{{card.created_at}}</span><div class="pull-right"><span class="label label-default">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
+	<span class="label label-danger">Danger</span></div>
+    </div>     
+    <hr>
