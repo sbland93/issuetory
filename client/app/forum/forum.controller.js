@@ -8,7 +8,7 @@
     .controller('forumCtrl', forumCtrl);
 
   /* @ngInject */
-  function forumCtrl($scope, card, $stateParams, forum) {
+  function forumCtrl($scope, $stateParams, $state, Auth, card, forum) {
 
 
   
@@ -27,9 +27,13 @@
     //getCard list with _init()
 
     function _init() {
+      
       console.log('For Test: vm.obj.currentCardId is [forum.controller.js 28]', vm.obj.currentCardId );
       _getCard($stateParams.id);
-      
+      Auth.getCurrentUser(function(user){
+        vm.obj.currentUser = user;
+      });
+    
     }
 
 

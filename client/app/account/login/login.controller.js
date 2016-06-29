@@ -26,7 +26,6 @@ class LoginController {
         this.errors.other = err.message;
       });
     }
-    
   }
 }
 

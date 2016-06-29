@@ -10,8 +10,6 @@ angular.module('constructiveApp')
       scope: {
         user : '=',
         card: '=info',
-        update : '&',
-        remove : '&'
       },
       link: function (scope, element, attrs) {
         _init();
