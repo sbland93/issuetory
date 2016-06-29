@@ -1,26 +1,25 @@
 exports.makeComments = makeComments;
 exports.makeCards = makeCards;
-exports.seedUsers = seedUsers;
+exports.makeUsers = makeUsers;
 
 
+function makeUsers(){
 
-var seedUsers = [{
-      provider: 'local',
-      name: 'Test User',
-      email: 'test@example.com',
-      password: 'test'
-    }, {
-      provider: 'local',
-      role: 'admin',
-      name: 'Admin',
-      email: 'admin@example.com',
-      password: 'admin'
-    }];
+	var seedUsers = [{
+	      provider: 'local',
+	      name: 'Test User',
+	      email: 'test@example.com',
+	      password: 'test'
+	    }, {
+	      provider: 'local',
+	      role: 'admin',
+	      name: 'Admin',
+	      email: 'admin@example.com',
+	      password: 'admin'
+	    }];
+	return seedUsers;
 
-
-
-
-
+}
 
 
 

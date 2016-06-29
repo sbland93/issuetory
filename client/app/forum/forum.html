@@ -1,121 +1,30 @@
-<div class="col-md-12">
-    <card info="forumCtrl.obj.currentCard"></card>
-</div>
+    <div class="col-md-12">
+        <card info="forumCtrl.obj.currentCard"></card>
+    </div>
 
-<h1 class="text-center">Comments</h1>
+    <h1 class="text-center">Comments</h1>
+
+
+
     <div class="row">
-		<div class="col-sm-6">
-            <div id="tb-testimonial" class="testimonial testimonial-default-filled">
-                <div class="testimonial-section">
-                    {{forumCtrl.obj.currentCard.comments[0].idea}}
-            	</div>
-                <div class="testimonial-desc">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
-                    <div class="testimonial-writer">
-                    	<div class="testimonial-writer-name">{{forumCtrl.obj.currentCard.creator.name}}</div>
-                    	<div class="testimonial-writer-designation">Front End Developer</div>
-                    	<a href="#" class="testimonial-writer-company">Touch Base Inc</a>
-                    </div>
-                </div>
-            </div>   
-		</div>
-        
-        <div class="col-sm-6">
-            <div id="tb-testimonial" class="testimonial testimonial-primary-filled">
-                <div class="testimonial-section">
-                    {{forumCtrl.obj.currentCard.comments[1].idea}}
-                </div>
-                <div class="testimonial-desc">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
-                    <div class="testimonial-writer">
-                    	<div class="testimonial-writer-name">Zahed Kamal</div>
-                    	<div class="testimonial-writer-designation">Front End Developer</div>
-                    	<a href="#" class="testimonial-writer-company">Touch Base Inc</a>
-                    </div>
-                </div>
-            </div>   
-		</div>
-        
-        <div class="col-sm-6">
-            <div id="tb-testimonial" class="testimonial testimonial-info-filled">
-                <div class="testimonial-section">
-                    {{forumCtrl.obj.currentCard.comments[2].idea}}
-                </div>
-                <div class="testimonial-desc">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
-                    <div class="testimonial-writer">
-                    	<div class="testimonial-writer-name">Zahed Kamal</div>
-                    	<div class="testimonial-writer-designation">Front End Developer</div>
-                    	<a href="#" class="testimonial-writer-company">Touch Base Inc</a>
-                    </div>
-                </div>
-            </div>   
-		</div>
-        
-        <div class="col-sm-6">
-            <div id="tb-testimonial" class="testimonial testimonial-success-filled">
-                <div class="testimonial-section">
-                    {{forumCtrl.obj.currentCard.comments[3].idea}}
-                </div>
-                <div class="testimonial-desc">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
-                    <div class="testimonial-writer">
-                    	<div class="testimonial-writer-name">Zahed Kamal</div>
-                    	<div class="testimonial-writer-designation">Front End Developer</div>
-                    	<a href="#" class="testimonial-writer-company">Touch Base Inc</a>
-                    </div>
-                </div>
-            </div>   
-		</div>
-        
-        <div class="col-sm-6">
-            <div id="tb-testimonial" class="testimonial testimonial-warning-filled">
-                <div class="testimonial-section">
-                    {{forumCtrl.obj.currentCard.comments[4].idea}}
-                </div>
-                <div class="testimonial-desc">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
-                    <div class="testimonial-writer">
-                        <div class="testimonial-writer-name">Zahed Kamal</div>
-                        <div class="testimonial-writer-designation">Front End Developer</div>
-                        <a href="#" class="testimonial-writer-company">Touch Base Inc</a>
-                    </div>
-                </div>
-            </div>   
-        </div>
-        
-        <div class="col-sm-6">
-            <div id="tb-testimonial" class="testimonial testimonial-danger-filled">
-                <div class="testimonial-section">
+    
 
-                    {{forumCtrl.obj.currentCard.comments[5].idea}}
-                </div>
-                <div class="testimonial-desc">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
-                    <div class="testimonial-writer">
-                    	<div class="testimonial-writer-name">Zahed Kamal</div>
-                    	<div class="testimonial-writer-designation">Front End Developer</div>
-                    	<a href="#" class="testimonial-writer-company">Touch Base Inc</a>
-                    </div>
-                </div>
-            </div>   
-		</div>
+    <comment info="forumCtrl.obj.commentA[0]" type="'primary'" filled="'-filled'"></comment>    
+    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentA" type="'primary'"></comment>
 
+    <comment info="forumCtrl.obj.commentB[0]" type="'default'" filled="'-filled'"></comment>
+    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentB" type="'default'"></comment>
 
-        <div class="col-sm-6">
-            <div id="tb-testimonial" class="testimonial testimonial-danger-filled">
-                <div class="testimonial-section">
+    <comment info="forumCtrl.obj.commentC[0]" type="'info'" filled="'-filled'"></comment>
+    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentC" type="'info'"></comment>
 
-                    {{forumCtrl.obj.currentCard.comments[6].idea}}
-                </div>
-                <div class="testimonial-desc">
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
-                    <div class="testimonial-writer">
-                        <div class="testimonial-writer-name">Zahed Kamal</div>
-                        <div class="testimonial-writer-designation">Front End Developer</div>
-                        <a href="#" class="testimonial-writer-company">Touch Base Inc</a>
-                    </div>
-                </div>
-            </div>   
-        </div>
-        
+    <comment info="forumCtrl.obj.commentD[0]" type="'danger'" filled="'-filled'"></comment>
+    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentD" type="'danger'"></comment>
+
+    <comment info="forumCtrl.obj.commentE[0]" type="'warning'" filled="'-filled'"></comment>
+    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentE" type="'warning'"></comment>
+
+    <comment info="forumCtrl.obj.commentF[0]" type="'success'" filled="'-filled'"></comment>
+    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentF" type="'success'"></comment>
+
+    </div>

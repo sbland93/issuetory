@@ -68,7 +68,7 @@ export function index(req, res) {
 
 // Gets a single Card from the DB
 export function show(req, res) {
-  return Card.findById(req.params.id).populate('creator').populate('comments').exec()
+  return Card.findById(req.params.id).populate('creator').populate('comments').populate('comments.creator', 'name').exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

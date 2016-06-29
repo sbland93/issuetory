@@ -12,7 +12,7 @@ import MakeSeed from './makeseed';
 
 var makeComments = MakeSeed.makeComments;
 var makeCards = MakeSeed.makeCards;
-var seedusers = MakeSeed.seedUsers;
+var makeUsers = MakeSeed.makeUsers;
 
 
 
@@ -20,7 +20,7 @@ var seedusers = MakeSeed.seedUsers;
 
 
 User.find({}).remove().then(function(){
-  User.create(seedUsers).then(function(_user){
+  User.create(makeUsers()).then(function(_user){
       var _userId = _user[0]._id;
       Card.find({}).remove().then(function(){
         Card.create(makeCards(_userId)).then(function(_card){

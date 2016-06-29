@@ -8,7 +8,7 @@
     .controller('forumCtrl', forumCtrl);
 
   /* @ngInject */
-  function forumCtrl($scope, card, $stateParams) {
+  function forumCtrl($scope, card, $stateParams, forum) {
 
 
   
@@ -19,15 +19,17 @@
     vm.obj.update = update;
     vm.obj.remove = remove;
 
+
     _init();
 
 
 
-
     //getCard list with _init()
+
     function _init() {
       console.log('For Test: vm.obj.currentCardId is [forum.controller.js 28]', vm.obj.currentCardId );
       _getCard($stateParams.id);
+      
     }
 
 
@@ -35,7 +37,12 @@
       card.getCard(cardId).then(function(card){
         console.log('For Test: _getCard is called and the currentcard is[forum.controller.js 36]', card);
         vm.obj.currentCard = card;
+
+        //it will make vm.obj.commentA ~ vm.obj.commentF
+        forum.sortByType(vm.obj.currentCard.comments, vm.obj);
+         
       })
+
     }
     
     function update(cardId, params){
