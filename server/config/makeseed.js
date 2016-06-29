@@ -30,6 +30,7 @@ function makeCards(_userId){
           title: 'Can we make Euthopia?',
           idea: 'I want to make world to discuss constructively. Really. It"s my pure insight and aspect. And you knwo, sharing constructive idea can help the world to make better. I believe our websites can help make world better than in the past. And this is the real and pure value of web ability.',
           link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
+          keyword: ['Insta', 'Facebook', 'Google', 'Amazon', 'Apple', 'Samsung'],
           };
   return seedCard;
 

@@ -33,7 +33,6 @@
       Auth.getCurrentUser(function(user){
         vm.obj.currentUser = user;
       });
-    
     }
 
 

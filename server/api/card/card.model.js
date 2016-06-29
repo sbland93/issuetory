@@ -23,6 +23,7 @@ var CardSchema = new mongoose.Schema({
 	title: {type: String, required: true},
 	idea: {type: String, required: true},
 	link: [ReferenceSchema],
+	keyword: [{type:String}],
 	hit: {type: Number, default: 1},
 	comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 });

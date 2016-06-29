@@ -2,7 +2,7 @@
 <h1>{{card.title}}</h1>
     <p>{{card.idea}}</p>
     <div>
-	<span class="badge">{{card.created_at}}</span><div class="pull-right"><span class="label label-default">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
-	<span class="label label-danger">Danger</span></div>
+	<span class="badge">{{card.created_at}}</span><div class="pull-right"><span class="label label-default">{{card.keyword[0]}}</span> <span class="label label-primary">{{card.keyword[1]}}</span> <span class="label label-success">{{card.keyword[2]}}</span> <span class="label label-info">personal</span> <span class="label label-warning">{{card.keyword[3]}}</span>
+	<span class="label label-danger">{{card.keyword[4]}}</span></div>
     </div>     
     <hr>
