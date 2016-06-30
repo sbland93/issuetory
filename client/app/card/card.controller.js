@@ -13,12 +13,11 @@
   
     var vm = this;
     vm.obj = {};
-    //vm.obj.currentUser = null;
+
     vm.obj.controllAddForm = controllAddForm;
     vm.obj.getCard = getCard;
     vm.obj.create = create;
-    //vm.obj.update = update;
-    //vm.obj.remove = remove;
+ 
     vm.obj.addForm = false;
 
 
@@ -26,15 +25,7 @@
     vm.obj.cardlist = [];
     _init();
 
-    //watch the currentUser
-
-    /*$scope.$watch(function() { 
-      return vm.obj.currentUser; 
-    }, function(newVal, oldVal) {
-      Auth.getCurrentUser(function(user){
-        vm.obj.currentUser = user;
-      });
-    });*/
+ 
 
 
 
@@ -47,11 +38,8 @@
 
     //getCard list with _init()
     function _init() {
-      //console.log('For Test: vm.obj.currentUser._id [card.controller.js 49]', vm.obj.currentUser._id );
       _getCards();
-      /*Auth.getCurrentUser(function(user){
-        vm.obj.currentUser = user;
-      });*/
+
     }
 
 
@@ -59,7 +47,6 @@
 
     function _getCards(){
       card.getCards().then(function(cards){
-      //  console.log('For Test: Card which is [0] in cards is', cards[0].creator._id);
         vm.obj.cardlist = cards;
       });
     }

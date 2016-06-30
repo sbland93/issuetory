@@ -8,7 +8,7 @@
     .controller('forumCtrl', forumCtrl);
 
   /* @ngInject */
-  function forumCtrl($scope, $stateParams, $state, Auth, card, forum) {
+  function forumCtrl($scope, $stateParams, $state, Auth, card, forum, cardCache) {
 
 
   
@@ -28,25 +28,22 @@
 
     function _init() {
       
-      console.log('For Test: vm.obj.currentCardId is [forum.controller.js 28]', vm.obj.currentCardId );
-      _getCard($stateParams.id);
+      cardCache.cachingCard($stateParams.id).then(function(card){
+        vm.obj.currentCard = card;
+        
+        //it will make vm.obj.commentA ~ vm.obj.commentF
+        forum.sortByType(vm.obj.currentCard.comments, vm.obj); 
+        console.log('For Test: vm.obj.currentCardId is [forum.controller.js 28]', vm.obj.currentCardId );
+      });
+
+      //Cache처럼 Refactoryin!
       Auth.getCurrentUser(function(user){
         vm.obj.currentUser = user;
       });
-    }
-
-
-    function _getCard(cardId){
-      card.getCard(cardId).then(function(card){
-        console.log('For Test: _getCard is called and the currentcard is[forum.controller.js 36]', card);
-        vm.obj.currentCard = card;
-
-        //it will make vm.obj.commentA ~ vm.obj.commentF
-        forum.sortByType(vm.obj.currentCard.comments, vm.obj);
-         
-      })
 
     }
+
+
     
     function update(cardId, params){
       card.update(cardId, params).then(function(card){

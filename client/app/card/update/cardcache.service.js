@@ -4,25 +4,28 @@
   angular
     .module('constructiveApp')
     .service('cardCache', cardCache)
-    //.constant('CARD_LIMIT', {count: 5});
 
   /* @ngInject */
-  function cardCache(card) {
-    this.cachingCard = cachingCard;
-    this.cachedCard = null;
+  function cardCache(card, $q) {
+    var vm = this;
+    vm.cachingCard = cachingCard;
+    vm.cachedCard = null;
 
     function cachingCard(cardId){
 
-      card.getCard(cardId).then(function(card){
-        this.cachedCard = card;
+      var deferred = $q.defer();
 
-        //it will make controllerObj.commentA ~ controllerObj.commentF
-        forum.sortByType(card.comments, this);
-         
-      })
+      card.getCard(cardId).then(function(card){
+        vm.cachedCard = card;
+        deferred.resolve(card);
+      });
+      
+      return deferred.promise;
+
     }
+    
 
   }
 
-  
+
 })();

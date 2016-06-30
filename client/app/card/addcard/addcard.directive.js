@@ -6,7 +6,7 @@ angular.module('constructiveApp')
       templateUrl: 'app/card/addcard/addcard.html',
       restrict: 'EA',
       scope: {
-      	createOrUpdate : '&',
+      	create : '&',
         remove : '&',
         card : '=info'
       },
@@ -15,18 +15,6 @@ angular.module('constructiveApp')
       	scope.newCard = {};
       	scope.newCard.prerequisite =[];
       	scope.newCard.link = [];
-
-        console.log("For Test: card is updated on [addcard.directive.js 19]", JSON.stringify(scope.card));
-
-        //Some Trick for reusing this form to update card.
-        scope.$watch('scope.card', function(newValue){ 
-          if(newValue){
-            console.log("For Test: card is updated on [addcard.directive.js 19]", JSON.stringify(scope.card));
-             scope.newCard = newValue;
-          }
-        })
-
-
 
       }
     };
