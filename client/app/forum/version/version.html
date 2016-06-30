@@ -1,9 +1,16 @@
 
+<label class="btn btn-default btn-xs pull-right" ui-sref="update({ id: card._id })" style="margin-right:10px"><i class="glyphicon glyphicon-pencil"></i>Return To This Version</label>
+
+
 <h1>{{card.title}}</h1>
     <p>{{card.idea}}</p>
     <div>
 	<span class="badge">{{card.created_at}}</span><div class="pull-right"><span class="label label-default">{{card.keyword[0]}}</span> <span class="label label-primary">{{card.keyword[1]}}</span> <span class="label label-success">{{card.keyword[2]}}</span> <span class="label label-info">personal</span> <span class="label label-warning">{{card.keyword[3]}}</span>
 	<span class="label label-danger">{{card.keyword[4]}}</span></div>
     </div>     
-    <hr>
 
+	<div class="text-center">
+	<label class="btn btn-default btn-xs" ng-click="controllVersions()"><i class="glyphicon glyphicon-arrow-up" style="border-right:30px"></i></label>
+	</div>
+
+    <hr>

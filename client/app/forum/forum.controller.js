@@ -19,6 +19,9 @@
     vm.obj.update = update;
     vm.obj.remove = remove;
 
+    vm.obj.controllVersions = controllVersions;
+    vm.obj.versions = false;
+
 
     _init();
 
@@ -41,6 +44,13 @@
         vm.obj.currentUser = user;
       });
 
+    }
+
+
+    function controllVersions(){
+
+      vm.obj.versions = !vm.obj.versions;
+    
     }
 
 

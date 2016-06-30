@@ -7,8 +7,8 @@ angular.module('constructiveApp')
       restrict: 'EA',
 
       scope: {
-        user : '=',
         card: '=info',
+        versions: '=',
       },
       link: function (scope, element, attrs) {
         _init();

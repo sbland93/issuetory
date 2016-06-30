@@ -16,6 +16,15 @@ var ReferenceSchema = new Schema({
 var DateSchema = { type: Date, default: Date.now};
 
 
+var CommentVersionSchema = new Schema({
+	category:  {type: String, enum:['A', 'B', 'C', 'D', 'E', 'F'], required: true},
+	contributor: { type:Schema.Types.ObjectId, ref: 'User'},
+	updated_at: DateSchema,
+	title: {type: String},
+	idea: {type: String, required: true},
+	link: [ReferenceSchema],
+});
+
 
 
 var CommentSchema = new Schema({
@@ -28,7 +37,8 @@ var CommentSchema = new Schema({
 	title: {type: String},
 	idea: {type: String, required: true},
 	link: [ReferenceSchema],
-	hit: {type: Number, default: 1}
+	hit: {type: Number, default: 1},
+	versions: [CommentVersionSchema]
 });
 
 
@@ -37,13 +47,10 @@ var ReplySchema = new Schema({
 	created_at: DateSchema,
 	idea: {type: String, required: true},
 	link: [ReferenceSchema]
-})
+});
 
 
 CommentSchema.add({ replies: [ReplySchema]  });
-
-
-
 
 
 export default mongoose.model('Comment', CommentSchema);
