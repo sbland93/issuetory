@@ -18,9 +18,15 @@
     vm.obj.currentCardId = $stateParams.id;
     vm.obj.update = update;
     vm.obj.remove = remove;
-
-    vm.obj.controllVersions = controllVersions;
-    vm.obj.versions = false;
+    vm.obj.controllCardVersions = controllCardVersions;
+    vm.obj.controllSimilar = controllSimilar;
+    vm.obj.cardVersions = false;
+    vm.obj.similarA = false;
+    vm.obj.similarB = false;
+    vm.obj.similarC = false;
+    vm.obj.similarD = false;
+    vm.obj.similarE = false;
+    vm.obj.similarF = false;
 
 
     _init();
@@ -47,10 +53,19 @@
     }
 
 
-    function controllVersions(){
+    function controllCardVersions(){
 
-      vm.obj.versions = !vm.obj.versions;
+      vm.obj.cardVersions = !vm.obj.cardVersions;
     
+    }
+
+    function controllSimilar(category){
+      if(category == 'A') vm.obj.similarA = !vm.obj.similarA;
+      if(category == 'B') vm.obj.similarB = !vm.obj.similarB;
+      if(category == 'C') vm.obj.similarC = !vm.obj.similarC;
+      if(category == 'D') vm.obj.similarD = !vm.obj.similarD;
+      if(category == 'E') vm.obj.similarE = !vm.obj.similarE;
+      if(category == 'F') vm.obj.similarF = !vm.obj.similarF;
     }
 
 

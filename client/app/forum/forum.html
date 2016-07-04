@@ -6,11 +6,11 @@
 
     <label class="btn btn-default btn-xs pull-right" ui-sref="update({ id: card._id })" style="margin-right:10px"><i class="glyphicon glyphicon-pencil"></i></label>
 
-    <label class="btn btn-default btn-xs pull-right" ng-click="forumCtrl.obj.controllVersions()"><i class="glyphicon glyphicon-sort-by-attributes" style="border-right:30px"></i></label>
+    <label class="btn btn-default btn-xs pull-right" ng-click="forumCtrl.obj.controllCardVersions()"><i class="glyphicon glyphicon-sort-by-attributes" style="border-right:30px"></i></label>
 
-    <card info="forumCtrl.obj.currentCard" remove="forumCtrl.obj.remove(newVal)"></card>
+    <card info="forumCtrl.obj.currentCard"></card>
 
-    <version info="version" ng-repeat="version in forumCtrl.obj.currentCard.versions" ng-if="forumCtrl.obj.versions" controll-versions = "forumCtrl.obj.controllVersions()"></version>
+    <version info="version" ng-repeat="version in forumCtrl.obj.currentCard.versions" ng-if="forumCtrl.obj.cardVersions" controll-versions = "forumCtrl.obj.controllCardVersions()"></version>
 
 </div>
 
@@ -21,8 +21,8 @@
     <div class="row">
     
 
-    <comment info="forumCtrl.obj.commentA[0]" type="'primary'" filled="'-filled'"></comment>    
-    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentA" type="'primary'"></comment>
+    <comment info="forumCtrl.obj.commentA[0]" type="'primary'" filled="'-filled'" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
+    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentA" type="'primary'"  ng-if="forumCtrl.obj.similarA"></comment>
 
     <comment info="forumCtrl.obj.commentB[0]" type="'default'" filled="'-filled'"></comment>
     <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentB" type="'default'"></comment>
