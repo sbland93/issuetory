@@ -9,7 +9,6 @@
   function cardCache(card, $q) {
     var vm = this;
     vm.cachingCard = cachingCard;
-    vm.cachedCard = null;
 
     function cachingCard(cardId){
 

@@ -4,7 +4,7 @@
     <label class="btn btn-default btn-circle btn-xs pull-right" ng-click="forumCtrl.obj.remove(forumCtrl.obj.currentCardId)"><i class="glyphicon glyphicon-remove"></i></label>
     </div>
 
-    <label class="btn btn-default btn-xs pull-right" ui-sref="update({ id: card._id })" style="margin-right:10px"><i class="glyphicon glyphicon-pencil"></i></label>
+    <label class="btn btn-default btn-xs pull-right" ui-sref="update({ id: forumCtrl.obj.currentCard._id })" style="margin-right:10px"><i class="glyphicon glyphicon-pencil"></i></label>
 
     <label class="btn btn-default btn-xs pull-right" ng-click="forumCtrl.obj.controllCardVersions()"><i class="glyphicon glyphicon-sort-by-attributes" style="border-right:30px"></i></label>
 
@@ -16,27 +16,27 @@
 
 
 
-    <h1 class="text-center">Comments</h1>
+<h1 class="text-center">Comments</h1>
 
-    <div class="row">
-    
+<div class="row">
 
-    <comment info="forumCtrl.obj.commentA[0]" type="'primary'" filled="'-filled'" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
-    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentA" type="'primary'"  ng-if="forumCtrl.obj.similarA"></comment>
 
-    <comment info="forumCtrl.obj.commentB[0]" type="'default'" filled="'-filled'"></comment>
-    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentB" type="'default'"></comment>
+<comment info="forumCtrl.obj.commentA[0]" category="'A'" filled="true" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentA" category="'A'"  ng-if="forumCtrl.obj.similarA" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
 
-    <comment info="forumCtrl.obj.commentC[0]" type="'info'" filled="'-filled'"></comment>
-    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentC" type="'info'"></comment>
+<comment info="forumCtrl.obj.commentB[0]" category="'B'" filled="true" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentB" category="'B'"  ng-if="forumCtrl.obj.similarB" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
 
-    <comment info="forumCtrl.obj.commentD[0]" type="'danger'" filled="'-filled'"></comment>
-    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentD" type="'danger'"></comment>
+<comment info="forumCtrl.obj.commentC[0]" category="'C'" filled="true" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentC" category="'C'"  ng-if="forumCtrl.obj.similarC" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
 
-    <comment info="forumCtrl.obj.commentE[0]" type="'warning'" filled="'-filled'"></comment>
-    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentE" type="'warning'"></comment>
+<comment info="forumCtrl.obj.commentD[0]" category="'D'" filled="true" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentD" category="'D'"  ng-if="forumCtrl.obj.similarD" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
 
-    <comment info="forumCtrl.obj.commentF[0]" type="'success'" filled="'-filled'"></comment>
-    <comment info="comment" ng-repeat="comment in forumCtrl.obj.commentF" type="'success'"></comment>
+<comment info="forumCtrl.obj.commentE[0]" category="'E'" filled="true" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentE" category="'E'"  ng-if="forumCtrl.obj.similarE" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
 
-    </div>
+<comment info="forumCtrl.obj.commentF[0]" category="'F'" filled="true" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentF" category="'F'"  ng-if="forumCtrl.obj.similarF" controll-similar = "forumCtrl.obj.controllSimilar(newVal)"></comment>
+
+</div>
