@@ -2,6 +2,8 @@
     <div id="tb-testimonial" ng-class="myStyle" >
         <div class="testimonial-section">
             {{comment.idea}}
+            <br><br>
+            <reference info="reference" ng-repeat = "reference in comment.link"></reference>
     	</div>
         <div class="testimonial-desc">
             <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />

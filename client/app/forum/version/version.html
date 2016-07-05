@@ -4,13 +4,15 @@
 
 <h1>{{card.title}}</h1>
     <p>{{card.idea}}</p>
+    <reference info="reference" ng-repeat = "reference in card.link"></reference>
+
     <div>
 	<span class="badge">{{card.created_at}}</span><div class="pull-right"><span class="label label-default">{{card.keyword[0]}}</span> <span class="label label-primary">{{card.keyword[1]}}</span> <span class="label label-success">{{card.keyword[2]}}</span> <span class="label label-info">personal</span> <span class="label label-warning">{{card.keyword[3]}}</span>
 	<span class="label label-danger">{{card.keyword[4]}}</span></div>
-    </div>     
+    </div> 
 
 	<div class="text-center">
-	<label class="btn btn-default btn-xs" ng-click="controllVersions()"><i class="glyphicon glyphicon-arrow-up" style="border-right:30px"></i></label>
+	<label class="btn btn-warning btn-xs" ng-click="controllVersions()"><i class="glyphicon glyphicon-arrow-up" style="border-right:30px"></i></label>
 	</div>
 
     <hr>

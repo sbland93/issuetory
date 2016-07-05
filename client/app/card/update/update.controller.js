@@ -8,7 +8,7 @@
     .controller('updateCtrl', updateCtrl);
 
   /* @ngInject */
-  function updateCtrl($scope, card, $stateParams) {
+  function updateCtrl($scope, $stateParams, $state, card, myCache) {
 
 
   
@@ -22,14 +22,14 @@
     function _init(){
       card.getCard($stateParams.id).then(function(card){
         vm.obj.currentCard = card;
-      })
+      });
     }
     
-
     
     function update(cardId, params){
       card.update(cardId, params).then(function(card){
-        $state.go('card');
+        console.log("For Test: myCache.get('card'+cardId)", myCache.get('card'+cardId));
+        $state.go('forum', {id:cardId});
       });
     }
 

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
     <div class="col-xs-12 well">
-        <form name="myForm" ng-submit="updateCtrl.obj.update()" novalidate>
+        <form name="myForm" ng-submit="updateCtrl.obj.update(updateCtrl.obj.currentCard._id, updateCtrl.obj.currentCard)" novalidate>
 
         <label class="btn btn-default btn-circle btn-xs pull-right" ui-sref="forum({id:updateCtrl.obj.currentCard._id})"><i class="glyphicon glyphicon-remove"></i></label>
         	
@@ -19,7 +19,7 @@
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>
 
-            <fieldset class="form-group">
+            <!--fieldset class="form-group">
             <label for="title">Reference Title of Url(You can remake)</label>
             <textarea class="form-control" id="title" rows="1" maxlength="30" ng-model="updateCtrl.obj.currentCard.link[0].title"></textarea>
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
@@ -41,7 +41,9 @@
             <label for="url">Reference Url</label>
             <textarea class="form-control" id="url" rows="1" ng-model="updateCtrl.obj.currentCard.link[1].url"></textarea> 
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
-            </fieldset>
+            </fieldset-->
+
+            <updatereference info="reference" ng-repeat="reference in updateCtrl.obj.currentCard.link"></updatereference>
 
 
             <button type="submit" class="btn btn-primary" name="save-recipe-button" value="save-recipe-button" ng-disabled="myForm.$invalid">ADD NEW CARD</button>

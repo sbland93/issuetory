@@ -18,13 +18,13 @@
       var deferred = $q.defer();
 
       if(myCache.get('card'+cardId) && !refreshingCache){
-
+        console.log("Using Cache..");
         deferred.resolve(myCache.get('card'+cardId));
 
       }
     
       else{
-
+        console.log('For Test: refreshing');
         Cards.one(cardId).get().then(function(currentCard){
               myCache.put('card'+cardId, currentCard);
               console.log('mycache.get(card_cardId)', myCache.get('card'+cardId));
