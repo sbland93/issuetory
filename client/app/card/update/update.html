@@ -3,39 +3,49 @@
     <div class="col-xs-12 well">
         <form name="myForm" ng-submit="updateCtrl.obj.update()" novalidate>
 
-        <label class="btn btn-default btn-circle btn-xs pull-right"><i class="glyphicon glyphicon-remove"></i></label>
+        <label class="btn btn-default btn-circle btn-xs pull-right" ui-sref="forum({id:updateCtrl.obj.currentCard._id})"><i class="glyphicon glyphicon-remove"></i></label>
         	
 
             <fieldset class="form-group">
             <label for="title">Title of Your Idea</label>
             <textarea class="form-control" id="title" rows="1" ng-model="updateCtrl.obj.currentCard.title" required></textarea> 
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
-            <div>{{updateCtrl.obj.currentCard.title}}Test</div> 
             </fieldset>
         
 
             <fieldset class="form-group">
             <label for="idea">idea</label>
-            <textarea class="form-control" id="idea" rows="3" ng-model="updateCtrl.obj.curentCard.idea" required></textarea>
+            <textarea class="form-control" id="idea" rows="3" ng-model="updateCtrl.obj.currentCard.idea" required></textarea>
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>
 
             <fieldset class="form-group">
             <label for="title">Reference Title of Url(You can remake)</label>
-            <textarea class="form-control" id="title" rows="1" maxlength="30" ng-model="updateCtrl.obj.curentCard.link[0].title"></textarea>
+            <textarea class="form-control" id="title" rows="1" maxlength="30" ng-model="updateCtrl.obj.currentCard.link[0].title"></textarea>
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>        
 
             <fieldset class="form-group">
             <label for="url">Reference Url</label>
-            <textarea class="form-control" id="url" rows="1" ng-model="updateCtrl.obj.curentCard.link[0].url"></textarea> 
+            <textarea class="form-control" id="url" rows="1" ng-model="updateCtrl.obj.currentCard.link[0].url"></textarea> 
+            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
+            </fieldset>
+
+         	<fieldset class="form-group">
+            <label for="title">Reference Title of Url(You can remake)</label>
+            <textarea class="form-control" id="title" rows="1" maxlength="30" ng-model="updateCtrl.obj.currentCard.link[1].title"></textarea>
+            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
+            </fieldset>        
+
+            <fieldset class="form-group">
+            <label for="url">Reference Url</label>
+            <textarea class="form-control" id="url" rows="1" ng-model="updateCtrl.obj.currentCard.link[1].url"></textarea> 
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>
 
 
             <button type="submit" class="btn btn-primary" name="save-recipe-button" value="save-recipe-button" ng-disabled="myForm.$invalid">ADD NEW CARD</button>
-            <button type="submit" class="btn btn-info" name="save-new-recipe-button" value="save-new-recipe-button">Save as a New Recipe</button>
-            <button type="submit" class="btn btn-danger"  name="delete-recipe-button" value="delete-recipe-button">Delete This Recipe</button> 
+            
         </form>
     </div>    
     </div>

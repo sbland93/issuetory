@@ -46,9 +46,11 @@
 
 
     function _getCards(){
+
       card.getCards().then(function(cards){
         vm.obj.cardlist = cards;
       });
+    
     }
 
 

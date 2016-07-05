@@ -8,17 +8,22 @@
     .controller('updateCtrl', updateCtrl);
 
   /* @ngInject */
-  function updateCtrl($scope, card, $stateParams, cardCache) {
+  function updateCtrl($scope, card, $stateParams) {
 
 
   
     var vm = this;
     vm.obj = {};
-    vm.obj.currentCard = cardCache.cachedCard;
     vm.obj.update = update;
     vm.obj.remove = remove;
-    console.log('For Test: vm.obj.currentCard', vm.obj.currentCard);
+    _init();
 
+
+    function _init(){
+      card.getCard($stateParams.id).then(function(card){
+        vm.obj.currentCard = card;
+      })
+    }
     
 
     
