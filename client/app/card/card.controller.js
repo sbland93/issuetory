@@ -54,9 +54,6 @@
     }
 
 
-
-
-
     function getCard(cardId){
       card.getCard(cardId).then(function(card){
         vm.obj.currentCard = card;

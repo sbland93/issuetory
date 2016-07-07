@@ -16,7 +16,7 @@ angular.module('constructiveApp', [
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/card');
 
     $locationProvider.html5Mode(true);
   });

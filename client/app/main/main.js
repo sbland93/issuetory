@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('constructiveApp')
+/*angular.module('constructiveApp')
   .config(function($stateProvider) {
     $stateProvider
       .state('main', {
@@ -8,3 +8,4 @@ angular.module('constructiveApp')
         template: '<main></main>'
       });
   });
+*/

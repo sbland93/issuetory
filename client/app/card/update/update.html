@@ -19,34 +19,12 @@
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>
 
-            <!--fieldset class="form-group">
-            <label for="title">Reference Title of Url(You can remake)</label>
-            <textarea class="form-control" id="title" rows="1" maxlength="30" ng-model="updateCtrl.obj.currentCard.link[0].title"></textarea>
-            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
-            </fieldset>        
-
-            <fieldset class="form-group">
-            <label for="url">Reference Url</label>
-            <textarea class="form-control" id="url" rows="1" ng-model="updateCtrl.obj.currentCard.link[0].url"></textarea> 
-            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
-            </fieldset>
-
-         	<fieldset class="form-group">
-            <label for="title">Reference Title of Url(You can remake)</label>
-            <textarea class="form-control" id="title" rows="1" maxlength="30" ng-model="updateCtrl.obj.currentCard.link[1].title"></textarea>
-            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
-            </fieldset>        
-
-            <fieldset class="form-group">
-            <label for="url">Reference Url</label>
-            <textarea class="form-control" id="url" rows="1" ng-model="updateCtrl.obj.currentCard.link[1].url"></textarea> 
-            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
-            </fieldset-->
+            
 
             <updatereference info="reference" ng-repeat="reference in updateCtrl.obj.currentCard.link"></updatereference>
 
 
-            <button type="submit" class="btn btn-primary" name="save-recipe-button" value="save-recipe-button" ng-disabled="myForm.$invalid">ADD NEW CARD</button>
+            <button type="submit" class="btn btn-primary" name="save-recipe-button" value="save-recipe-button" ng-disabled="myForm.$invalid">Contribute</button>
             
         </form>
     </div>    

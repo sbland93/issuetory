@@ -6,8 +6,8 @@ angular.module('constructiveApp')
       templateUrl: 'app/card/card/reference/reference.html',
       restrict: 'EA',
       scope: {
-      	reference: '='
-      }
+      	reference: '=info'
+      },
       link: function (scope, element, attrs) {
       }
     };

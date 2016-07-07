@@ -10,7 +10,6 @@
   /* @ngInject */
   function forumCtrl($scope, $stateParams, $state, Auth, card, forum, cardCache) {
 
-
   
     var vm = this;
     vm.obj = {};
