@@ -14,35 +14,22 @@
     var vm = this;
     vm.obj = {};
 
-    vm.obj.controllAddForm = controllAddForm;
+    vm.obj.controllView = controllView;
     vm.obj.getCard = getCard;
     vm.obj.create = create;
  
-    vm.obj.addForm = false;
+    vm.obj.viewAddForm = false;
 
-
-
-    vm.obj.cardlist = [];
+    vm.obj.cardlist = []; 
     _init();
 
  
-
-
-
-
-    //For controll the view ng-hide="!vm.obj.addForm"
-    function controllAddForm(){
-      vm.obj.addForm = true;
-      console.log('For Test: [card.controller.js 36]', vm.obj.addForm);
-    };
 
     //getCard list with _init()
     function _init() {
       _getCards();
 
     }
-
-
 
 
     function _getCards(){
@@ -81,6 +68,11 @@
         vm.obj.cardlist.splice(_num, 1);
         //$state.go('card');
       })
+    }
+
+
+    function controllView(){
+      vm.obj.viewAddForm = !vm.obj.viewAddForm;
     }
 
 

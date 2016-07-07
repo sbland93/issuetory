@@ -1,6 +1,8 @@
 <div class="col-sm-6">
     <div id="tb-testimonial" ng-class="myStyle" >
         <div class="testimonial-section">
+            {{comment.title}}
+            <br>
             {{comment.idea}}
             <br><br>
             <reference info="reference" ng-repeat = "reference in comment.link"></reference>
@@ -14,5 +16,5 @@
             </div>
         </div>
     </div>
-    <label class="btn btn-default" ng-click = "controllSimilar({newVal : category})"><i class="glyphicon glyphicon-sort"></i></label>   
+    <label class="btn btn-default" ng-click = "controllView({newVal : category})"><i class="glyphicon glyphicon-sort"></i></label>   
 </div>

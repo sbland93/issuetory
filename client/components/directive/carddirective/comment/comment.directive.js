@@ -9,7 +9,7 @@ angular.module('constructiveApp')
       	category: '=',
       	filled: '=',
       	comment: '=info',
-        controllSimilar: '&'
+        controllView: '&'
       },
       link: function (scope, element, attrs) {
       	

@@ -4,7 +4,6 @@
   angular
     .module('constructiveApp')
     .service('deepcopy', deepcopy)
-    //.constant('CARD_LIMIT', {count: 5});
 
   /* @ngInject */
   function deepcopy() {

@@ -7,7 +7,7 @@ angular.module('constructiveApp')
       restrict: 'EA',
       scope: {
       	create : '&',
-        remove : '&',
+        controllView : '&',
         card : '=info'
       },
 

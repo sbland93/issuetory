@@ -5,7 +5,7 @@
 angular.module('constructiveApp')
   .directive('version', function () {
     return {
-      templateUrl: 'app/forum/version/version.html',
+      templateUrl: 'components/directive/carddirective/version/version.html',
       restrict: 'EA',
 
       scope: {

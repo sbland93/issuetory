@@ -17,8 +17,7 @@
     vm.obj.currentCardId = $stateParams.id;
     vm.obj.update = update;
     vm.obj.remove = remove;
-    vm.obj.controllCardVersions = controllCardVersions;
-    vm.obj.controllSimilar = controllSimilar;
+    vm.obj.controllView = controllView;
     vm.obj.cardVersions = false;
     vm.obj.similarA = false;
     vm.obj.similarB = false;
@@ -52,13 +51,8 @@
     }
 
 
-    function controllCardVersions(){
-
-      vm.obj.cardVersions = !vm.obj.cardVersions;
-    
-    }
-
-    function controllSimilar(category){
+    function controllView(category){
+      if(category == 'cardVersions') vm.obj.cardVersions = !vm.obj.cardVersions;
       if(category == 'A') vm.obj.similarA = !vm.obj.similarA;
       if(category == 'B') vm.obj.similarB = !vm.obj.similarB;
       if(category == 'C') vm.obj.similarC = !vm.obj.similarC;
