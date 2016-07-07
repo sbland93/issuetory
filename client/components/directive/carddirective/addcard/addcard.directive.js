@@ -3,7 +3,7 @@
 angular.module('constructiveApp')
   .directive('addcard', function () {
     return {
-      templateUrl: 'app/card/addcard/addcard.html',
+      templateUrl: 'components/directive/carddirective/addcard/addcard.html',
       restrict: 'EA',
       scope: {
       	create : '&',

@@ -3,7 +3,7 @@
 angular.module('constructiveApp')
   .directive('oauthButtons', function() {
     return {
-      templateUrl: 'components/oauth-buttons/oauth-buttons.html',
+      templateUrl: 'components/directive/originaldirective/oauth-buttons/oauth-buttons.html',
       restrict: 'EA',
       controller: 'OauthButtonsCtrl',
       controllerAs: 'OauthButtons',

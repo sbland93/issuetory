@@ -3,7 +3,7 @@
 angular.module('constructiveApp')
   .directive('comment', function () {
     return {
-      templateUrl: 'app/forum/comment/comment.html',
+      templateUrl: 'components/directive/carddirective/comment/comment.html',
       restrict: 'EA',
       scope: {
       	category: '=',

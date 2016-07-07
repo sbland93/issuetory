@@ -23,21 +23,21 @@
       <!-- injector:css -->
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/app.css">
-      <link rel="stylesheet" href="app/card/addcard/addcard.css">
       <link rel="stylesheet" href="app/card/card.css">
-      <link rel="stylesheet" href="app/card/card/card.css">
-      <link rel="stylesheet" href="app/card/card/reference/reference.css">
       <link rel="stylesheet" href="app/card/update/update.css">
-      <link rel="stylesheet" href="app/card/update/updatereference/updatereference.css">
       <link rel="stylesheet" href="app/emailvalidate/emailvalidate.css">
-      <link rel="stylesheet" href="app/forum/comment/comment.css">
       <link rel="stylesheet" href="app/forum/forum.css">
-      <link rel="stylesheet" href="app/forum/version/version.css">
       <link rel="stylesheet" href="app/main/main.css">
+      <link rel="stylesheet" href="components/app/modal/modal.css">
       <link rel="stylesheet" href="components/bootstrap-theme/bootswatch-united.css">
-      <link rel="stylesheet" href="components/footer/footer.css">
-      <link rel="stylesheet" href="components/modal/modal.css">
-      <link rel="stylesheet" href="components/oauth-buttons/oauth-buttons.css">
+      <link rel="stylesheet" href="components/directive/carddirective/addcard/addcard.css">
+      <link rel="stylesheet" href="components/directive/carddirective/card/card.css">
+      <link rel="stylesheet" href="components/directive/carddirective/comment/comment.css">
+      <link rel="stylesheet" href="components/directive/carddirective/reference/reference.css">
+      <link rel="stylesheet" href="components/directive/carddirective/updatereference/updatereference.css">
+      <link rel="stylesheet" href="components/directive/carddirective/version/version.css">
+      <link rel="stylesheet" href="components/directive/originaldirective/footer/footer.css">
+      <link rel="stylesheet" href="components/directive/originaldirective/oauth-buttons/oauth-buttons.css">
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
@@ -88,52 +88,52 @@
       <script src="app/app.js"></script>
       <!-- injector:js -->
       <script src="app/admin/admin.module.js"></script>
-      <script src="components/auth/auth.module.js"></script>
-      <script src="components/storageservice/storageservice.module.js"></script>
-      <script src="components/util/util.module.js"></script>
-      <script src="app/forum/forum.controller.js"></script>
+      <script src="components/app/util/util.module.js"></script>
+      <script src="components/base/auth/auth.module.js"></script>
+      <script src="components/base/storageservice/storageservice.module.js"></script>
+      <script src="components/app/modal/modal.service.js"></script>
       <script src="app/account/account.js"></script>
       <script src="app/admin/admin.router.js"></script>
       <script src="app/app.constant.js"></script>
-      <script src="app/card/addcard/addcard.directive.js"></script>
       <script src="app/card/card.controller.js"></script>
       <script src="app/card/card.js"></script>
       <script src="app/card/card.service.js"></script>
-      <script src="app/card/card/card.directive.js"></script>
-      <script src="app/card/card/reference/reference.directive.js"></script>
       <script src="app/card/update/cardcache.service.js"></script>
       <script src="app/card/update/mycahce.factory.js"></script>
       <script src="app/card/update/update.controller.js"></script>
       <script src="app/card/update/update.js"></script>
-      <script src="app/card/update/updatereference/updatereference.directive.js"></script>
       <script src="app/emailvalidate/emailvalidate.controller.js"></script>
       <script src="app/emailvalidate/emailvalidate.js"></script>
       <script src="app/emailvalidate/emailvalidate.service.js"></script>
-      <script src="app/forum/comment/comment.directive.js"></script>
-      <script src="app/account/login/login.controller.js"></script>
+      <script src="app/forum/forum.controller.js"></script>
       <script src="app/forum/forum.js"></script>
       <script src="app/forum/forum.service.js"></script>
-      <script src="app/forum/version/version.directive.js"></script>
       <script src="app/main/main.controller.js"></script>
       <script src="app/main/main.js"></script>
+      <script src="app/account/login/login.controller.js"></script>
+      <script src="components/app/util/deepcopy.service.js"></script>
       <script src="app/account/settings/settings.controller.js"></script>
-      <script src="components/auth/auth.service.js"></script>
-      <script src="components/auth/interceptor.service.js"></script>
-      <script src="components/auth/router.decorator.js"></script>
-      <script src="components/auth/user.service.js"></script>
-      <script src="components/footer/footer.directive.js"></script>
-      <script src="components/modal/modal.service.js"></script>
-      <script src="components/mongoose-error/mongoose-error.directive.js"></script>
-      <script src="components/navbar/navbar.controller.js"></script>
-      <script src="components/navbar/navbar.directive.js"></script>
-      <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
-      <script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
-      <script src="components/socket/socket.service.js"></script>
+      <script src="components/app/util/util.service.js"></script>
       <script src="app/account/signup/signup.controller.js"></script>
-      <script src="components/storageservice/storageservice.service.js"></script>
-      <script src="components/util/deepcopy.service.js"></script>
+      <script src="components/base/auth/auth.service.js"></script>
+      <script src="components/base/auth/interceptor.service.js"></script>
+      <script src="components/base/auth/router.decorator.js"></script>
+      <script src="components/base/auth/user.service.js"></script>
+      <script src="components/base/socket/socket.service.js"></script>
       <script src="app/admin/admin.controller.js"></script>
-      <script src="components/util/util.service.js"></script>
+      <script src="components/base/storageservice/storageservice.service.js"></script>
+      <script src="components/directive/carddirective/addcard/addcard.directive.js"></script>
+      <script src="components/directive/carddirective/card/card.directive.js"></script>
+      <script src="components/directive/carddirective/comment/comment.directive.js"></script>
+      <script src="components/directive/carddirective/reference/reference.directive.js"></script>
+      <script src="components/directive/carddirective/updatereference/updatereference.directive.js"></script>
+      <script src="components/directive/carddirective/version/version.directive.js"></script>
+      <script src="components/directive/originaldirective/footer/footer.directive.js"></script>
+      <script src="components/directive/originaldirective/mongoose-error/mongoose-error.directive.js"></script>
+      <script src="components/directive/originaldirective/navbar/navbar.controller.js"></script>
+      <script src="components/directive/originaldirective/navbar/navbar.directive.js"></script>
+      <script src="components/directive/originaldirective/oauth-buttons/oauth-buttons.controller.js"></script>
+      <script src="components/directive/originaldirective/oauth-buttons/oauth-buttons.directive.js"></script>
       <!-- endinjector -->
     <!-- endbuild -->
   </body>

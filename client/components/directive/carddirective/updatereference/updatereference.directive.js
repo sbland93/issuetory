@@ -3,7 +3,7 @@
 angular.module('constructiveApp')
   .directive('updatereference', function () {
     return {
-      templateUrl: 'app/card/update/updatereference/updatereference.html',
+      templateUrl: 'components/directive/carddirective/updatereference/updatereference.html',
       restrict: 'EA',
       scope: {
       	reference: '=info'
