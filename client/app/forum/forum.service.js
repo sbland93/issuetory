@@ -12,6 +12,7 @@
     
     //Sorting By Type From A to F
     //It equip the controllerObj commentA ~commentF
+    //It equip the represent(commentA[0]~commentF[0] For helping to make category during adding comments)
     
 
     function sortByType(comments, commentObj){
@@ -21,7 +22,6 @@
         commentObj.commentD = [];
         commentObj.commentE = [];
         commentObj.commentF = [];
-
 
 
        _.map(comments, function(comment){

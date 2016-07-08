@@ -15,10 +15,16 @@
 </div>
 
 
-
-<h1 class="text-center">Comments</h1>  <button class="btn btn-primary" ng-click="forumCtrl.obj.controllView()">Add Comments</button>
+<h1 class="text-center">Comments</h1>  <button class="btn btn-primary" ng-click="forumCtrl.obj.controllView('addComment')">Add Comments</button>
 
 <div class="row">
+
+
+
+<addcomment ng-hide="forumCtrl.obj.addComment" represent-category="forumCtrl.obj.represent" controll-view="forumCtrl.obj.controllView(newVal)" ></addcomment>
+
+
+
 
 
 <comment info="forumCtrl.obj.commentA[0]" category="'A'" filled="true" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>

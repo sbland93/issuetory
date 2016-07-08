@@ -18,6 +18,7 @@
     vm.obj.update = update;
     vm.obj.remove = remove;
     vm.obj.controllView = controllView;
+    vm.obj.addComment = false;
     vm.obj.cardVersions = false;
     vm.obj.similarA = false;
     vm.obj.similarB = false;
@@ -39,8 +40,10 @@
         vm.obj.currentCard = card;
         
         //it will make vm.obj.commentA ~ vm.obj.commentF
+        //이부분도 비동기식으로 바꿔야 한다.
         forum.sortByType(vm.obj.currentCard.comments, vm.obj); 
-        console.log('For Test: vm.obj.currentCardId is [forum.controller.js 28]', vm.obj.currentCardId );
+        vm.obj.represent = [vm.obj.commentA[0].title, vm.obj.commentB[0].title, vm.obj.commentC[0].title, vm.obj.commentD[0].title, vm.obj.commentE[0].title, vm.obj.commentF[0].title];
+        console.log('For Test: vm.obj.represent', vm.obj.represent);
       });
 
       //Cache처럼 Refactoryin!
@@ -52,6 +55,9 @@
 
 
     function controllView(category){
+      if(category == 'addComment'){ vm.obj.addComment = !vm.obj.addComment;
+        console.log('For Test: vm.obj.addComment', vm.obj.addComment);
+      }
       if(category == 'cardVersions') vm.obj.cardVersions = !vm.obj.cardVersions;
       if(category == 'A') vm.obj.similarA = !vm.obj.similarA;
       if(category == 'B') vm.obj.similarB = !vm.obj.similarB;
