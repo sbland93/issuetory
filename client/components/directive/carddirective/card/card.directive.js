@@ -9,9 +9,13 @@ angular.module('constructiveApp')
       scope: {
         card: '=info',
         versions: '=',
+        updateCard: '&'
       },
       link: function (scope, element, attrs) {
-
+        scope.hitCard = function(){
+          scope.card.hit ++;
+          scope.updateCard({newVal: scope.card});
+        }
       }
     };
   });

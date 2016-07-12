@@ -17,6 +17,7 @@
     vm.obj.controllView = controllView;
     vm.obj.getCard = getCard;
     vm.obj.create = create;
+    vm.obj.update = update;
  
     vm.obj.viewAddForm = false;
 
@@ -58,7 +59,7 @@
     
     function update(cardId, params){
       card.update(cardId, params).then(function(card){
-        $state.go('card');
+        console.log('hit!');
       });
     }
 

@@ -19,6 +19,8 @@
     vm.obj.remove = remove;
     vm.obj.controllView = controllView;
     vm.obj.createComment = createComment;
+
+
     vm.obj.addComment = false;
     vm.obj.cardVersions = false;
     vm.obj.similarA = false;
@@ -44,7 +46,6 @@
         //이부분도 비동기식으로 바꿔야 한다.
         forum.sortByType(vm.obj.currentCard.comments, vm.obj); 
         vm.obj.represent = [vm.obj.commentA[0].title, vm.obj.commentB[0].title, vm.obj.commentC[0].title, vm.obj.commentD[0].title, vm.obj.commentE[0].title, vm.obj.commentF[0].title];
-        console.log('For Test: vm.obj.represent', vm.obj.represent);
       });
 
       //Cache처럼 Refactoryin!
@@ -70,8 +71,8 @@
     
     function update(cardId, params){
       card.update(cardId, params).then(function(card){
-        $state.go('card');
-      });
+          console.log('update!');
+        });
     }
 
     function remove(cardId){

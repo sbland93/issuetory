@@ -10,11 +10,15 @@
         <div class="testimonial-desc">
             <img src="https://placeholdit.imgix.net/~text?txtsize=9&txt=100%C3%97100&w=100&h=100" alt="" />
             <div class="testimonial-writer">
-            	<div class="testimonial-writer-name">{{comment.creator.name}}</div>
+            	<div class="testimonial-writer-name">Name:{{comment.creator.name}}</div>
             	<div class="testimonial-writer-designation">Front End Developer</div>
             	<a href="#" class="testimonial-writer-company">Touch Base Inc</a>
             </div>
         </div>
     </div>
-    <label class="btn btn-default" ng-click = "controllView({newVal : category})"><i class="glyphicon glyphicon-sort"></i></label>   
+
+    <button class="btn btn-xs btn-primary pull-right" ng-click="hitCard()" style="margin-left:10px"><i class="glyphicon glyphicon-hand-up"> {{comment.hit}}</i></button>
+    <label class="btn btn-xs btn-primary pull-right" style="margin-left:10px" ng-click = "controllView({newVal : category})"><i class="glyphicon glyphicon-sort"></i></label>
+    <label class="btn btn-xs btn-primary pull-right" ng-click = "controllView({newVal : category})"><i class="glyphicon glyphicon-pencil"></i></label>
+
 </div>

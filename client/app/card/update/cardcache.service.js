@@ -14,7 +14,7 @@
 
       var deferred = $q.defer();
 
-      card.getCard(cardId).then(function(card){
+      card.getCard(cardId, true).then(function(card){
         vm.cachedCard = card;
         deferred.resolve(card);
       });

@@ -23,8 +23,7 @@
     <!-- -->
 
 
-    <card info="card" ng-repeat="card in cardCtrl.obj.cardlist" ui-sref="forum({ id: card._id })"></card>
-
+    <card info="card" update-card="cardCtrl.obj.update(card._id , newVal)" ng-repeat="card in cardCtrl.obj.cardlist"></card>
 
 
 </div>

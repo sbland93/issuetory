@@ -71,7 +71,9 @@
     function update(cardId, params) {
       return Cards.one(cardId).customPUT(params);
     }
-    
+
+
+
 
   }
 })();
