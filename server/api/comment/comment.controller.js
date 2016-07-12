@@ -11,6 +11,7 @@
 
 import _ from 'lodash';
 import Comment from './comment.model';
+import Card from '../card/card.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -75,10 +76,23 @@ export function show(req, res) {
 }
 
 // Creates a new Comment in the DB
+// And, Put the Comment Id into the Card.
 export function create(req, res) {
+  var cardId = req.body.cardId;
+  delete req.body.cardId;
+  console.log('req.body', JSON.stringify(req.body));
   return Comment.create(req.body)
-    .then(respondWithResult(res, 201))
-    .catch(handleError(res));
+    .then(function(entity){
+      Card.findById(cardId).then(function(card){
+      card.comments.push(entity._id);
+      card.save().then(function(err){
+        return entity;
+      })
+      .then(respondWithResult(res, 201))
+      .catch(handleError(res));
+    })})
+    
+
 }
 
 // Updates an existing Comment in the DB

@@ -11,10 +11,7 @@ angular.module('constructiveApp')
         versions: '=',
       },
       link: function (scope, element, attrs) {
-        _init();
-        function _init(){
-          console.log('For Test: scope.user is [card.directive.js 17]', scope.user);
-        }
+
       }
     };
   });

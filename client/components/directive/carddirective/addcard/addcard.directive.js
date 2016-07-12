@@ -13,7 +13,6 @@ angular.module('constructiveApp')
 
       link: function (scope, element, attrs) {
       	scope.newCard = {};
-      	scope.newCard.prerequisite =[];
       	scope.newCard.link = [];
 
       }

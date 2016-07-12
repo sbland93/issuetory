@@ -21,7 +21,7 @@
 
 
 
-<addcomment ng-hide="forumCtrl.obj.addComment" represent-category="forumCtrl.obj.represent" controll-view="forumCtrl.obj.controllView(newVal)" ></addcomment>
+<addcomment ng-if="forumCtrl.obj.addComment" represent-category="forumCtrl.obj.represent" controll-view="forumCtrl.obj.controllView(newVal)" create-comment="forumCtrl.obj.createComment(newVal, forumCtrl.obj.currentCard._id)"></addcomment>
 
 
 

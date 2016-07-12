@@ -68,7 +68,7 @@ export function index(req, res) {
 
 // Gets a single Card from the DB
 export function show(req, res) {
-  return Card.findById(req.params.id).populate('creator').populate('comments').populate('comments.creator', 'name').exec()
+  return Card.findById(req.params.id).populate('creator').populate('comments').exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -76,9 +76,7 @@ export function show(req, res) {
 
 // Creates a new Card in the DB and make the default of creator
 export function create(req, res) {
-  console.log('For Test: create() is called [card.controller.js 79]');
   req.body.owner = req.user._id;
-  console.log('For Test: req.body [card.controller.js 79]', req.body);
 
   return Card.create(req.body)
     .then(respondWithResult(res, 201))

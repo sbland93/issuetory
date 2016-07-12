@@ -11,7 +11,8 @@ angular.module('constructiveApp')
         createComment: '&'
       },
       link: function (scope, element, attrs) {
-
+        scope.newCard = {};
+        scope.newCard.link = [];
       }
     };
   });

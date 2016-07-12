@@ -38,7 +38,7 @@
                 
                 <div ng-repeat="category in representCategory">
                     <label class="radio-inline" for="radios-{{$index}}">
-                        <input type="radio" name="radios" id="radios-{{$index}}" value="{{$index}}">
+                        <input type="radio" name="radios" id="radios-{{$index}}" ng-model="newCard.category" value="{{$index+1}}">
                         {{representCategory[$index]}}
                     </label>
                 </div>
