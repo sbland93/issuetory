@@ -15,7 +15,6 @@
     var vm = this;
     vm.obj = {};
     vm.obj.update = update;
-    vm.obj.remove = remove;
     _init();
 
     var lastCard = {};
@@ -28,7 +27,6 @@
         //lastCard.contributor = card.contributor[card.contributor.length - 1];
         lastCard.link = deepcopy.deepCopy(card.link);
         lastCard.keyword = card.keyword.slice(0);
-        console.log('lastCard:', lastCard);
         vm.obj.currentCard = card;
       });
     }
@@ -47,11 +45,7 @@
 
     }
 
-    function remove(cardId){
-      card.remove(cardId).then(function(card){
-        $state.go('card');
-      })
-    }
+    
 
   }
 

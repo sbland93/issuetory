@@ -2,7 +2,7 @@
 
 import mongoose from 'mongoose';
 import User from '../user/user.model';
-import Comment from '../comment/comment.model';
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 var ReferenceSchema = new mongoose.Schema({
 	title: {type: String, required: true},
@@ -37,6 +37,8 @@ var CardSchema = new mongoose.Schema({
 	comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
 	versions: [CardVersionSchema]
 });
+
+CardSchema.plugin(deepPopulate);
 
 
 

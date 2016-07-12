@@ -8,7 +8,7 @@ angular.module('constructiveApp')
       scope:{
       	representCategory :'=',
       	controllView : '&',
-        createComment: '&'
+        createComment: '&',
       },
       link: function (scope, element, attrs) {
         scope.newCard = {};

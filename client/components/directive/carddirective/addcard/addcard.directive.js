@@ -8,7 +8,7 @@ angular.module('constructiveApp')
       scope: {
       	create : '&',
         controllView : '&',
-        card : '=info'
+       // card : '=info'
       },
 
       link: function (scope, element, attrs) {
