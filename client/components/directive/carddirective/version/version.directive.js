@@ -10,7 +10,6 @@ angular.module('constructiveApp')
 
       scope: {
         card: '=info',
-        versions: '=',
         controllVersions : '&'
       },
       link: function (scope, element, attrs) {

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+    <div class="col-xs-12 well">
+        <form name="myForm" ng-submit="updatecommentCtrl.obj.update(updatecommentCtrl.obj.currentComment._id, updatecommentCtrl.obj.currentComment)" novalidate>
+
+        <label class="btn btn-default btn-circle btn-xs pull-right" ui-sref="forum({id:updatecommentCtrl.obj.currentComment._id})"><i class="glyphicon glyphicon-remove"></i></label>
+        	
+
+            <fieldset class="form-group">
+            <label for="title">Title of Your Idea</label>
+            <textarea class="form-control" id="title" rows="1" ng-model="updatecommentCtrl.obj.currentComment.title" required></textarea> 
+            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
+            </fieldset>
+        
+
+            <fieldset class="form-group">
+            <label for="idea">idea</label>
+            <textarea class="form-control" id="idea" rows="3" ng-model="updatecommentCtrl.obj.currentComment.idea" required></textarea>
+            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
+            </fieldset>
+
+            <!-- category -->
+            <fieldset class="form-group">
+              <label class="control-label" for="radios">Inline Radios</label>
+                <br>
+                
+                <div ng-repeat="category in updatecommentCtrl.obj.representComment">
+                    <label class="radio-inline" for="radios-{{$index}}">
+                        <input type="radio" name="radios" id="radios-{{$index}}" ng-model="updatecommentCtrl.obj.currentComment.category" value="{{$index+1}}">
+                        {{category}}
+                    </label>
+                </div>
+
+            </fieldset>
+
+            
+
+            <updatereference info="reference" ng-repeat="reference in updatecommentCtrl.obj.currentComment.link"></updatereference>
+
+
+            <button type="submit" class="btn btn-primary" name="save-recipe-button" value="save-recipe-button" ng-disabled="myForm.$invalid">Contribute</button>
+            
+        </form>
+    </div>    
+    </div>
+</div>

@@ -8,13 +8,13 @@
 
   /* @ngInject */
   function comment(Comments, myCache, $q) {
-    this.getCard = getCard;
-    this.getCards = getCards;
+    this.getComment = getComment;
+    this.getComments = getComments;
     this.create = create;
     this.remove = remove;
     this.update = update;
 
-    function getCard(commentId, refreshingCache) {
+    function getComment(commentId, refreshingCache) {
       var deferred = $q.defer();
 
       if(myCache.get('comment'+commentId) && !refreshingCache){
@@ -39,7 +39,7 @@
     
     }
 
-    function getCards (params, refreshingCache) {
+    function getComments (params, refreshingCache) {
       var deferred = $q.defer();
 
       if(myCache.get('commentList') && !refreshingCache){

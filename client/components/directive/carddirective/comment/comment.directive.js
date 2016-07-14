@@ -12,7 +12,7 @@ angular.module('constructiveApp')
         controllView: '&'
       },
       link: function (scope, element, attrs) {
-      	
+      	scope.viewcommentversions = false;
 
         switch (scope.category) {
           case 'A':
@@ -58,7 +58,9 @@ angular.module('constructiveApp')
         scope.myStyle = 'testimonial testimonial-' + scope.type + scope.filledType;
 
 
-
+        scope.controllViewOfVersions = function(){
+          scope.viewcommentversions = !scope.viewcommentversions
+        }
       	
       }
     };

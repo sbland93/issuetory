@@ -66,6 +66,7 @@ var seedComments = [{
                   title: 'What is Lorem Ipsum?',
                   idea: ' it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
+                  versions: [{category: 'A', contributor: _userId, title: 'Version1', idea: 'idea1', link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}] }]
                 },
                 {
                   category: 'B',

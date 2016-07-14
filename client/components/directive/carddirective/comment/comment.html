@@ -18,6 +18,12 @@
 
     <button class="btn btn-xs btn-primary pull-right" ng-click="hitCard()" style="margin-left:10px"><i class="glyphicon glyphicon-hand-up"> {{comment.hit}}</i></button>
     <label class="btn btn-xs btn-primary pull-right" style="margin-left:10px" ng-click = "controllView({newVal : category})"><i class="glyphicon glyphicon-sort"></i></label>
-    <label class="btn btn-xs btn-primary pull-right" ng-click = "controllView({newVal : category})"><i class="glyphicon glyphicon-pencil"></i></label>
+    <label class="btn btn-primary btn-xs pull-right" style="margin-left:10px" ng-click="controllViewOfVersions()"><i class="glyphicon glyphicon-sort-by-attributes"></i></label>
+    <label class="btn btn-xs btn-primary pull-right" ui-sref="updatecomment({id:comment._id})"><i class="glyphicon glyphicon-pencil"></i></label>
 
+</div>
+
+<div ng-if="viewcommentversions">
+<h4>Versions!</h4>
+<commentversion info="version" ng-repeat="version in comment.versions" my-style="myStyle" controll-view="controllViewOfVersions()"></commentversion>
 </div>
