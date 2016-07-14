@@ -13,8 +13,8 @@
 
   
     var vm = this;
-    vm.obj = {};
-    vm.obj.update = update;
+    vm.o = {};
+    vm.o.update = update;
     _init();
 
     var lastCard = {};
@@ -27,7 +27,7 @@
         //lastCard.contributor = card.contributor[card.contributor.length - 1];
         lastCard.link = deepcopy.deepCopy(card.link);
         lastCard.keyword = card.keyword.slice(0);
-        vm.obj.currentCard = card;
+        vm.o.currentCard = card;
       });
     }
     

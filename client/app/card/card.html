@@ -1,7 +1,7 @@
 <div class="container">
-<button class="btn" ng-click="cardCtrl.obj.controllView()">Spread your idea[Add]</button>
+<button class="btn" ng-click="cardCtrl.o.controllView()">Spread your idea[Add]</button>
 
-<addcard ng-hide="!cardCtrl.obj.viewAddForm" create="cardCtrl.obj.create(newVal)" controll-view="cardCtrl.obj.controllView()"></addcard>
+<addcard ng-hide="!cardCtrl.o.viewAddForm" create="cardCtrl.o.create(newVal)" controll-view="cardCtrl.o.controllView()"></addcard>
 
 <div class="col-md-12">
     
@@ -23,7 +23,7 @@
     <!-- -->
 
 
-    <card info="card" update-card="cardCtrl.obj.update(card._id , newVal)" ng-repeat="card in cardCtrl.obj.cardlist"></card>
+    <card info="card" update-card="cardCtrl.o.update(card._id , newVal)" ng-repeat="card in cardCtrl.o.cardlist"></card>
 
 
 </div>

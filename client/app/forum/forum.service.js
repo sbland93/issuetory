@@ -29,22 +29,22 @@
        _.map(comments, function(comment){
 
         switch (comment.category) {
-          case 'A':
+          case 1:
               commentObj.commentA.push(comment);
               break;
-          case 'B':
+          case 2:
               commentObj.commentB.push(comment);
               break;
-          case 'C':
+          case 3:
               commentObj.commentC.push(comment);
               break;
-          case 'D':
+          case 4:
               commentObj.commentD.push(comment);
               break;
-          case 'E':
+          case 5:
               commentObj.commentE.push(comment);
               break;
-          case 'F':
+          case 6:
               commentObj.commentF.push(comment);
               break;
         }

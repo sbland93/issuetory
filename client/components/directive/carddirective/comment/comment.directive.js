@@ -9,28 +9,30 @@ angular.module('constructiveApp')
       	category: '=',
       	filled: '=',
       	comment: '=info',
+        updateComment: '&',
         controllView: '&'
       },
       link: function (scope, element, attrs) {
-      	scope.viewcommentversions = false;
+      	
+        scope.viewcommentversions = false;
 
         switch (scope.category) {
-          case 'A':
+          case 1:
               scope.type = 'primary';
               break;
-          case 'B':
+          case 2:
               scope.type = 'default';
               break;
-          case 'C':
+          case 3:
               scope.type = 'info';
               break;
-          case 'D':
+          case 4:
               scope.type = 'danger';
               break;
-          case 'E':
+          case 5:
               scope.type = 'warning';
               break;
-          case 'F':
+          case 6:
               scope.type = 'success';
               break;
         }
@@ -46,20 +48,16 @@ angular.module('constructiveApp')
         }
 
 
-
-
-
-        /*if(scope.filled){
-          scope.myStyle = 'testimonial testimonial-'+scope.type+scope.filled
-        }else if(!scope.filled){
-          scope.myStyle = 'testimonial testimonial-'+scope.type
-        }*/
-
         scope.myStyle = 'testimonial testimonial-' + scope.type + scope.filledType;
 
 
         scope.controllViewOfVersions = function(){
           scope.viewcommentversions = !scope.viewcommentversions
+        }
+
+        scope.hitComment = function(){
+          scope.comment.hit ++;
+          scope.updateComment({newVal: scope.comment});
         }
       	
       }

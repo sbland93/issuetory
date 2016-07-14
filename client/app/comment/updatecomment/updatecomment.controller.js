@@ -11,10 +11,10 @@
 
   
     var vm = this;
-    vm.obj = {};
-    vm.obj.update = update;
-    vm.obj.representComment = forum.representComment;
-    console.log('representComment',vm.obj.representComment)
+    vm.o = {};
+    vm.o.update = update;
+    vm.o.representComment = forum.representComment;
+    console.log('representComment',vm.o.representComment)
     _init();
 
     var lastComment = {};
@@ -27,18 +27,13 @@
         lastComment.idea = comment.idea;
         //lastComment.contributor = comment.contributor[comment.contributor.length - 1];
         lastComment.link = deepcopy.deepCopy(comment.link);
-        vm.obj.currentComment = comment;
+        vm.o.currentComment = comment;
       });
     }
     
     
     function update(commentId, params){
-      if(params.category == 1) params.category = 'A';
-      if(params.category == 2) params.category = 'B';
-      if(params.category == 3) params.category = 'C';
-      if(params.category == 4) params.category = 'D';
-      if(params.category == 5) params.category = 'E';
-      if(params.category == 6) params.category = 'F';
+      
       console.log("For Test: createComment is called and params.category", params.category);
 
       //비동기식으로 만들어야 하고,변화가 있는지 확인하고(폼에서 하자!) 해야한다.

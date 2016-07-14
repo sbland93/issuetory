@@ -12,16 +12,16 @@
   function cardCtrl($scope, card, $state, Auth) {
   
     var vm = this;
-    vm.obj = {};
+    vm.o = {};
 
-    vm.obj.controllView = controllView;
-    vm.obj.getCard = getCard;
-    vm.obj.create = create;
-    vm.obj.update = update;
+    vm.o.controllView = controllView;
+    vm.o.getCard = getCard;
+    vm.o.create = create;
+    vm.o.update = update;
  
-    vm.obj.viewAddForm = false;
+    vm.o.viewAddForm = false;
 
-    vm.obj.cardlist = []; 
+    vm.o.cardlist = []; 
     _init();
 
  
@@ -36,7 +36,7 @@
     function _getCards(){
 
       card.getCards().then(function(cards){
-        vm.obj.cardlist = cards;
+        vm.o.cardlist = cards;
       });
     
     }
@@ -44,7 +44,7 @@
 
     function getCard(cardId){
       card.getCard(cardId).then(function(card){
-        vm.obj.currentCard = card;
+        vm.o.currentCard = card;
       })
     }
 
@@ -52,7 +52,7 @@
     function create(params){
       console.log('For Test: create() is called [card.controller.js 53]');
       card.create(params).then(function(card){
-        vm.obj.cardlist.unshift(card);
+        vm.o.cardlist.unshift(card);
       })
     }
 
@@ -65,15 +65,15 @@
 
     function remove(cardId){
       card.remove(cardId).then(function(card){
-        var _num = vm.obj.cardlist.indexOf(card);
-        vm.obj.cardlist.splice(_num, 1);
+        var _num = vm.o.cardlist.indexOf(card);
+        vm.o.cardlist.splice(_num, 1);
         //$state.go('card');
       })
     }
 
 
     function controllView(){
-      vm.obj.viewAddForm = !vm.obj.viewAddForm;
+      vm.o.viewAddForm = !vm.o.viewAddForm;
     }
 
 

@@ -6,7 +6,6 @@ angular.module('constructiveApp')
       .state('forum', {
         url: '/forum/:id',
         templateUrl: 'app/forum/forum.html',
-        controller: 'forumCtrl',
-        controllerAs: 'forumCtrl'
+        controller: 'forumCtrl as forum'
       });
   });

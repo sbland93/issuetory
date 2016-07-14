@@ -1,48 +1,45 @@
 <div class="col-md-12">
     
-    <div ng-show="forumCtrl.obj.currentUser._id === forumCtrl.obj.currentCard.creator._id">
-    <label class="btn btn-primary btn-circle btn-xs pull-right" ng-click="forumCtrl.obj.remove(forumCtrl.obj.currentCardId)" style="margin-left:10px"><i class="glyphicon glyphicon-remove"></i></label>
+    <div ng-show="forum.o.currentUser._id === forum.o.currentCard.creator._id">
+    <label class="btn btn-primary btn-circle btn-xs pull-right" ng-click="forum.o.remove(forum.o.currentCardId)" style="margin-left:10px"><i class="glyphicon glyphicon-remove"></i></label>
     </div>
 
-    <label class="btn btn-primary btn-xs pull-right" ui-sref="update({ id: forumCtrl.obj.currentCard._id })" style="margin-left:10px"><i class="glyphicon glyphicon-pencil"></i></label>
+    <label class="btn btn-primary btn-xs pull-right" ui-sref="update({ id: forum.o.currentCard._id })" style="margin-left:10px"><i class="glyphicon glyphicon-pencil"></i></label>
 
-    <label class="btn btn-primary btn-xs pull-right" ng-click="forumCtrl.obj.controllView('cardVersions')"><i class="glyphicon glyphicon-sort-by-attributes"></i></label>
+    <label class="btn btn-primary btn-xs pull-right" ng-click="forum.o.controllView('cardVersions')"><i class="glyphicon glyphicon-sort-by-attributes"></i></label>
 
-    <card info="forumCtrl.obj.currentCard" update-card = "forumCtrl.obj.update(forumCtrl.obj.currentCard._id , newVal)"></card>
+    <card info="forum.o.currentCard" update-card = "forum.o.update(forum.o.currentCard._id , newVal)"></card>
 
-    <version info="version" ng-repeat="version in forumCtrl.obj.currentCard.versions" ng-if="forumCtrl.obj.cardVersions" controll-versions = "forumCtrl.obj.controllView(newVal)"></version>
+    <version info="version" ng-repeat="version in forum.o.currentCard.versions" ng-if="forum.o.cardVersions" controll-versions = "forum.o.controllView(newVal)"></version>
 
 </div>
 
 
-<h1 class="text-center">Comments</h1>  <button class="btn btn-primary" ng-click="forumCtrl.obj.controllView('addComment')">Add Comments</button>
+<h1 class="text-center">Comments</h1>  <button class="btn btn-primary" ng-click="forum.o.controllView('addComment')">Add Comments</button>
 
 <div class="row">
 
 
 
-<addcomment ng-if="forumCtrl.obj.addComment" represent-category="forumCtrl.obj.represent" controll-view="forumCtrl.obj.controllView(newVal)" create-comment="forumCtrl.obj.createComment(newVal, forumCtrl.obj.currentCard._id)"></addcomment>
+<addcomment ng-if="forum.o.addComment" represent-category="forum.o.represent" controll-view="forum.o.controllView(newVal)" create-comment="forum.o.createComment(newVal, forum.o.currentCard._id)"></addcomment>
 
 
+<comment info="forum.o.commentA[0]" category="1" filled="true" controll-view = "forum.o.controllView(newVal)" update-comment="forum.o.updateComment(forum.o.commentA[0]._id , newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentA" category="1"  ng-if="forum.o.similarA" controll-view = "forum.o.controllView(newVal)" update-comment="forum.o.updateComment(comment._id , newVal)"></comment>
 
+<comment info="forum.o.commentB[0]" category="2" filled="true" controll-view = "forum.o.controllView(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentB" category="2"  ng-if="forum.o.similarB" controll-view = "forum.o.controllView(newVal)"></comment>
 
+<comment info="forum.o.commentC[0]" category="3" filled="true" controll-view = "forum.o.controllView(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentC" category="3"  ng-if="forum.o.similarC" controll-view = "forum.o.controllView(newVal)"></comment>
 
-<comment info="forumCtrl.obj.commentA[0]" category="'A'" filled="true" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
-<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentA" category="'A'"  ng-if="forumCtrl.obj.similarA" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
+<comment info="forum.o.commentD[0]" category="4" filled="true" controll-view = "forum.o.controllView(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentD" category="4"  ng-if="forum.o.similarD" controll-view = "forum.o.controllView(newVal)"></comment>
 
-<comment info="forumCtrl.obj.commentB[0]" category="'B'" filled="true" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
-<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentB" category="'B'"  ng-if="forumCtrl.obj.similarB" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
+<comment info="forum.o.commentE[0]" category="5" filled="true" controll-view = "forum.o.controllView(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentE" category="5"  ng-if="forum.o.similarE" controll-view = "forum.o.controllView(newVal)"></comment>
 
-<comment info="forumCtrl.obj.commentC[0]" category="'C'" filled="true" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
-<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentC" category="'C'"  ng-if="forumCtrl.obj.similarC" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
-
-<comment info="forumCtrl.obj.commentD[0]" category="'D'" filled="true" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
-<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentD" category="'D'"  ng-if="forumCtrl.obj.similarD" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
-
-<comment info="forumCtrl.obj.commentE[0]" category="'E'" filled="true" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
-<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentE" category="'E'"  ng-if="forumCtrl.obj.similarE" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
-
-<comment info="forumCtrl.obj.commentF[0]" category="'F'" filled="true" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
-<comment info="comment" ng-repeat="comment in forumCtrl.obj.commentF" category="'F'"  ng-if="forumCtrl.obj.similarF" controll-view = "forumCtrl.obj.controllView(newVal)"></comment>
+<comment info="forum.o.commentF[0]" category="6" filled="true" controll-view = "forum.o.controllView(newVal)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentF" category="6"  ng-if="forum.o.similarF" controll-view = "forum.o.controllView(newVal)"></comment>
 
 </div>

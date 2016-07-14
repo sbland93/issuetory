@@ -60,16 +60,16 @@ function makeCards(_userId){
 function makeComments(_userId, _cardId){
 
 var seedComments = [{
-                  category: 'A',
+                  category: 1,
                   card: _cardId,
                   creator: _userId,
                   title: 'What is Lorem Ipsum?',
                   idea: ' it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
-                  versions: [{category: 'A', contributor: _userId, title: 'Version1', idea: 'idea1', link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}] }]
+                  versions: [{category: 1, contributor: _userId, title: 'Version1', idea: 'idea1', link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}] }]
                 },
                 {
-                  category: 'B',
+                  category: 2,
                   card: _cardId,
                   creator: _userId,
                   title: 'Why do we use it?',
@@ -77,7 +77,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'C',
+                  category: 3,
                   card: _cardId,
                   creator: _userId,
                   title: 'Where does it come from?',
@@ -85,7 +85,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'D',
+                  category: 4,
                   card: _cardId,
                   creator: _userId,
                   title: 'Where can I get some?',
@@ -93,7 +93,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'E',
+                  category: 5,
                   card: _cardId,
                   creator: _userId,
                   title: 'The standard Lorem Ipsum passage, used since the 1500s',
@@ -101,7 +101,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'F',
+                  category: 6,
                   card: _cardId,
                   creator: _userId,
                   title: 'Section 1.10.32',
@@ -109,7 +109,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'A',
+                  category: 1,
                   card: _cardId,
                   creator: _userId,
                   title: 'What is Lorem Ipsum?',
@@ -117,7 +117,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'B',
+                  category: 2,
                   card: _cardId,
                   creator: _userId,
                   title: 'Why do we use it?',
@@ -125,7 +125,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'C',
+                  category: 3,
                   card: _cardId,
                   creator: _userId,
                   title: 'Where does it come from?',
@@ -133,7 +133,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'D',
+                  category: 4,
                   card: _cardId,
                   creator: _userId,
                   title: 'Where can I get some?',
@@ -141,7 +141,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'E',
+                  category: 5,
                   card: _cardId,
                   creator: _userId,
                   title: 'The standard Lorem Ipsum passage, used since the 1500s',
@@ -149,7 +149,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'F',
+                  category: 6,
                   card: _cardId,
                   creator: _userId,
                   title: 'Section 1.10.32',
@@ -157,7 +157,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'A',
+                  category: 1,
                   card: _cardId,
                   creator: _userId,
                   title: 'What is Lorem Ipsum?',
@@ -165,7 +165,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'B',
+                  category: 2,
                   card: _cardId,
                   creator: _userId,
                   title: 'Why do we use it?',
@@ -173,7 +173,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'C',
+                  category: 3,
                   card: _cardId,
                   creator: _userId,
                   title: 'Where does it come from?',
@@ -181,7 +181,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'D',
+                  category: 4,
                   card: _cardId,
                   creator: _userId,
                   title: 'Where can I get some?',
@@ -189,7 +189,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'E',
+                  category: 5,
                   card: _cardId,
                   creator: _userId,
                   title: 'The standard Lorem Ipsum passage, used since the 1500s',
@@ -197,7 +197,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'A',
+                  category: 1,
                   card: _cardId,
                   creator: _userId,
                   title: 'What is Lorem Ipsum?',
@@ -205,7 +205,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'B',
+                  category: 2,
                   card: _cardId,
                   creator: _userId,
                   title: 'Why do we use it?',
@@ -213,7 +213,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'C',
+                  category: 3,
                   card: _cardId,
                   creator: _userId,
                   title: 'Where does it come from?',
@@ -221,7 +221,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'D',
+                  category: 4,
                   card: _cardId,
                   creator: _userId,
                   title: 'Where can I get some?',
@@ -229,7 +229,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'A',
+                  category: 1,
                   card: _cardId,
                   creator: _userId,
                   title: 'What is Lorem Ipsum?',
@@ -237,7 +237,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'B',
+                  category: 2,
                   card: _cardId,
                   creator: _userId,
                   title: 'Why do we use it?',
@@ -245,7 +245,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'C',
+                  category: 3,
                   card: _cardId,
                   creator: _userId,
                   title: 'Where does it come from?',
@@ -253,7 +253,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'A',
+                  category: 1,
                   card: _cardId,
                   creator: _userId,
                   title: 'What is Lorem Ipsum?',
@@ -261,7 +261,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'B',
+                  category: 2,
                   card: _cardId,
                   creator: _userId,
                   title: 'Why do we use it?',
@@ -269,7 +269,7 @@ var seedComments = [{
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
                 },
                 {
-                  category: 'A',
+                  category: 1,
                   card: _cardId,
                   creator: _userId,
                   title: 'What is Lorem Ipsum?',

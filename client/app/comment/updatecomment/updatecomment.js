@@ -9,8 +9,7 @@
       	.state('updatecomment', {
 	        url: '/updatecomment/:id',
 	        templateUrl: 'app/comment/updatecomment/updatecomment.html',
-	        controller: 'updatecommentCtrl',
-		    controllerAs: 'updatecommentCtrl'
+	        controller: 'updatecommentCtrl as update',
       });
   });
 

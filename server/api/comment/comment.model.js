@@ -17,7 +17,7 @@ var DateSchema = { type: Date, default: Date.now};
 
 
 var CommentVersionSchema = new Schema({
-	category:  {type: String, enum:['A', 'B', 'C', 'D', 'E', 'F'], required: true},
+	category:  {type: Number, min:1, max:6, required: true},
 	contributor: { type:Schema.Types.ObjectId, ref: 'User'},
 	updated_at: DateSchema,
 	title: {type: String},
@@ -26,9 +26,9 @@ var CommentVersionSchema = new Schema({
 });
 
 
-
 var CommentSchema = new Schema({
-	category:  {type: String, enum:['A', 'B', 'C', 'D', 'E', 'F'], required: true},
+	//category:  {type: String, enum:['A', 'B', 'C', 'D', 'E', 'F'], required: true},
+	category:  {type: Number, min:1, max:6, required: true},
 	card:  {type: Schema.Types.ObjectId, ref: 'Card'} ,
 	creator: { type:Schema.Types.ObjectId, ref: 'User'},
 	contributor: [{ type:Schema.Types.ObjectId, ref: 'User'}],
