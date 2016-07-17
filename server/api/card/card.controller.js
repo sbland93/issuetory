@@ -24,6 +24,8 @@ function respondWithResult(res, statusCode) {
 function saveUpdates(updates) {
   return function(entity) {
     var updated = _.merge(entity, updates);
+    console.log('updated', updated);
+    updated.markModified('hit');
     return updated.save()
       .then(updated => {
         return updated;
@@ -85,6 +87,7 @@ export function create(req, res) {
 
 // Updates an existing Card in the DB
 export function update(req, res) {
+  console.log('For Test: updating......');
   if (req.body._id) {
     delete req.body._id;
   }

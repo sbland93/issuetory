@@ -17,23 +17,23 @@
     function getCard(cardId, refreshingCache) {
       var deferred = $q.defer();
 
-      if(myCache.get('card'+cardId) && !refreshingCache){
+      /*if(myCache.get('card'+cardId) && !refreshingCache){
         console.log("Using Cache..");
         deferred.resolve(myCache.get('card'+cardId));
 
       }
     
       else{
-        console.log('For Test: refreshing');
+        console.log('For Test: refreshing');*/
         Cards.one(cardId).get().then(function(currentCard){
-              myCache.put('card'+cardId, currentCard);
-              console.log('mycache.get(card_cardId)', myCache.get('card'+cardId));
-              deferred.resolve(myCache.get('card'+cardId));
+              //myCache.put('card'+cardId, currentCard);
+              //console.log('mycache.get(card_cardId)', myCache.get('card'+cardId));
+              deferred.resolve(/*myCache.get('card'+cardId)*/currentCard);
             }, function(error){
               deferred.reject(error);
             });
       
-      }
+      /*}*/
 
       return deferred.promise;
     

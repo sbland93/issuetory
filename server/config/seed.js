@@ -28,7 +28,7 @@ User.find({}).remove().then(function(){
             Comment.find({}).remove().then(function(){
               Comment.create(makeComments(_userId, _cardId)).then(function(_comments){
                   for (var i = 0; i < (_comments.length); ++i) {
-                      _card.comments.push(_comments[i]);
+                      _card.comments.push(_comments[i]._id);
                   }
                   _card.save();
                 })

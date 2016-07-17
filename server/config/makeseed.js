@@ -10,7 +10,17 @@ function makeUsers(){
 	      name: 'Test User',
 	      email: 'test@example.com',
 	      password: 'test'
-	    }, {
+	    },{
+        provider: 'local',
+        name: 'Test User1',
+        email: 'test1@example.com',
+        password: 'test1'
+      },{
+        provider: 'local',
+        name: 'Test User2',
+        email: 'test2@example.com',
+        password: 'test2'
+      }, {
 	      provider: 'local',
 	      role: 'admin',
 	      name: 'Admin',
@@ -28,6 +38,7 @@ function makeCards(_userId){
   var seedCard = {
           creator: _userId,
           title: 'Can we make Euthopia?',
+          hit: [_userId],
           idea: 'I want to make world to discuss constructively. Really. It"s my pure insight and aspect. And you knwo, sharing constructive idea can help the world to make better. I believe our websites can help make world better than in the past. And this is the real and pure value of web ability.',
           link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
           keyword: ['Insta', 'Facebook', 'Google', 'Amazon', 'Apple', 'Samsung'],
@@ -63,6 +74,7 @@ var seedComments = [{
                   category: 1,
                   card: _cardId,
                   creator: _userId,
+                  hit: [_userId],
                   title: 'What is Lorem Ipsum?',
                   idea: ' it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],
@@ -72,6 +84,7 @@ var seedComments = [{
                   category: 2,
                   card: _cardId,
                   creator: _userId,
+                  hit: [_userId],
                   title: 'Why do we use it?',
                   idea: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to us',
                   link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}],

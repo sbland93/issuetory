@@ -9,8 +9,9 @@ angular.module('constructiveApp')
       	category: '=',
       	filled: '=',
       	comment: '=info',
+        currentUser:'=',
         updateComment: '&',
-        controllView: '&'
+        controllView: '&',
       },
       link: function (scope, element, attrs) {
       	
@@ -56,8 +57,12 @@ angular.module('constructiveApp')
         }
 
         scope.hitComment = function(){
-          scope.comment.hit ++;
-          scope.updateComment({newVal: scope.comment});
+          scope.comment.hit.push(scope.currentUser);
+          scope.updateComment({newVal: scope.comment}).then(
+            function(){
+              console.log('hi');
+            }
+          );
         }
       	
       }

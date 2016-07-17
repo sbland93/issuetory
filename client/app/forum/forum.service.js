@@ -50,13 +50,7 @@
         }
 
       })
-
-       vm.representComment.push(commentObj.commentA[0].title);
-       vm.representComment.push(commentObj.commentB[0].title);
-       vm.representComment.push(commentObj.commentC[0].title);
-       vm.representComment.push(commentObj.commentD[0].title);
-       vm.representComment.push(commentObj.commentE[0].title);
-       vm.representComment.push(commentObj.commentF[0].title);
+       vm.representComment = [commentObj.commentA[0].title, commentObj.commentB[0].title, commentObj.commentC[0].title, commentObj.commentD[0].title, commentObj.commentE[0].title, commentObj.commentF[0].title  ]
        console.log(vm.representComment);
 
     }

@@ -39,8 +39,7 @@
     //getCard list with _init()
 
     function _init() {
-      
-      cardCache.cachingCard($stateParams.id).then(function(card){
+      card.getCard($stateParams.id).then(function(card){
         vm.o.currentCard = card;
         
         //it will make vm.o.commentA ~ vm.o.commentF
@@ -48,6 +47,16 @@
         forum.sortByType(vm.o.currentCard.comments, vm.o); 
         vm.o.represent = [vm.o.commentA[0].title, vm.o.commentB[0].title, vm.o.commentC[0].title, vm.o.commentD[0].title, vm.o.commentE[0].title, vm.o.commentF[0].title];
       });
+
+
+      /*cardCache.cachingCard($stateParams.id).then(function(card){
+        vm.o.currentCard = card;
+        
+        //it will make vm.o.commentA ~ vm.o.commentF
+        //이부분도 비동기식으로 바꿔야 한다.
+        forum.sortByType(vm.o.currentCard.comments, vm.o); 
+        vm.o.represent = [vm.o.commentA[0].title, vm.o.commentB[0].title, vm.o.commentC[0].title, vm.o.commentD[0].title, vm.o.commentE[0].title, vm.o.commentF[0].title];
+      });*/
 
       //Cache처럼 Refactoryin!
       Auth.getCurrentUser(function(user){
@@ -71,8 +80,10 @@
 
     
     function update(cardId, params){
+      console.log('For Test: params', params);
+      console.log('cardId for updating', cardId);
       card.update(cardId, params).then(function(card){
-          console.log('update!');
+          console.log('update!' , card);
         });
     }
 

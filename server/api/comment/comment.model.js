@@ -37,7 +37,8 @@ var CommentSchema = new Schema({
 	title: {type: String},
 	idea: {type: String, required: true},
 	link: [ReferenceSchema],
-	hit: {type: Number, default: 1},
+	//hit: {type: Number, default: 1},
+	hit: [{type:Schema.Types.ObjectId, ref: 'User'}] ,
 	versions: [CommentVersionSchema]
 });
 

@@ -9,11 +9,14 @@ angular.module('constructiveApp')
       scope: {
         card: '=info',
         versions: '=',
-        updateCard: '&'
+        currentUser: '=',
+        updateCard: '&',
       },
       link: function (scope, element, attrs) {
         scope.hitCard = function(){
-          scope.card.hit ++;
+          console.log('scope.currentUser', scope.currentUser);
+          scope.card.hit.push(scope.currentUser._id);
+          console.log('For Test: scope.card.hit is', scope.card.hit);
           scope.updateCard({newVal: scope.card});
         }
       }
