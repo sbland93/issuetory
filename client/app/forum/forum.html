@@ -8,7 +8,7 @@
 
     <label class="btn btn-primary btn-xs pull-right" ng-click="forum.o.controllView('cardVersions')"><i class="glyphicon glyphicon-sort-by-attributes"></i></label>
 
-    <card info="forum.o.currentCard" update-card = "forum.o.update(forum.o.currentCard._id , newVal)" current-user = "forum.o.currentUser"></card>
+    <card info="forum.o.currentCard" update-card = "forum.o.update(forum.o.currentCard._id , newVal)" current-user = "forum.o.currentUser._id"></card>
 
     <version info="version" ng-repeat="version in forum.o.currentCard.versions" ng-if="forum.o.cardVersions" controll-versions = "forum.o.controllView(newVal)"></version>
 

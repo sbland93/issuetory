@@ -47,6 +47,7 @@ var ReplySchema = new Schema({
 	creator:{type:Schema.Types.ObjectId, ref: 'User'},
 	created_at: DateSchema,
 	idea: {type: String, required: true},
+	hit: [{type:Schema.Types.ObjectId, ref: 'User'}],
 	link: [ReferenceSchema]
 });
 

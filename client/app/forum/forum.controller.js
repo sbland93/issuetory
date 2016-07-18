@@ -8,7 +8,7 @@
     .controller('forumCtrl', forumCtrl);
 
   /* @ngInject */
-  function forumCtrl($scope, $stateParams, $state, Auth, card, comment, forum, cardCache) {
+  function forumCtrl($scope, $stateParams, $state, Auth, card, comment, forum, cardCache, storage) {
 
   
     var vm = this;
@@ -17,6 +17,7 @@
     vm.o.currentCardId = $stateParams.id;
     vm.o.update = update;
     vm.o.remove = remove;
+    vm.o.currentUser = storage.get('currentUser');
     vm.o.controllView = controllView;
     vm.o.createComment = createComment;
     vm.o.updateComment = updateComment;
@@ -59,9 +60,6 @@
       });*/
 
       //Cache처럼 Refactoryin!
-      Auth.getCurrentUser(function(user){
-        vm.o.currentUser = user;
-      });
 
     }
 

@@ -2,15 +2,15 @@
 
 (function() {
 
-function authInterceptor($rootScope, $q, $cookies, $injector, Util) {
+function authInterceptor($rootScope, $q, storage, $injector, Util) {
   var state;
   return {
     // Add authorization token to headers
     request(config) {
       config.headers = config.headers || {};
-      if ($cookies.get('token') && Util.isSameOrigin(config.url)) {
+      if (storage.get('token') && Util.isSameOrigin(config.url)) {
         console.log('For Test: config.headers.Authorization!');
-        config.headers.Authorization = 'Bearer ' + $cookies.get('token');
+        config.headers.Authorization = 'Bearer ' + storage.get('token');
       }
       return config;
     },
@@ -20,7 +20,7 @@ function authInterceptor($rootScope, $q, $cookies, $injector, Util) {
       if (response.status === 401) {
         (state || (state = $injector.get('$state'))).go('login');
         // remove any stale tokens
-        $cookies.remove('token');
+        storage.remove('token');
       }
       return $q.reject(response);
     }

@@ -4,6 +4,8 @@ import crypto from 'crypto';
 import mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
 import {Schema} from 'mongoose';
+import Comment from '../comment/comment.model';
+import Card from '../card/card.model';
 
 const authTypes = ['github', 'twitter', 'facebook', 'google'];
 
@@ -44,7 +46,9 @@ var UserSchema = new Schema({
     default: false
   },
   usernumber: Number,
-  github: {}
+  github: {},
+  card : [{ type:Schema.Types.ObjectId, ref: 'Card'}],
+  comment : [{ type:Schema.Types.ObjectId, ref: 'Comment'}]
 }, {
   toJSON: {
     transform: function(doc, ret) {

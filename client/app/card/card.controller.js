@@ -9,10 +9,11 @@
     .controller('cardCtrl', cardCtrl);
 
   /* @ngInject */
-  function cardCtrl($scope, card, $state, Auth) {
+  function cardCtrl($scope, card, $state, Auth, storage) {
   
     var vm = this;
     vm.o = {};
+
 
     vm.o.controllView = controllView;
     vm.o.getCard = getCard;
@@ -20,6 +21,8 @@
     vm.o.update = update;
  
     vm.o.viewAddForm = false;
+    vm.o.currentUser = storage.get('currentUser');
+    console.log('For Test: storage.get("currentUser")', storage.get('currentUser'));
 
     vm.o.cardlist = []; 
     _init();
@@ -29,7 +32,6 @@
     //getCard list with _init()
     function _init() {
       _getCards();
-
     }
 
 

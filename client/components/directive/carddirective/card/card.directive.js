@@ -15,7 +15,7 @@ angular.module('constructiveApp')
       link: function (scope, element, attrs) {
         scope.hitCard = function(){
           console.log('scope.currentUser', scope.currentUser);
-          scope.card.hit.push(scope.currentUser._id);
+          scope.card.hit.push(scope.currentUser);
           console.log('For Test: scope.card.hit is', scope.card.hit);
           scope.updateCard({newVal: scope.card});
         }

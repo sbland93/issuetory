@@ -5,7 +5,6 @@ class LoginController {
     this.user = {};
     this.errors = {};
     this.submitted = false;
-
     this.Auth = Auth;
     this.$state = $state;
   }

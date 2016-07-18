@@ -1,30 +1,43 @@
 'use strict'
 
 angular.module('constructiveApp.storageService')
-  .service('storageService', storageService);
+  .service('storage', storage);
 
 
 /* @ngInject */
-function storageService() {
+function storage() {
 	
-	this.setValue = function(key, value, options){
-		angular.element.jStorage.set(key, value, options);
-	};
+	this.setValue = function(key, value, options) {
+      angular.element.jStorage.set(key, value, options);
+    };
 
-	this.getValue = function(key) {
-		return angular.element.jStorage.get(key);
-	}
+    this.put = function(key, value, options) {
+      this.setValue(key, value, options);
+    }
 
-	this.removeValue = function(key) {
-		angular.element.jStorage.deleteKey(key);
-	}
+    this.getValue = function(key) {
+      return angular.element.jStorage.get(key);
+    };
 
-	this.flush = function() {
-		angular.element.jStorage.flush();
-	}
+    this.get = function(key) {
+      return this.getValue(key);
+    }
 
-	this.setTTL = function(key, ttl) {
-		angular.element.jStorage.setTTL(key, ttl);
-	}
+    this.removeValue = function(key) {
+      angular.element.jStorage.deleteKey(key);
+    };
+
+    this.remove = function(key) {
+      this.removeValue(key);
+    }
+
+    this.flush = function() {
+      angular.element.jStorage.flush();
+    };
+
+    // ttl is milliseconds
+    this.setTTL = function(key, ttl) {
+      angular.element.jStorage.setTTL(key, ttl);
+    };
 
 }

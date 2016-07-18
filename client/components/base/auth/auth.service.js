@@ -2,12 +2,12 @@
 
 (function() {
 
-function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
+function AuthService($location, $http, storage, $q, appConfig, Util, User) {
   var safeCb = Util.safeCb;
   var currentUser = {};
   var userRoles = appConfig.userRoles || [];
 
-  if ($cookies.get('token') && $location.path() !== '/logout') {
+  if (storage.get('token') && $location.path() !== '/logout') {
     currentUser = User.get();
   }
 
@@ -29,12 +29,13 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
         password: password
       })
         .then(res => {
-          $cookies.put('token', res.data.token);
+          storage.put('token', res.data.token);
           currentUser = User.get();
           return currentUser.$promise;
         })
         .then(user => {
           safeCb(callback)(null, user);
+          storage.put('currentUser', user);
           return user;
         })
         .catch(err => {
@@ -48,7 +49,8 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
      * Delete access token and user info
      */
     logout() {
-      $cookies.remove('token');
+      storage.remove('token');
+      console.log('logout!');
       currentUser = {};
     },
 
@@ -63,7 +65,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
       return User.save(user,
         function(data) {
           console.log('For Test: data.token', data.token);
-          $cookies.put('token', data.token);
+          storage.put('token', data.token);
           currentUser = User.get();
           return safeCb(callback)(null, user);
         },
@@ -180,7 +182,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
      * @return {String} - a token string used for authenticating
      */
     getToken() {
-      return $cookies.get('token');
+      return storage.get('token');
     }
   };
 
