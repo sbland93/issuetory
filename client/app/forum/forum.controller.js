@@ -98,7 +98,12 @@
 
       comment.create(params, cardId).then(function(comment){
         console.log("For Test: comment is", comment);
-        vm.o.commentA.push(comment);
+        if(comment.category == 1) vm.o.commentA.push(comment);
+        if(comment.category == 2) vm.o.commentB.push(comment);
+        if(comment.category == 3) vm.o.commentC.push(comment);
+        if(comment.category == 4) vm.o.commentD.push(comment);
+        if(comment.category == 5) vm.o.commentE.push(comment);
+        if(comment.category == 6) vm.o.commentF.push(comment);
         vm.o.addComment = !vm.o.addComment;
       });
     }

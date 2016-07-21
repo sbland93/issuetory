@@ -47,8 +47,8 @@ var UserSchema = new Schema({
   },
   usernumber: Number,
   github: {},
-  card : [{ type:Schema.Types.ObjectId, ref: 'Card'}],
-  comment : [{ type:Schema.Types.ObjectId, ref: 'Comment'}]
+  cards : [{ type:Schema.Types.ObjectId, ref: 'Card'}],
+  comments : [{ type:Schema.Types.ObjectId, ref: 'Comment'}]
 }, {
   toJSON: {
     transform: function(doc, ret) {

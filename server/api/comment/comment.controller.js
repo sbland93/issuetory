@@ -16,6 +16,7 @@ import Card from '../card/card.model';
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
+    console.log('For Test: entity', entity);
     if (entity) {
       res.status(statusCode).json(entity);
     }
@@ -78,23 +79,68 @@ export function show(req, res) {
 
 // Creates a new Comment in the DB
 // And, Put the Comment Id into the Card.
-export function create(req, res) {
+/*export function create(req, res) {
   var cardId = req.body.cardId;
   delete req.body.cardId;
   console.log('req.body', JSON.stringify(req.body));
   return Comment.create(req.body)
-    .then(function(entity){
+    .then(function(comment){
       Card.findById(cardId).then(function(card){
-      card.comments.push(entity._id);
+      card.comments.push(comment._id);
       card.save().then(function(err){
-        return entity;
+        return comment;
       })
       .then(respondWithResult(res, 201))
       .catch(handleError(res));
     })})
     
 
+}*/
+
+
+/*Comment.create(req.body)
+.then(function(comment){
+  return [comment, Card.findById(cardId).exec()]
+})
+.spread(function())*/
+
+export function create(req, res) {
+  req.body.creator = req.user._id;
+  var cardId = req.body.cardId;
+  var _comment;
+  delete req.body.cardId;
+  console.log('req.body', JSON.stringify(req.body));
+  return Comment.create(req.body)
+      .then(function(comment){
+          console.log('Test1@@@@@@@@');
+          _comment = comment;
+          return Card.findById(cardId).exec()
+      })
+      .then(function(card){
+          console.log('Test2@@@@@@@@');
+          card.comments.push(_comment._id);
+          return card.save()          
+      })
+      .then(function(err){
+          console.log('Test3@@@@@@@@');
+          if(err) return err;
+          return User.findById(req.body.creator).exec()
+      })
+      .then(function(user){
+          console.log('Test4@@@@@@@@');
+          user.comments.push(_comment._id);
+          return user.save()
+      })
+      .then(function(err){
+          console.log('Test5@@@@@@@@', _comment);
+          //if(err) return err;
+          return _comment;
+      })
+      .then(respondWithResult(res, 201))
+      .catch(handleError(res));   
 }
+
+
 
 // Updates an existing Comment in the DB
 export function update(req, res) {

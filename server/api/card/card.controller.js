@@ -11,6 +11,7 @@
 
 import _ from 'lodash';
 import Card from './card.model';
+import User from '../user/user.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -78,12 +79,24 @@ export function show(req, res) {
 
 // Creates a new Card in the DB and make the default of creator
 export function create(req, res) {
-  req.body.owner = req.user._id;
+  req.body.creator = req.user._id;
+
 
   return Card.create(req.body)
-    .then(respondWithResult(res, 201))
-    .catch(handleError(res));
+    .then(function(entity){
+      User.findById(req.body.creator).then(function(user){
+        user.cards.push(entity._id);
+        user.save().then(function(err){
+          return entity;
+        })
+      .then(respondWithResult(res, 201))
+      .catch(handleError(res));
+      })
+    })
+
 }
+
+
 
 // Updates an existing Card in the DB
 export function update(req, res) {
