@@ -21,7 +21,7 @@
     vm.o.controllView = controllView;
     vm.o.createComment = createComment;
     vm.o.updateComment = updateComment;
-
+    vm.o.removeComment = removeComment;
 
     vm.o.addComment = false;
     vm.o.cardVersions = false;
@@ -107,6 +107,25 @@
       comment.update(commentId, params).then(function(comment){
           console.log('update!');
         });
+    }
+
+    function removeComment(commentId, category, index){
+      console.log('removeComment');
+
+      comment.remove(commentId).then(function(){
+        console.log('remove!');
+        if(category == 1) _removeCommentOnClient(vm.o.commentA, commentId);
+        if(category == 2) _removeCommentOnClient(vm.o.commentB, commentId);
+        if(category == 3) _removeCommentOnClient(vm.o.commentC, commentId);
+        if(category == 4) _removeCommentOnClient(vm.o.commentD, commentId);
+        if(category == 5) _removeCommentOnClient(vm.o.commentE, commentId);
+        if(category == 6) _removeCommentOnClient(vm.o.commentF, commentId);
+      })
+    }
+
+    function _removeCommentOnClient(commentObj/*commentA~commentF */, commentId){
+      var index =  _.findIndex(commentObj, function(o){return o._id == commentId});
+        commentObj.splice(index, 1);
     }
 
 

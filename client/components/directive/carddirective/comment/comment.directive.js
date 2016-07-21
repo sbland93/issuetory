@@ -10,6 +10,7 @@ angular.module('constructiveApp')
       	filled: '=',
       	comment: '=info',
         currentUser:'=',
+        removeComment: '&',
         updateComment: '&',
         controllView: '&',
       },

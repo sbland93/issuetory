@@ -24,22 +24,22 @@
 <addcomment ng-if="forum.o.addComment" represent-category="forum.o.represent" controll-view="forum.o.controllView(newVal)" create-comment="forum.o.createComment(newVal, forum.o.currentCard._id)"></addcomment>
 
 
-<comment info="forum.o.commentA[0]" category="1" filled="true" controll-view = "forum.o.controllView(newVal)" update-comment="forum.o.updateComment(forum.o.commentA[0]._id , newVal)" current-user = "forum.o.currentUser._id"></comment>
-<comment info="comment" ng-repeat="comment in forum.o.commentA" category="1"  ng-if="forum.o.similarA" controll-view = "forum.o.controllView(newVal)" update-comment="forum.o.updateComment(comment._id , newVal)" current-user = "forum.o.currentUser._id"></comment>
+<comment info="forum.o.commentA[0]" category="1" filled="true" controll-view = "forum.o.controllView(newVal)" update-comment="forum.o.updateComment(forum.o.commentA[0]._id , newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, 0)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentA" category="1"  ng-if="forum.o.similarA" controll-view = "forum.o.controllView(newVal)" update-comment="forum.o.updateComment(comment._id , newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, $index+1)"></comment>
 
-<comment info="forum.o.commentB[0]" category="2" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
-<comment info="comment" ng-repeat="comment in forum.o.commentB" category="2"  ng-if="forum.o.similarB" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
+<comment info="forum.o.commentB[0]" category="2" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, 0)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentB" category="2"  ng-if="forum.o.similarB" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, $index+1)"></comment>
 
-<comment info="forum.o.commentC[0]" category="3" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
-<comment info="comment" ng-repeat="comment in forum.o.commentC" category="3"  ng-if="forum.o.similarC" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
+<comment info="forum.o.commentC[0]" category="3" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, 0)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentC" category="3"  ng-if="forum.o.similarC" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, $index+1)"></comment>
 
-<comment info="forum.o.commentD[0]" category="4" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
-<comment info="comment" ng-repeat="comment in forum.o.commentD" category="4"  ng-if="forum.o.similarD" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
+<comment info="forum.o.commentD[0]" category="4" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, 0)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentD" category="4"  ng-if="forum.o.similarD" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, $index+1)"></comment>
 
-<comment info="forum.o.commentE[0]" category="5" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
-<comment info="comment" ng-repeat="comment in forum.o.commentE" category="5"  ng-if="forum.o.similarE" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
+<comment info="forum.o.commentE[0]" category="5" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, 0)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentE" category="5"  ng-if="forum.o.similarE" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, $index+1)"></comment>
 
-<comment info="forum.o.commentF[0]" category="6" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
-<comment info="comment" ng-repeat="comment in forum.o.commentF" category="6"  ng-if="forum.o.similarF" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id"></comment>
+<comment info="forum.o.commentF[0]" category="6" filled="true" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, 0)"></comment>
+<comment info="comment" ng-repeat="comment in forum.o.commentF" category="6"  ng-if="forum.o.similarF" controll-view = "forum.o.controllView(newVal)" current-user = "forum.o.currentUser._id" remove-comment = "forum.o.removeComment(newVal, someVal, $index+1)"></comment>
 
 </div>

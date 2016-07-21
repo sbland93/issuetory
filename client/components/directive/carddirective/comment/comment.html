@@ -16,10 +16,14 @@
         </div>
     </div>
 
+    <div ng-if="currentUser === comment.creator._id">
+    <label class="btn btn-primary btn-circle btn-xs pull-right" ng-click="removeComment({newVal: comment._id, someVal:category})" style="margin-left:10px"><i class="glyphicon glyphicon-remove"></i></label>
+    </div>
     <button class="btn btn-xs btn-primary pull-right" ng-click="hitComment()" style="margin-left:10px"><i class="glyphicon glyphicon-hand-up"> {{comment.hit.length}}</i></button>
     <label class="btn btn-xs btn-primary pull-right" style="margin-left:10px" ng-click = "controllView({newVal : category})"><i class="glyphicon glyphicon-sort"></i></label>
     <label class="btn btn-primary btn-xs pull-right" style="margin-left:10px" ng-click="controllViewOfVersions()"><i class="glyphicon glyphicon-sort-by-attributes"></i></label>
     <label class="btn btn-xs btn-primary pull-right" ui-sref="updatecomment({id:comment._id})"><i class="glyphicon glyphicon-pencil"></i></label>
+
 
 </div>
 
