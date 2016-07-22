@@ -58,7 +58,7 @@ function create(params) {
 /**
  * Get a single user
  */
-function show(userId) {
+/*function show(userId) {
   var deferred = Q.defer();
 
   User.findById(userId, function (err, user) {
@@ -72,6 +72,25 @@ function show(userId) {
 
     deferred.resolve(user.profile);
   });
+  return deferred.promise;
+};*/
+
+
+function show(userId) {
+  var deferred = Q.defer();
+  User.findById(userId).populate('cards').populate('comments').exec().then(
+    function(user){
+      if (!user) return deferred.reject(
+        Error.new({
+          code: 'USER_NOT_FOUND',
+          message: 'User: ' + userId + ' is not found.'
+        })
+      );
+      deferred.resolve(user.profile);
+    }, function(err){
+       if (err) return deferred.reject(err);
+    })
+
   return deferred.promise;
 };
 

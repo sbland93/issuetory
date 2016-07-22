@@ -55,6 +55,7 @@ function show(req, res, next) {
   UserService
     .show(req.params.id)
     .then(function(profile) {
+      console.log('For Test: Profile', profile);
       res.json(profile);
     })
     .catch(function(err) {

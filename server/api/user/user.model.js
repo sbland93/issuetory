@@ -74,7 +74,9 @@ UserSchema
   .get(function() {
     return {
       'name': this.name,
-      'role': this.role
+      'role': this.role,
+      'cards': this.cards,
+      'comments': this.comments
     };
   });
 
