@@ -21,14 +21,27 @@ var makeUsers = MakeSeed.makeUsers;
 
 User.find({}).remove().then(function(){
   User.create(makeUsers()).then(function(_user){
-      var _userId = _user[0]._id;
+      var _userArray = _user;
       Card.find({}).remove().then(function(){
-        Card.create(makeCards(_userId)).then(function(_card){
+        Card.create(makeCards(_userArray)).then(function(_card){
             var _cardId = _card._id;
+            User.findById(_card.creator).exec().then(function(user){
+              user.cards.push(_cardId);
+              user.save().then(function(){
+                console.log('correct');
+              })
+            })
             Comment.find({}).remove().then(function(){
-              Comment.create(makeComments(_userId, _cardId)).then(function(_comments){
+              Comment.create(makeComments(_userArray, _cardId)).then(function(_comments){
                   for (var i = 0; i < (_comments.length); ++i) {
                       _card.comments.push(_comments[i]._id);
+                      var commentId = _comments[i]._id
+                      User.findById(_comments[i].creator).exec().then(function(user){
+                        user.comments.push(commentId);
+                        user.save().then(function(){
+                          console.log('correct');
+                        });
+                      })
                   }
                   _card.save();
                 })

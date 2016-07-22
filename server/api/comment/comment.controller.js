@@ -97,13 +97,9 @@ export function show(req, res) {
 
 }*/
 
-
-/*Comment.create(req.body)
-.then(function(comment){
-  return [comment, Card.findById(cardId).exec()]
-})
-.spread(function())*/
-
+// Creates a new Comment in the DB
+// And, Put the Comment Id into the Card.
+// And , Put the Comment Id into the User.
 export function create(req, res) {
   req.body.creator = req.user._id;
   var cardId = req.body.cardId;
@@ -112,27 +108,22 @@ export function create(req, res) {
   console.log('req.body', JSON.stringify(req.body));
   return Comment.create(req.body)
       .then(function(comment){
-          console.log('Test1@@@@@@@@');
           _comment = comment;
           return Card.findById(cardId).exec()
       })
       .then(function(card){
-          console.log('Test2@@@@@@@@');
           card.comments.push(_comment._id);
           return card.save()          
       })
       .then(function(err){
-          console.log('Test3@@@@@@@@');
           if(err) return err;
           return User.findById(req.body.creator).exec()
       })
       .then(function(user){
-          console.log('Test4@@@@@@@@');
           user.comments.push(_comment._id);
           return user.save()
       })
       .then(function(err){
-          console.log('Test5@@@@@@@@', _comment);
           //if(err) return err;
           return _comment;
       })
