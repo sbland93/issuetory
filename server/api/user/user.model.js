@@ -36,6 +36,7 @@ var UserSchema = new Schema({
       }
     }
   },
+  personality: [{kind: String, value: Number}],
   provider: String,
   salt: String,
   facebook: {},
@@ -47,6 +48,7 @@ var UserSchema = new Schema({
   },
   usernumber: Number,
   github: {},
+  created_at: { type: Date, default: Date.now},
   cards : [{ type:Schema.Types.ObjectId, ref: 'Card'}],
   comments : [{ type:Schema.Types.ObjectId, ref: 'Comment'}]
 }, {
@@ -76,7 +78,9 @@ UserSchema
       'name': this.name,
       'role': this.role,
       'cards': this.cards,
-      'comments': this.comments
+      'comments': this.comments,
+      'personality': this.personality,
+      'created_at' : this.created_at
     };
   });
 

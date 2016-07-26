@@ -1,72 +1,16 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+		<div class="col-sm-12">
     	 <div class="well profile">
             <div class="col-sm-12">
-                <div class="col-xs-12 col-sm-8">
+                <div class="col-xs-12">
                     <h2>{{human.o.thisPageUser.name}}</h2>
                     <p><strong>Introducing : </strong>Hi my name is {{human.o.thisPageUser.name}}.</p>
                 </div>             
-                <div class="col-xs-12 col-sm-4 text-center">
-                    <figure>
-                        <img src="http://www.localcrimenews.com/wp-content/uploads/2013/07/default-user-icon-profile.png" alt="" class="img-circle img-responsive">
-                        <figcaption class="ratings">
-                            <p>Ratings
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                 <span class="fa fa-star-o"></span>
-                            </a> 
-                            </p>
-                        </figcaption>
-                    </figure>
-                </div>
             </div>            
             <div class="col-xs-12 divider text-center">
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong> 1.1K </strong></h2>                    
-                    <p><small>지혜로운</small></p>
-                    <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>1223</strong></h2>                    
-                    <p><small>단호한</small></p>
-                    <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>797</strong></h2>                    
-                    <p><small>중립적인</small></p>
-                    <button class="btn btn-primary btn-block"><span class="fa fa-user"></span> View Profile </button>
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>232</strong></h2>                    
-                    <p><small>새로운</small></p>
-                    <button class="btn btn-danger btn-block"><span class="fa fa-user"></span> View Profile </button>
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>1495</strong></h2>                    
-                    <p><small>혁신적인</small></p>
-                    <button class="btn btn-warning btn-block"><span class="fa fa-user"></span> View Profile </button>
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>883</strong></h2>                    
-                    <p><small>대안을제시하는</small></p>
-                    <button class="btn btn-default btn-block"><span class="fa fa-user"></span> View Profile </button>
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    <h2><strong>43</strong></h2>                    
-                    <p><small>Snippets</small></p>
-                    <div class="btn-group dropup btn-block">
+                <personality info="characteristic" ng-repeat="characteristic in human.o.thisPageUser.personality"></personality>
+                  <div class="btn-group dropup btn-block">
                       <button type="button" class="btn btn-primary"><span class="fa fa-gear"></span> Options </button>
                       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
@@ -81,7 +25,6 @@
                         <li><a href="#" class="btn disabled" role="button"> Unfollow </a></li>
                       </ul>
                     </div>
-                </div>
             </div>
     	 </div>                 
 		</div>
@@ -102,50 +45,16 @@
     
         <!-- Line component -->
         <div class="line text-muted"></div>
-
-        <!-- Separator -->
-        <div class="separator text-muted">
-            <time>26. 3. 2015</time>
-        </div>
-        <!-- /Separator -->
-    
-        <!-- Panel -->
-        <article class="panel panel-danger panel-outline">
-    
-            <!-- Icon -->
-            <div class="panel-heading icon">
-                <i class="glyphicon glyphicon-heart"></i>
-            </div>
-            <!-- /Icon -->
-    
-            <!-- Body -->
-            <div class="panel-body">
-                <strong>Someone</strong> favourited your photo.
-            </div>
-            <!-- /Body -->
-    
-        </article>
-        <!-- /Panel -->
-    
-        <!-- Panel -->
-        <article class="panel panel-default panel-outline">
-    
-            <!-- Icon -->
-            <div class="panel-heading icon">
-                <i class="glyphicon glyphicon-picture"></i>
-            </div>
-            <!-- /Icon -->
-    
-            <!-- Body -->
-            <div class="panel-body">
-                <img class="img-responsive img-rounded" src="//placehold.it/350x150" />
-            </div>
-            <!-- /Body -->
-    
-        </article>
-        <!-- /Panel -->
     	
     	<div ng-repeat = "card in human.o.thisPageUser.cards">
+
+		<!-- Separator -->
+        <div class="separator text-muted">
+            <time>{{card.created_at}}</time>
+        </div>
+        <!-- /Separator -->
+
+
         <!-- Panel -->
         <article class="panel panel-primary">
     
@@ -166,12 +75,15 @@
                 {{card.title}}
             </div>
             <!-- /Body -->
+
+            <!-- List group -->
+            <ul class="list-group">
+                <li class="list-group-item">{{card.idea}}</li>
+                <div ng-repeat="link in card.link">
+                <li class="list-group-item"><a href="{{link.url}}">{{link.title}}</a></li>
+                </div>
+            </ul>
     
-            <!-- Footer -->
-            <div class="panel-footer">
-                <small>Footer is also supported!</small>
-            </div>
-            <!-- /Footer -->
     
         </article>
         <!-- /Panel -->
@@ -179,14 +91,17 @@
 
 
 
+    	
+    	<div ng-repeat="comment in human.o.thisPageUser.comments">
 
-        <!-- Separator -->
+
+    	<!-- Separator -->
         <div class="separator text-muted">
-            <time>25. 3. 2015</time>
+            <time>{{comment.created_at}}</time>
         </div>
         <!-- /Separator -->
-    
-        <!-- Panel -->
+
+        <!-- Panel For Comments -->
         <article class="panel panel-success">
     
             <!-- Icon -->
@@ -197,28 +112,37 @@
     
             <!-- Heading -->
             <div class="panel-heading">
-                <h2 class="panel-title">New content added</h2>
+                <h2 class="panel-title">New Comment Added</h2>
             </div>
             <!-- /Heading -->
     
             <!-- Body -->
             <div class="panel-body">
-                Anything you can do with <code>.panel</code>, can be done in timeline too!
+                {{comment.title}}
             </div>
             <!-- /Body -->
     
             <!-- List group -->
             <ul class="list-group">
-                <li class="list-group-item">Like</li>
-                <li class="list-group-item">list</li>
-                <li class="list-group-item">groups</li>
-                <li class="list-group-item">and</li>
-                <li class="list-group-item">tables</li>
+                <li class="list-group-item">{{comment.idea}}</li>
+                <div ng-repeat="link in comment.link">
+                <li class="list-group-item"><a href="{{link.url}}">{{link.title}}</a></li>
+                </div>
             </ul>
     
         </article>
         <!-- /Panel -->
-    
+    	</div>
+
+
+
+		<!-- Separator -->
+	    <div class="separator text-muted">
+            <time>{{human.o.thisPageUser.created_at}}</time>
+        </div>
+        <!-- /Separator -->
+
+
         <!-- Panel -->
         <article class="panel panel-info panel-outline">
     

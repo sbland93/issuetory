@@ -55,6 +55,7 @@
       console.log('For Test: create() is called [card.controller.js 53]');
       card.create(params).then(function(card){
         vm.o.cardlist.unshift(card);
+        vm.o.viewAddForm = !vm.o.viewAddForm;
       })
     }
 
@@ -69,8 +70,7 @@
       card.remove(cardId).then(function(card){
         var _num = vm.o.cardlist.indexOf(card);
         vm.o.cardlist.splice(_num, 1);
-        //$state.go('card');
-      })
+s      })
     }
 
 

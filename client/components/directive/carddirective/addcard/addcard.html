@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
     <div class="col-xs-12 well">
-        <form name="myForm" ng-submit="create({newVal: newCard})" novalidate>
+        <form name="myForm" ng-submit="createCard(newCard)" novalidate>
 
         <label class="btn btn-default btn-circle btn-xs pull-right" ng-click="controllView()"><i class="glyphicon glyphicon-remove"></i></label>
         	
@@ -9,33 +9,40 @@
             <fieldset class="form-group">
             <label for="title">Title of Your Idea</label>
             <textarea class="form-control" id="title" rows="1" ng-model="newCard.title" required></textarea> 
-            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
+            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small>
             </fieldset>
         
 
             <fieldset class="form-group">
             <label for="idea">idea</label>
-            <textarea class="form-control" id="idea" rows="3" ng-model="newCard.idea" required></textarea>
+            <textarea class="form-control" id="idea" rows="10" ng-model="newCard.idea" required></textarea>
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>
 
+            
+
+            <div ng-repeat = "link in newCard.link">
+            <button type="button" class="btn btn-sm" ng-click="controllInput('removeReference')">-</button>
+            <updatereference info="link"></updatereference>
+            </div>
+
+            <div ng-repeat = "keyword in justForKeyword">
+            <button type= "button" class="btn btn-sm" ng-click="controllInput('removeKeyword')">-</button>
             <fieldset class="form-group">
-            <label for="title">Reference Title of Url(You can remake)</label>
-            <textarea class="form-control" id="title" rows="1" maxlength="30" ng-model="newCard.link[0].title"></textarea>
-            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
-            </fieldset>        
+            <label for="title">Keyword</label>
+            <textarea class="form-control" id="title" rows="1" ng-model="newCard.keyword[$index]" required></textarea> 
+            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small>
+            </fieldset>
+            </div>
 
             <fieldset class="form-group">
-            <label for="url">Reference Url</label>
-            <textarea class="form-control" id="url" rows="1" ng-model="newCard.link[0].url"></textarea> 
-            <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
+            <button type="button" class="btn btn-sm btn-danger" ng-click="controllInput('reference')">ADD REFERENCE</button>
+            <button type="button" class="btn btn-sm btn-info" ng-click="controllInput('keyword')">ADD KEYWORD</button>
             </fieldset>
 
 
-            <button type="submit" class="btn btn-primary" name="save-recipe-button" value="save-recipe-button" ng-disabled="myForm.$invalid">ADD NEW CARD</button>
-            <button type="submit" class="btn btn-info" name="save-new-recipe-button" value="save-new-recipe-button">Save as a New Recipe</button>
-            <button type="submit" class="btn btn-danger"  name="delete-recipe-button" value="delete-recipe-button">Delete This Recipe</button> 
-        </form>
+            <button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid">ADD NEW CARD</button>
+
     </div>    
     </div>
 </div>

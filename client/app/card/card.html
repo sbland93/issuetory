@@ -1,7 +1,7 @@
 <div class="container">
 <button class="btn" ng-click="cardCtrl.o.controllView()">Spread your idea[Add]</button>
 
-<addcard ng-hide="!cardCtrl.o.viewAddForm" create="cardCtrl.o.create(newVal)" controll-view="cardCtrl.o.controllView()"></addcard>
+<addcard ng-if="cardCtrl.o.viewAddForm" create="cardCtrl.o.create(newVal)" controll-view="cardCtrl.o.controllView()"></addcard>
 
 <div class="col-md-12">
     

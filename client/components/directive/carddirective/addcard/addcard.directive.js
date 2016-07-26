@@ -8,13 +8,34 @@ angular.module('constructiveApp')
       scope: {
       	create : '&',
         controllView : '&',
-       // card : '=info'
       },
 
       link: function (scope, element, attrs) {
       	scope.newCard = {};
       	scope.newCard.link = [];
+        scope.justForKeyword = [];
+        scope.newCard.keyword = [];
 
+        //check isItEmptyObject
+        function _isEmptyArray(array)
+        {
+            return array.length == 0;
+        }
+
+
+        scope.createCard = function(params){
+          if(_isEmptyArray(params.link)) delete params.link;
+          if(_isEmptyArray(params.keyword)) delete params.keyword;
+          scope.create({newVal: params});
+        }
+
+        scope.controllInput = function(params){
+          if(params == 'reference') scope.newCard.link.push({});
+          if(params == 'keyword') scope.justForKeyword.push({});
+          if(params == 'removeKeyword') scope.justForKeyword.pop();
+          if(params == 'removeReference') scope.newCard.link.pop();
+          
+        }
       }
     };
   });
