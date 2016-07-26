@@ -70,7 +70,7 @@
       card.remove(cardId).then(function(card){
         var _num = vm.o.cardlist.indexOf(card);
         vm.o.cardlist.splice(_num, 1);
-s      })
+      })
     }
 
 

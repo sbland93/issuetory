@@ -71,7 +71,8 @@ export function index(req, res) {
 
 // Gets a single Card from the DB
 export function show(req, res) {
-  return Card.findById(req.params.id).populate('creator').deepPopulate('comments.creator').exec()
+  return Card.findById(req.params.id).populate('creator')
+    .deepPopulate('comments.creator comments.versions.contributor').exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

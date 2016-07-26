@@ -3,6 +3,7 @@
 import mongoose from 'mongoose';
 import User from '../user/user.model';
 import Card from '../card/card.model';
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 var Schema = mongoose.Schema;
 
@@ -54,5 +55,8 @@ var ReplySchema = new Schema({
 
 CommentSchema.add({ replies: [ReplySchema]  });
 
+
+
+CommentSchema.plugin(deepPopulate);
 
 export default mongoose.model('Comment', CommentSchema);

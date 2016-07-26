@@ -94,6 +94,17 @@ UserSchema
     };
   });
 
+// For Controll the Hit or Personality
+/*UserSchema
+  .virtual('Hit')
+  .get(function(){
+    return {
+      ''
+    };
+  });*/
+
+
+
 /**
  * Validations
  */

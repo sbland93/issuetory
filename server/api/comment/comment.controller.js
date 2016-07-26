@@ -77,25 +77,7 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
-// Creates a new Comment in the DB
-// And, Put the Comment Id into the Card.
-/*export function create(req, res) {
-  var cardId = req.body.cardId;
-  delete req.body.cardId;
-  console.log('req.body', JSON.stringify(req.body));
-  return Comment.create(req.body)
-    .then(function(comment){
-      Card.findById(cardId).then(function(card){
-      card.comments.push(comment._id);
-      card.save().then(function(err){
-        return comment;
-      })
-      .then(respondWithResult(res, 201))
-      .catch(handleError(res));
-    })})
-    
 
-}*/
 
 // Creates a new Comment in the DB
 // And, Put the Comment Id into the Card.
