@@ -8,7 +8,6 @@ function makeUsers(){
 	var seedUsers = [{
 	      provider: 'local',
 	      name: 'Test User',
-        personality: [{kind: 'wise', value: 1232}, {kind: 'firm', value: 232}, {kind: 'new', value: 1892}, {kind:'neutral', value:992 }, {kind: 'elegant', value: 22322 }, {kind: 'proposal', value:2932}],
 	      email: 'test@example.com',
 	      password: 'test'
 	    },{

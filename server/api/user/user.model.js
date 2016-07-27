@@ -36,7 +36,7 @@ var UserSchema = new Schema({
       }
     }
   },
-  personality: [{kind: String, value: Number}],
+  score: {type: Number, default: 0},
   provider: String,
   salt: String,
   facebook: {},
@@ -79,8 +79,8 @@ UserSchema
       'role': this.role,
       'cards': this.cards,
       'comments': this.comments,
-      'personality': this.personality,
-      'created_at' : this.created_at
+      'score': this.score,
+      'created_at' : this.created_at,
     };
   });
 
@@ -93,16 +93,6 @@ UserSchema
       'role': this.role
     };
   });
-
-// For Controll the Hit or Personality
-/*UserSchema
-  .virtual('Hit')
-  .get(function(){
-    return {
-      ''
-    };
-  });*/
-
 
 
 /**

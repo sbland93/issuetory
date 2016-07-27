@@ -1,0 +1,21 @@
+
+<div class="container">
+	<div class="col-md-12">
+	    <card info="versions.o.currentCard"></card>
+	</div>
+
+	<div ng-repeat="version in versions.o.currentCard.versions">
+		<div class="dropdown pull-right">
+		  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">RemoveThisVersion
+		  <span class="caret"></span></button>
+		  <ul class="dropdown-menu">
+		    <li><a class="btn">악의적 훼손입니다(-10)></a></li>
+		    <li><a >논지와 많이 다릅니다(-2)</a></li>
+		    <li><a >논지와 조금 다릅니다(-1)</a></li>
+		    <li><a >단순히(-0)</a></li>
+		  </ul>
+		</div>
+		<version info="version"></version>
+	</div>
+
+</div>

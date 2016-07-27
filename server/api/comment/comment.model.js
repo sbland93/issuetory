@@ -28,7 +28,6 @@ var CommentVersionSchema = new Schema({
 
 
 var CommentSchema = new Schema({
-	//category:  {type: String, enum:['A', 'B', 'C', 'D', 'E', 'F'], required: true},
 	category:  {type: Number, min:1, max:6, required: true},
 	card:  {type: Schema.Types.ObjectId, ref: 'Card'} ,
 	creator: { type:Schema.Types.ObjectId, ref: 'User'},
@@ -38,7 +37,6 @@ var CommentSchema = new Schema({
 	title: {type: String},
 	idea: {type: String, required: true},
 	link: [ReferenceSchema],
-	//hit: {type: Number, default: 1},
 	hit: [{type:Schema.Types.ObjectId, ref: 'User'}] ,
 	versions: [CommentVersionSchema]
 });
