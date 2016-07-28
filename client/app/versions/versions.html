@@ -11,10 +11,10 @@
 		  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">RemoveThisVersion
 		  <span class="caret"></span></button>
 		  <ul class="dropdown-menu">
-		    <li><a class="btn" ng-click="versions.o.controllVersion($index,-10, version.contributor)">악의적 훼손입니다(-10)</a></li>
-		    <li><a class="btn" ng-click="versions.o.controllVersion($index, -2, version.contributor)">논지와 많이 다릅니다(-2)</a></li>
-		    <li><a class="btn" ng-click="versions.o.controllVersion($index, -1, version.contributor)">논지와 조금 다릅니다(-1)</a></li>
-		    <li><a class="btn" ng-click="versions.o.controllVersion($index, 0, version.contributor)">단순히(+0)</a></li>
+		    <li><a class="btn" ng-click="versions.o.controllVersion($index,-10, version.contributor._id)">악의적 훼손입니다(-10)</a></li>
+		    <li><a class="btn" ng-click="versions.o.controllVersion($index, -2, version.contributor._id)">논지와 많이 다릅니다(-2)</a></li>
+		    <li><a class="btn" ng-click="versions.o.controllVersion($index, -1, version.contributor._id)">논지와 조금 다릅니다(-1)</a></li>
+		    <li><a class="btn" ng-click="versions.o.controllVersion($index, 0, version.contributor._id)">단순히(+0)</a></li>
 		  </ul>
 		</div>
 		<version info="version"></version>

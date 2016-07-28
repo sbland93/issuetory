@@ -1,9 +1,9 @@
 
 <a ui-sref="human({ id: card.creator._id})"><h4>{{card.creator.name}}</h4></a>
 <a ui-sref="forum({ id: card._id })">
-<h1><div ng-if="forVersion">CurrentVersion :</div> {{card.title}}</h1>
+<h1><div ng-if="forVersion">CurrentVersion :</div> {{card.versions[0].title}}</h1>
 </a>
-    <p>{{card.idea}}</p>
+    <p>{{card.versions[0].idea}}</p>
     <h6>Reference</h6>
     <reference info="reference" ng-repeat = "reference in card.link"></reference>
     
@@ -14,8 +14,8 @@
           <button class="btn btn-xs btn-primary" ng-click="hitCard()"><i class="glyphicon glyphicon-hand-up"> {{card.hit.length}}</i></button>
 	</div>
 
-	<div class="pull-right"><span class="label label-danger">{{card.keyword[0]}}</span> <span class="label label-primary">{{card.keyword[1]}}</span> <span class="label label-success">{{card.keyword[2]}}</span> <span class="label label-info">personal</span> <span class="label label-warning">{{card.keyword[3]}}</span>
-	<span class="label label-default">{{card.keyword[4]}}</span></div>
+	<div class="pull-right"><span class="label label-danger">{{card.versions[0].keyword[0]}}</span> <span class="label label-primary">{{card.versions[0].keyword[1]}}</span> <span class="label label-success">{{card.versions[0].keyword[2]}}</span> <span class="label label-info">personal</span> <span class="label label-warning">{{card.versions[0].keyword[3]}}</span>
+	<span class="label label-default">{{card.versions[0].keyword[4]}}</span></div>
 
 	
     </div>     

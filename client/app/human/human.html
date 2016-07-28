@@ -65,15 +65,15 @@
     
             <!-- Body -->
             <div class="panel-body">
-                <a ui-sref="forum({id:card._id})">{{card.title}}</a>
+                <a ui-sref="forum({id:card._id})">{{card.versions[0].title}}</a>
                 <a ui-sref="versions({id:card._id})" class="pull-right">ControllVersions</a>
             </div>
             <!-- /Body -->
 
             <!-- List group -->
             <ul class="list-group">
-                <li class="list-group-item">{{card.idea}}</li>
-                <div ng-repeat="link in card.link">
+                <li class="list-group-item">{{card.versions[0].idea}}</li>
+                <div ng-repeat="link in card.versions[0].link">
                 <li class="list-group-item"><a href="{{link.url}}">{{link.title}}</a></li>
                 </div>
             </ul>
