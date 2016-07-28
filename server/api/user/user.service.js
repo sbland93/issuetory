@@ -20,6 +20,7 @@ exports.changePassword = changePassword;
 exports.me = me;
 exports.emailValidates = emailValidates;
 exports.getUsernumber = getUsernumber;
+exports.updateScore = updateScore;
 
 
 
@@ -54,26 +55,6 @@ function create(params) {
   });
   return deferred.promise;
 };
-
-/**
- * Get a single user
- */
-/*function show(userId) {
-  var deferred = Q.defer();
-
-  User.findById(userId, function (err, user) {
-    if (err) return deferred.reject(err);
-    if (!user) return deferred.reject(
-      Error.new({
-        code: 'USER_NOT_FOUND',
-        message: 'User: ' + userId + ' is not found.'
-      })
-    );
-
-    deferred.resolve(user.profile);
-  });
-  return deferred.promise;
-};*/
 
 
 function show(userId) {
@@ -201,3 +182,22 @@ function getUsernumber(userId) {
   });
   return deferred.promise;
 };
+
+
+function updateScore(userId, amount) {
+  console.log('updateScore user.service.js');
+  var deferred = Q.defer();
+
+  var conditions = { _id: userId }
+  , update = { $inc: { score: amount }};
+
+  User.update(conditions, update, callback);
+
+  function callback (err, numAffected) {
+    // numAffected is the number of updated documents
+    if(err) deferred.reject(err);
+    deferred.resolve(numAffected);
+  }
+
+  return deferred.promise;
+}

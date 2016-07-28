@@ -20,4 +20,7 @@ router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 
 
+//make route for controllscore
+router.put('/score/:id', auth.isAuthenticated(), controller.updateScore)
+
 module.exports = router;

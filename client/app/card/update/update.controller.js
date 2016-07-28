@@ -34,7 +34,7 @@
     
     function update(cardId, params){
       //비동기식으로 만들어야 하고,변화가 있는지 확인하고(폼에서 하자!) 해야한다.
-      params.versions.push(lastCard);
+      params.versions.unshift(lastCard);
 
       card.update(cardId, params).then(function(card){
         console.log("For Test: lastCard", lastCard);

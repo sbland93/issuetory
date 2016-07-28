@@ -19,6 +19,9 @@
 		var model = Restangular.all('/api/cards');
 		model.one = function(id){
 			return Restangular.one('/api/cards', id);
+		};
+		model.version = function(id){
+			return Restangular.one('/api/cards/version', id);
 		}
 		return model;
 	}

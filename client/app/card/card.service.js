@@ -13,6 +13,7 @@
     this.create = create;
     this.remove = remove;
     this.update = update;
+    this.updateVersion = updateVersion;
 
     function getCard(cardId, refreshingCache) {
       var deferred = $q.defer();
@@ -70,6 +71,11 @@
 
     function update(cardId, params) {
       return Cards.one(cardId).customPUT(params);
+    }
+
+    //it will delete the version of Card (of cardId)
+    function updateVersion(cardId, version){
+      return Cards.version(cardId).customPUT(version);
     }
 
 

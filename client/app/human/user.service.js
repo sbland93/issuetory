@@ -11,6 +11,7 @@
     this.create = create;
     this.remove = remove;
     this.update = update;
+    this.updateScore = updateScore;
 
     function getUser(userId, refreshingCache) {
       return Users.one(userId).get()
@@ -29,6 +30,10 @@
 
     function update(userId, params) {
       return Users.one(userId).customPUT(params);
+    }
+
+    function updateScore(userId, params) {
+      return Users.score(userId).customPUT(params);
     }
 
 

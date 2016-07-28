@@ -11,6 +11,7 @@ angular.module('constructiveApp')
         versions: '=',
         currentUser: '=',
         updateCard: '&',
+        forVersion: '='
       },
       link: function (scope, element, attrs) {
         scope.hitCard = function(){

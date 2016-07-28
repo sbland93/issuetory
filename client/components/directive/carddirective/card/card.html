@@ -1,7 +1,7 @@
 
 <a ui-sref="human({ id: card.creator._id})"><h4>{{card.creator.name}}</h4></a>
 <a ui-sref="forum({ id: card._id })">
-<h1>{{card.title}}</h1>
+<h1><div ng-if="forVersion">CurrentVersion :</div> {{card.title}}</h1>
 </a>
     <p>{{card.idea}}</p>
     <h6>Reference</h6>

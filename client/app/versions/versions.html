@@ -1,7 +1,9 @@
 
 <div class="container">
 	<div class="col-md-12">
-	    <card info="versions.o.currentCard"></card>
+		Host of ThisCard : {{versions.o.currentCard.creator.name}}
+	    <card info="versions.o.currentCard" style="border-bottom:100px" for-version="true"></card>
+
 	</div>
 
 	<div ng-repeat="version in versions.o.currentCard.versions">
@@ -9,10 +11,10 @@
 		  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">RemoveThisVersion
 		  <span class="caret"></span></button>
 		  <ul class="dropdown-menu">
-		    <li><a class="btn">악의적 훼손입니다(-10)></a></li>
-		    <li><a >논지와 많이 다릅니다(-2)</a></li>
-		    <li><a >논지와 조금 다릅니다(-1)</a></li>
-		    <li><a >단순히(-0)</a></li>
+		    <li><a class="btn" ng-click="versions.o.controllVersion($index,-10, version.contributor)">악의적 훼손입니다(-10)</a></li>
+		    <li><a class="btn" ng-click="versions.o.controllVersion($index, -2, version.contributor)">논지와 많이 다릅니다(-2)</a></li>
+		    <li><a class="btn" ng-click="versions.o.controllVersion($index, -1, version.contributor)">논지와 조금 다릅니다(-1)</a></li>
+		    <li><a class="btn" ng-click="versions.o.controllVersion($index, 0, version.contributor)">단순히(+0)</a></li>
 		  </ul>
 		</div>
 		<version info="version"></version>

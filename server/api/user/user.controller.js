@@ -18,6 +18,7 @@ exports.getUsernumber = getUsernumber;
 exports.sendEmail = sendEmail;
 exports.emailValidate = emailValidate;
 exports.confirmNumber = confirmNumber;
+exports.updateScore = updateScore;
 
 /**
  * Get list of users
@@ -120,12 +121,31 @@ function me(req, res, next) {
 };
 
 
+
+
 /**
  * Authentication callback
  */
 function authCallback(req, res, next) {
   res.redirect('/');
 };
+
+
+
+//for controll The User Score
+function updateScore(req, res, next) {
+  console.log('updateScore and req.body.score', req.body.score);
+  UserService.updateScore(req.params.id, req.body.score)
+  .then(function(affectedNumber){
+    res.json(affectedNumber);
+  })
+  .catch(function(err){
+    if(err) return next(err);
+  })
+}
+
+
+
 
 //make email validate! From false to true
 function emailValidate(req, res, next) {

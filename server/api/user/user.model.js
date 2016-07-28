@@ -36,7 +36,7 @@ var UserSchema = new Schema({
       }
     }
   },
-  score: {type: Number, default: 0},
+  score: {type: Number, default: 10},
   provider: String,
   salt: String,
   facebook: {},

@@ -11,6 +11,7 @@
   
     var vm = this;
     vm.o = {};
+    vm.o.controllVersion = controllVersion
     _init();
 
 	function _init() {
@@ -19,6 +20,29 @@
 		})
 	}
 
+	//removeVersion by  && affect the score of contributor
+	function controllVersion(indexOfVersion, amountOfScore, contributorId){
+		console.log('contributorId', contributorId);
+		var params = {
+			score: amountOfScore
+		}
+
+		user.updateScore(contributorId, params).then(function(){
+			var _version = {
+				versionId : vm.o.currentCard.versions[indexOfVersion]._id 
+			}
+			return card.updateVersion(vm.o.currentCard._id, _version)
+		}).then(function(){
+			console.log('return!');
+			card.getCard($stateParams.id).then(function(card){
+				vm.o.currentCard = card;
+			})
+		})
+
+	
+	}
+
   }
 
 })();
+
