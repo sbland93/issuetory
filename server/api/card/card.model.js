@@ -40,6 +40,15 @@ var CardSchema = new Schema({
 });
 
 
+CardSchema.path('versions').validate(function(versions){
+    if(!versions){return false}
+    else if(versions.length === 0){return false}
+    return true;
+}, 'Card needs to have title and idea');
+
+
+
+
 CardSchema.plugin(deepPopulate);
 
 

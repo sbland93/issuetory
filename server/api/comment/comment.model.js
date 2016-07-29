@@ -54,6 +54,14 @@ var ReplySchema = new Schema({
 CommentSchema.add({ replies: [ReplySchema]  });
 
 
+CommentSchema.path('versions').validate(function(versions){
+    if(!versions){return false}
+    else if(versions.length === 0){return false}
+    return true;
+}, 'Comment needs to have title and idea');
+
+
+
 
 CommentSchema.plugin(deepPopulate);
 
