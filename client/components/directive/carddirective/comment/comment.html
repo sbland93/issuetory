@@ -1,9 +1,10 @@
 <div class="col-sm-6">
     <div id="tb-testimonial" ng-class="myStyle" >
         <div class="testimonial-section">
-            {{comment.title}}
+        <div ng-if="forVersion">CurrentVersion :</div>
+            {{comment.versions[0].title}}
             <br>
-            {{comment.idea}}
+            {{comment.versions[0].idea}}
             <br><br>
             <reference info="reference" ng-repeat = "reference in comment.link"></reference>
     	</div>

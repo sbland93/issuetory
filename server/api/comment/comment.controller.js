@@ -134,3 +134,20 @@ export function destroy(req, res) {
     .then(removeEntity(res))
     .catch(handleError(res));
 }
+
+
+export function updateVersion(req, res){
+  console.log('req.params.id:',req.params.id);
+  console.log('update:req.body.version', req.body.versionId );
+    var conditions = {'_id' : req.params.id}
+    , update = { $pull : {"versions" : {_id: req.body.versionId}}}
+    , callback = function(err, entity){
+      console.log('entity:', entity);
+      if(err) res.status(500).send(err);
+      if (entity) {
+      res.status(200).json(entity);
+      }
+    }
+  return Card.update(conditions, update, callback);
+
+}

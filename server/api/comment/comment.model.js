@@ -28,15 +28,15 @@ var CommentVersionSchema = new Schema({
 
 
 var CommentSchema = new Schema({
-	category:  {type: Number, min:1, max:6, required: true},
+	//category:  {type: Number, min:1, max:6, required: true},
 	card:  {type: Schema.Types.ObjectId, ref: 'Card'} ,
 	creator: { type:Schema.Types.ObjectId, ref: 'User'},
-	contributor: [{ type:Schema.Types.ObjectId, ref: 'User'}],
+	//contributor: [{ type:Schema.Types.ObjectId, ref: 'User'}],
 	created_at: DateSchema,
-	updated_at: DateSchema,
-	title: {type: String},
+	//updated_at: DateSchema,
+	/*title: {type: String},
 	idea: {type: String, required: true},
-	link: [ReferenceSchema],
+	link: [ReferenceSchema],*/
 	hit: [{type:Schema.Types.ObjectId, ref: 'User'}] ,
 	versions: [CommentVersionSchema]
 });

@@ -13,6 +13,7 @@
     this.create = create;
     this.remove = remove;
     this.update = update;
+    this.updateVersion = updateVersion;
 
     function getComment(commentId, refreshingCache) {
       var deferred = $q.defer();
@@ -74,6 +75,10 @@
       return Comments.one(commentId).customPUT(params);
     }
     
+    //it will delete the version of Card (of cardId)
+    function updateVersion(cardId, version){
+      return Cards.version(cardId).customPUT(version);
+    }
 
   }
 })();

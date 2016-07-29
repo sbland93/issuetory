@@ -112,7 +112,8 @@
     
             <!-- Body -->
             <div class="panel-body">
-                {{comment.title}}
+               <a ui-sref="forum({id:comment.card})">{{comment.title}}</a>
+                <a ui-sref="versions.comment({id:comment._id})" class="pull-right">ControllVersions</a>
             </div>
             <!-- /Body -->
     

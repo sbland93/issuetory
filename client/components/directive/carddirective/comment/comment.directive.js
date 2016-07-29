@@ -13,6 +13,7 @@ angular.module('constructiveApp')
         removeComment: '&',
         updateComment: '&',
         controllView: '&',
+        forVersion: '='
       },
       link: function (scope, element, attrs) {
       	
