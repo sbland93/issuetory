@@ -26,7 +26,9 @@ angular.module('constructiveApp')
         scope.createCard = function(params){
           if(_isEmptyArray(params.link)) delete params.link;
           if(_isEmptyArray(params.keyword)) delete params.keyword;
-          scope.create({newVal: params});
+          //For Add to Version
+          var newCard = { versions: [params] }
+          scope.create({newVal: newCard});
         }
 
         scope.controllInput = function(params){

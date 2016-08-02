@@ -39,6 +39,7 @@
 
       card.getCards().then(function(cards){
         vm.o.cardlist = cards;
+        console.log('vm.o.cardlist', vm.o.cardlist);
       });
     
     }
@@ -54,6 +55,7 @@
     function create(params){
       console.log('For Test: create() is called [card.controller.js 53]');
       card.create(params).then(function(card){
+        console.log('card is come!');
         vm.o.cardlist.unshift(card);
         vm.o.viewAddForm = !vm.o.viewAddForm;
       })

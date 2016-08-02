@@ -4,7 +4,6 @@
   angular
     .module('constructiveApp')
     .service('card', card)
-    //.constant('CARD_LIMIT', {count: 5});
 
   /* @ngInject */
   function card(Cards, myCache, $q) {
@@ -16,49 +15,11 @@
     this.updateVersion = updateVersion;
 
     function getCard(cardId, refreshingCache) {
-      var deferred = $q.defer();
-
-      /*if(myCache.get('card'+cardId) && !refreshingCache){
-        console.log("Using Cache..");
-        deferred.resolve(myCache.get('card'+cardId));
-
-      }
-    
-      else{
-        console.log('For Test: refreshing');*/
-        Cards.one(cardId).get().then(function(currentCard){
-              //myCache.put('card'+cardId, currentCard);
-              //console.log('mycache.get(card_cardId)', myCache.get('card'+cardId));
-              deferred.resolve(/*myCache.get('card'+cardId)*/currentCard);
-            }, function(error){
-              deferred.reject(error);
-            });
-      
-      /*}*/
-
-      return deferred.promise;
-    
+      return Cards.one(cardId).get();    
     }
 
     function getCards(groupId, params, refreshingCache) {
-      var deferred = $q.defer();
-
-      if(myCache.get('cardList') && !refreshingCache){
-
-        deferred.resolve(myCache.get('cardList'));
-
-      }
-
-      else {
-        Cards.customGET('', params).then(function(cardList){
-              myCache.put('cardList', cardList);
-              deferred.resolve(myCache.get('cardList'));
-            }, function(error){
-              deferred.reject(error);
-            });
-      }
-
-      return deferred.promise;
+      return Cards.customGET('', params);
     }
 
     function create(params) {
@@ -78,8 +39,7 @@
       return Cards.version(cardId).customPUT(version);
     }
 
-
-
-
   }
+
+  
 })();

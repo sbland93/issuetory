@@ -41,8 +41,8 @@ var CardSchema = new Schema({
 
 
 CardSchema.path('versions').validate(function(versions){
-    if(!versions){return false}
-    else if(versions.length === 0){return false}
+    if(!versions){ console.log('noversion'); return false}
+    else if(versions.length === 0){ console.log('version length'); return false}
     return true;
 }, 'Card needs to have title and idea');
 
