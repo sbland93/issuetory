@@ -24,6 +24,7 @@ function respondWithResult(res, statusCode) {
 
 function saveUpdates(updates) {
   return function(entity) {
+    console.log('entity', entity);
     var updated = _.merge(entity, updates);
     console.log('updated', updated);
     updated.markModified('hit');
@@ -33,6 +34,8 @@ function saveUpdates(updates) {
       });
   };
 }
+
+
 
 function removeEntity(res) {
   return function(entity) {
@@ -120,7 +123,33 @@ export function destroy(req, res) {
     .catch(handleError(res));
 }
 
+
 export function updateVersion(req, res){
+    req.body.version.contributor = req.user;
+    console.log('update: updateVersion@@@@@@@@@@@@@@@@@@', req.body.version);
+    console.log('req.params.id', req.params.id);
+    //find & add version & save
+    Card.findById(req.params.id).exec()
+      .then(function(card){
+        console.log('card', card);
+        if(card) {
+          console.log('card' ,card);
+          card.versions.unshift(req.body.version);
+          return card.save();
+        }
+      })
+      .then(function(_card){
+        if(_card) {
+          return res.status(200).send(_card);
+        }
+      })
+}
+
+
+
+
+
+export function removeVersion(req, res){
   console.log('req.params.id:',req.params.id);
   console.log('update:req.body.version', req.body.versionId );
     var conditions = {'_id' : req.params.id}

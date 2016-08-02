@@ -12,6 +12,7 @@
     this.create = create;
     this.remove = remove;
     this.update = update;
+    this.removeVersion = removeVersion;
     this.updateVersion = updateVersion;
 
     function getCard(cardId, refreshingCache) {
@@ -34,10 +35,15 @@
       return Cards.one(cardId).customPUT(params);
     }
 
-    //it will delete the version of Card (of cardId)
     function updateVersion(cardId, version){
-      return Cards.version(cardId).customPUT(version);
+      return Cards.updateVersion(cardId).customPUT(version);
     }
+
+    //it will delete the version of Card (of cardId)
+    function removeVersion(cardId, version){
+      return Cards.removeVersion(cardId).customPUT(version);
+    }
+
 
   }
 

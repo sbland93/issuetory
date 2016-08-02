@@ -20,8 +20,11 @@
 		model.one = function(id){
 			return Restangular.one('/api/cards', id);
 		};
-		model.version = function(id){
+		model.updateVersion = function(id){
 			return Restangular.one('/api/cards/version', id);
+		}
+		model.removeVersion = function(id){
+			return Restangular.one('/api/cards/version/remove', id);
 		}
 		return model;
 	}

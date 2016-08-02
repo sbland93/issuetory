@@ -26,14 +26,15 @@
 		var params = {
 			score: amountOfScore
 		}
+		console.log('indexOfVersion', indexOfVersion);
 
 		user.updateScore(contributorId, params).then(function(){
 			var _version = {
 				versionId : vm.o.currentCard.versions[indexOfVersion]._id 
 			}
-			return card.updateVersion(vm.o.currentCard._id, _version)
+			return card.removeVersion(vm.o.currentCard._id, _version)
 		}).then(function(){
-			console.log('return!');
+			console.log('return!' );
 			card.getCard($stateParams.id).then(function(card){
 				vm.o.currentCard = card;
 			})

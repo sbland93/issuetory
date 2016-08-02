@@ -5,7 +5,7 @@
 </a>
     <p>{{card.versions[0].idea}}</p>
     <h6>Reference</h6>
-    <reference info="reference" ng-repeat = "reference in card.link"></reference>
+    <reference info="reference" ng-repeat = "reference in card.versions[0].link"></reference>
     
     <div>
 	<span class="badge">{{card.created_at}}</span>
