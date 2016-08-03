@@ -35,9 +35,9 @@ angular.module('constructiveApp')
           if(params == 'reference') scope.newCard.link.push({});
           if(params == 'keyword') scope.justForKeyword.push({});
           if(params == 'removeKeyword') scope.justForKeyword.pop();
-          if(params == 'removeReference') scope.newCard.link.pop();
-          
+          if(params == 'removeReference') scope.newCard.link.pop(); 
         }
+      
       }
-    };a
+    };
   });

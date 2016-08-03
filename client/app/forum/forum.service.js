@@ -7,7 +7,7 @@
     //.constant('forum_LIMIT', {count: 5});
 
   /* @ngInject */
-  function forum() {
+  function forum($q) {
     var vm = this;
     vm.sortByType = sortByType;
     
@@ -15,7 +15,6 @@
     //It equip the controllerObj commentA ~commentF
     //It equip the represent(commentA[0]~commentF[0] For helping to make category during adding comments)
     
-
     function sortByType(comments, commentObj){
         commentObj.commentA = [];
         commentObj.commentB = [];
@@ -47,6 +46,7 @@
               commentObj.commentF.push(comment);
               break;
         }
+
 
       })
 

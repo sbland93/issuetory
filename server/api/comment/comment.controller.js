@@ -85,16 +85,22 @@ export function show(req, res) {
 export function create(req, res) {
   req.body.creator = req.user._id;
   var cardId = req.body.cardId;
-  var _comment;
+  var _returnComment;
   delete req.body.cardId;
   console.log('req.body', JSON.stringify(req.body));
   return Comment.create(req.body)
       .then(function(comment){
-          _comment = comment;
+          console.log('For Test: created comment is ', comment);
+          return Comment.populate(comment, {path: 'creator'})
+      })
+      .then(function(_comment){
+          console.log('For Test: populated comment is ', _comment);
+          _returnComment = _comment;
           return Card.findById(cardId).exec()
       })
       .then(function(card){
-          card.comments.push(_comment._id);
+          console.log('For Test: found card is ', card);
+          card.comments.push(_returnComment._id);
           return card.save()          
       })
       .then(function(err){
@@ -102,16 +108,20 @@ export function create(req, res) {
           return User.findById(req.body.creator).exec()
       })
       .then(function(user){
-          user.comments.push(_comment._id);
+          console.log('For Test: user is ', user);
+          user.comments.push(_returnComment._id);
           return user.save()
       })
       .then(function(err){
           //if(err) return err;
-          return _comment;
+          console.log('For Test: _returnComment is ', _returnComment);
+          return _returnComment;
       })
       .then(respondWithResult(res, 201))
       .catch(handleError(res));   
 }
+
+
 
 
 
