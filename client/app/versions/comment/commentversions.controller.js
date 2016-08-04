@@ -1,12 +1,13 @@
+
 (function() {
   'use strict';
 
   angular
     .module('constructiveApp')
-    .controller('versionCtrl', versionCtrl);
+    .controller('commentVersionsCtrl', commentVersionsCtrl);
 
   /* @ngInject */
-  function versionCtrl($stateParams, user, comment) {
+  function commentVersionsCtrl($stateParams, user, comment) {
 
   
     var vm = this;
@@ -26,23 +27,26 @@
 		var params = {
 			score: amountOfScore
 		}
+		console.log('indexOfVersion', indexOfVersion);
 
 		user.updateScore(contributorId, params).then(function(){
 			var _version = {
 				versionId : vm.o.currentComment.versions[indexOfVersion]._id 
 			}
-			return comment.updateVersion(vm.o.currentComment._id, _version)
+			return comment.removeVersion(vm.o.currentComment._id, _version)
 		}).then(function(){
 			console.log('return!');
 			comment.getComment($stateParams.id).then(function(comment){
+				console.log('change!');
 				vm.o.currentComment = comment;
 			})
 		})
-
-	
 	}
+
+
 
   }
 
 })();
+
 

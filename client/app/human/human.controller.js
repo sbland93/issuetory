@@ -26,7 +26,8 @@
     function _init(){
     	user.getUser($stateParams.id).then(function(thisPageUser){
     		vm.o.thisPageUser = thisPageUser;
-    	})
+      console.log('For Test: Comment Of Vm.o.thisPageUser', vm.o.thisPageUser.comments);
+      })
     }
 
 

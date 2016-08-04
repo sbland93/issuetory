@@ -13,52 +13,19 @@
     this.create = create;
     this.remove = remove;
     this.update = update;
+    this.removeVersion = removeVersion;
     this.updateVersion = updateVersion;
 
     function getComment(commentId, refreshingCache) {
-      var deferred = $q.defer();
-
-      if(myCache.get('comment'+commentId) && !refreshingCache){
-        console.log("Using Cache..");
-        deferred.resolve(myCache.get('comment'+commentId));
-
-      }
-    
-      else{
-        console.log('For Test: refreshing');
-        Comments.one(commentId).get().then(function(currentCard){
-              myCache.put('comment'+commentId, currentCard);
-              console.log('mycache.get(card_cardId)', myCache.get('comment'+commentId));
-              deferred.resolve(myCache.get('comment'+commentId));
-            }, function(error){
-              deferred.reject(error);
-            });
-      
-      }
-
-      return deferred.promise;
+     
+      return Comments.one(commentId).get()
     
     }
 
     function getComments (params, refreshingCache) {
-      var deferred = $q.defer();
 
-      if(myCache.get('commentList') && !refreshingCache){
-
-        deferred.resolve(myCache.get('commentList'));
-
-      }
-
-      else {
-        Comments.customGET('', params).then(function(commentList){
-              myCache.put('commentList', commentList);
-              deferred.resolve(myCache.get('commentList'));
-            }, function(error){
-              deferred.reject(error);
-            });
-      }
-
-      return deferred.promise;
+      return Comments.customGET('', params)
+    
     }
 
     //Put The cardId to params.
@@ -75,9 +42,13 @@
       return Comments.one(commentId).customPUT(params);
     }
     
-    //it will delete the version of Card (of cardId)
     function updateVersion(cardId, version){
-      return Cards.version(cardId).customPUT(version);
+      return Comments.updateVersion(cardId).customPUT(version);
+    }
+
+    //it will delete the version of Card (of cardId)
+    function removeVersion(cardId, version){
+      return Comments.removeVersion(cardId).customPUT(version);
     }
 
   }

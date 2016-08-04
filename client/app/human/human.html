@@ -112,15 +112,15 @@
     
             <!-- Body -->
             <div class="panel-body">
-               <a ui-sref="forum({id:comment.card})">{{comment.title}}</a>
-                <a ui-sref="versions.comment({id:comment._id})" class="pull-right">ControllVersions</a>
+               <a ui-sref="forum({id:comment.card})">{{comment.versions[0].title}}</a>
+                <a ui-sref="commentVersions({id:comment._id})" class="pull-right">ControllVersions</a>
             </div>
             <!-- /Body -->
     
             <!-- List group -->
             <ul class="list-group">
-                <li class="list-group-item">{{comment.idea}}</li>
-                <div ng-repeat="link in comment.link">
+                <li class="list-group-item">{{comment.versions[0].idea}}</li>
+                <div ng-repeat="link in comment.versions[0].link">
                 <li class="list-group-item"><a href="{{link.url}}">{{link.title}}</a></li>
                 </div>
             </ul>

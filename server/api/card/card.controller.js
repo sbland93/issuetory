@@ -147,8 +147,6 @@ export function updateVersion(req, res){
 
 
 
-
-
 export function removeVersion(req, res){
   console.log('req.params.id:',req.params.id);
   console.log('update:req.body.version', req.body.versionId );

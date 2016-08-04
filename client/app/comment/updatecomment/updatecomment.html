@@ -1,21 +1,21 @@
 <div class="container">
     <div class="row">
     <div class="col-xs-12 well">
-        <form name="myForm" ng-submit="update.o.update(update.o.currentComment._id, update.o.currentComment)" novalidate>
+        <form name="myForm" ng-submit="update.o.update(update.o.currentComment._id, update.o.thisVersion)" novalidate>
 
         <label class="btn btn-default btn-circle btn-xs pull-right" ui-sref="forum({id:update.o.currentComment._id})"><i class="glyphicon glyphicon-remove"></i></label>
         	
 
             <fieldset class="form-group">
             <label for="title">Title of Your Idea</label>
-            <textarea class="form-control" id="title" rows="1" ng-model="update.o.currentComment.title" required></textarea> 
+            <textarea class="form-control" id="title" rows="1" ng-model="update.o.thisVersion.title" required></textarea> 
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>
         
 
             <fieldset class="form-group">
             <label for="idea">idea</label>
-            <textarea class="form-control" id="idea" rows="3" ng-model="update.o.currentComment.idea" required></textarea>
+            <textarea class="form-control" id="idea" rows="3" ng-model="update.o.thisVersion.idea" required></textarea>
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>
 
@@ -26,7 +26,7 @@
                 
                 <div ng-repeat="category in update.o.representComment">
                     <label class="radio-inline" for="radios-{{$index}}">
-                        <input type="radio" name="radios" id="radios-{{$index}}" ng-model="update.o.currentComment.category" value="{{$index+1}}">
+                        <input type="radio" name="radios" id="radios-{{$index}}" ng-model="update.o.thisVersion.category" value="{{$index+1}}">
                         {{category}}
                     </label>
                 </div>
@@ -35,7 +35,7 @@
 
             
 
-            <updatereference info="reference" ng-repeat="reference in update.o.currentComment.link"></updatereference>
+            <updatereference info="reference" ng-repeat="reference in update.o.thisVersion.link"></updatereference>
 
 
             <button type="submit" class="btn btn-primary" name="save-recipe-button" value="save-recipe-button" ng-disabled="myForm.$invalid">Contribute</button>

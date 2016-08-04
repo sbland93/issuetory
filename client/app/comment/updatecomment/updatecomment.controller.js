@@ -17,36 +17,32 @@
     console.log('representComment',vm.o.representComment)
     _init();
 
-    var lastComment = {};
-
+    vm.o.thisVersion = {};
+    
 
     function _init(){
       comment.getComment($stateParams.id, true).then(function(comment){
-        lastComment.category = comment.category;
-        lastComment.title = comment.title;
-        lastComment.idea = comment.idea;
-        //lastComment.contributor = comment.contributor[comment.contributor.length - 1];
-        lastComment.link = deepcopy.deepCopy(comment.link);
+        vm.o.thisVersion.category = comment.versions[0].category;
+        vm.o.thisVersion.title = comment.versions[0].title;
+        vm.o.thisVersion.idea = comment.versions[0].idea;
+        //vm.o.thisVersion.contributor = comment.versions[0].contributor[comment.versions[0].contributor.length - 1];
+        vm.o.thisVersion.link = deepcopy.deepCopy(comment.versions[0].link);
         vm.o.currentComment = comment;
       });
     }
     
     
-    function update(commentId, params){
-      
-      console.log("For Test: createComment is called and params.category", params.category);
 
+
+    function update(cardId, params){
       //비동기식으로 만들어야 하고,변화가 있는지 확인하고(폼에서 하자!) 해야한다.
-      params.versions.push(lastComment);
-      console.log("For Test: createComment is called and parmas", params);
-
-      comment.update(commentId, params).then(function(comment){
-        console.log("For Test: lastComment", lastComment);
+      var body = {version: params};
+      comment.updateVersion(cardId, body).then(function(comment){
+      console.log('comment', comment);
         $state.go('forum', {id:comment.card});
       }, function(error){
         console.log("Error", error);
       });
-
     }
 
     

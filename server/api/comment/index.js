@@ -15,7 +15,7 @@ router.delete('/:id',  auth.isAuthenticated(), controller.destroy);
 
 //controllVersion
 router.put('/version/:id', auth.isAuthenticated(), controller.updateVersion);
-
+router.put('/version/remove/:id', auth.isAuthenticated(), controller.removeVersion);
 
 
 module.exports = router;

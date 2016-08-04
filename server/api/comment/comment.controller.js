@@ -71,7 +71,8 @@ export function index(req, res) {
 
 // Gets a single Comment from the DB
 export function show(req, res) {
-  return Comment.findById(req.params.id).exec()
+  return Comment.findById(req.params.id).populate('creator')
+  .deepPopulate('versions.contributor').exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -146,7 +147,7 @@ export function destroy(req, res) {
 }
 
 
-export function updateVersion(req, res){
+export function removeVersion(req, res){
   console.log('req.params.id:',req.params.id);
   console.log('update:req.body.version', req.body.versionId );
     var conditions = {'_id' : req.params.id}
@@ -158,6 +159,28 @@ export function updateVersion(req, res){
       res.status(200).json(entity);
       }
     }
-  return Card.update(conditions, update, callback);
+  return Comment.update(conditions, update, callback);
 
+}
+
+
+export function updateVersion(req, res){
+    req.body.version.contributor = req.user;
+    console.log('update: updateVersion@@@@@@@@@@@@@@@@@@', req.body.version);
+    console.log('req.params.id', req.params.id);
+    //find & add version & save
+    Comment.findById(req.params.id).exec()
+      .then(function(comment){
+        console.log('comment', comment);
+        if(comment) {
+          console.log('comment' ,comment);
+          comment.versions.unshift(req.body.version);
+          return comment.save();
+        }
+      })
+      .then(function(_comment){
+        if(_comment) {
+          return res.status(200).send(_comment);
+        }
+      })
 }

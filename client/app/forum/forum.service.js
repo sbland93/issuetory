@@ -10,6 +10,7 @@
   function forum($q) {
     var vm = this;
     vm.sortByType = sortByType;
+
     
     //Sorting By Type From A to F
     //It equip the controllerObj commentA ~commentF
@@ -46,9 +47,9 @@
               commentObj.commentF.push(comment);
               break;
         }
-
-
       })
+
+        vm.representComment = [commentObj.commentA[0].versions[0].title, commentObj.commentB[0].versions[0].title, commentObj.commentC[0].versions[0].title, commentObj.commentD[0].versions[0].title, commentObj.commentE[0].versions[0].title, commentObj.commentF[0].versions[0].title];
 
     }
   

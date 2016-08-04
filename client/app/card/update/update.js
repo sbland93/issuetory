@@ -9,7 +9,7 @@
 	        url: '/update/:id',
 	        templateUrl: 'app/card/update/update.html',
 	        controller: 'updateCtrl',
-		    controllerAs: 'updateCtrl'
+		    controllerAs: 'update'
       });
   });
 

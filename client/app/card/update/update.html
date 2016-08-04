@@ -3,27 +3,27 @@
     <div class="col-xs-12 well">
 
 
-        <form name="myForm" ng-submit="updateCtrl.o.update(updateCtrl.o.currentCard._id, updateCtrl.o.thisVersion)" novalidate>
+        <form name="myForm" ng-submit="update.o.update(update.o.currentCard._id, update.o.thisVersion)" novalidate>
 
-        <label class="btn btn-default btn-circle btn-xs pull-right" ui-sref="forum({id:updateCtrl.o.currentCard._id})"><i class="glyphicon glyphicon-remove"></i></label>
+        <label class="btn btn-default btn-circle btn-xs pull-right" ui-sref="forum({id:update.o.currentCard._id})"><i class="glyphicon glyphicon-remove"></i></label>
         	
 
             <fieldset class="form-group">
             <label for="title">Title of Your Idea</label>
-            <textarea class="form-control" id="title" rows="1" ng-model="updateCtrl.o.thisVersion.title" required></textarea> 
+            <textarea class="form-control" id="title" rows="1" ng-model="update.o.thisVersion.title" required></textarea> 
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>
         
 
             <fieldset class="form-group">
             <label for="idea">idea</label>
-            <textarea class="form-control" id="idea" rows="3" ng-model="updateCtrl.o.thisVersion.idea" required></textarea>
+            <textarea class="form-control" id="idea" rows="3" ng-model="update.o.thisVersion.idea" required></textarea>
             <small class="text-muted">List the ingredients used. Put each ingredient on a new line.</small> 
             </fieldset>
 
             
 
-            <updatereference info="reference" ng-repeat="reference in updateCtrl.o.thisVersion.link"></updatereference>
+            <updatereference info="reference" ng-repeat="reference in update.o.thisVersion.link"></updatereference>
 
 
             <button type="submit" class="btn btn-primary" name="save-recipe-button" value="save-recipe-button" ng-disabled="myForm.$invalid">Contribute</button>
