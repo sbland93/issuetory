@@ -25,7 +25,10 @@
 		}
 		model.removeVersion = function(id){
 			return Restangular.one('/api/cards/version/remove', id);
-		}
+		};
+		model.hit = function(id){
+			return Restangular.one('/api/cards/hit/', id);
+		};
 		return model;
 	}
 })();

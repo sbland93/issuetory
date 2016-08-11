@@ -14,10 +14,13 @@
 		};
 		model.updateVersion = function(id){
 			return Restangular.one('/api/comments/version', id);
-		}
+		};
 		model.removeVersion = function(id){
 			return Restangular.one('/api/comments/version/remove', id);
-		}
+		};
+		model.hit = function(id){
+			return Restangular.one('/api/comments/hit/', id);
+		};
 		return model;
 	}
 

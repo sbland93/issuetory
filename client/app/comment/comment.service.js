@@ -15,6 +15,7 @@
     this.update = update;
     this.removeVersion = removeVersion;
     this.updateVersion = updateVersion;
+    this.hit = hit;
 
     function getComment(commentId, refreshingCache) {
      
@@ -49,6 +50,11 @@
     //it will delete the version of Card (of cardId)
     function removeVersion(cardId, version){
       return Comments.removeVersion(cardId).customPUT(version);
+    }
+
+    //params [ delete delete the upvote or  ]
+    function hit(commentId, params){
+      return Comments.hit(commentId).customPUT(params);
     }
 
   }

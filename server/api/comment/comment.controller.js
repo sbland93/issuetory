@@ -184,3 +184,40 @@ export function updateVersion(req, res){
         }
       })
 }
+
+
+export function hit(req, res){
+  console.log("For Test: hit function is called");
+  console.log("For Test: req.user is", req.user._id);
+  Comment.findById(req.params.id).exec()
+      .then(function(comment){
+        if(comment) {
+          console.log('upvote of comment', comment.upvote);
+          console.log('req.body.alreadyHit', req.body.alreadyHit);
+          if(!req.body.alreadyHit){
+            comment.hit.push(req.user._id);
+            comment.upvote = comment.upvote + 1;
+          }
+          else if(req.body.alreadyHit){
+            var index = comment.hit.indexOf(req.user._id);
+            console.log('For Test: indexOf user', index);
+            comment.hit.splice(index, 1);
+            comment.upvote = comment.upvote - 1;
+          }
+          console.log('upvote of comment after updating', comment.upvote);
+          return comment.save();
+        }
+      }, function(err){
+        console.log('err', err);
+        if(err){
+          return res.status(500).send(err);
+        }
+      })
+      .then(function(comment){
+        if(comment) {
+          console.log('comment', comment);
+          return res.status(200).send(comment);
+        }
+      })
+
+}

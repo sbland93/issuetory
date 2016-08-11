@@ -10,16 +10,23 @@ angular.module('constructiveApp')
         card: '=info',
         versions: '=',
         currentUser: '=',
-        updateCard: '&',
+        hitCard: '&',
         forVersion: '='
       },
       link: function (scope, element, attrs) {
-        scope.hitCard = function(){
-          console.log('scope.currentUser', scope.currentUser);
-          scope.card.hit.push(scope.currentUser);
-          console.log('For Test: scope.card.hit is', scope.card.hit);
-          scope.updateCard({newVal: scope.card});
-        }
+        
+
+        scope.$watch(
+          function(){
+            return scope.card
+          },
+          function(value){ 
+            if(!(_.isEmpty(value))){
+              scope.alreadyHit = { alreadyHit: (value.hit.indexOf(scope.currentUser) > -1)}
+            }
+          }
+        );
+
       }
     };
   });

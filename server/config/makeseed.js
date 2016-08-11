@@ -80,6 +80,7 @@ var seedComments = [{
                   card: _cardId,
                   creator: _userArray[1]._id,
                   hit: [_userArray[1]._id, _userArray[2]._id],
+                  upvote: 2,
                   versions: [
                     { category: 1, contributor: _userArray[1]._id ,title: 'What is Lorem Ipsum?',idea: ' it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum', link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}]},
                     { category: 1, contributor: _userArray[0]._id, title: 'Version1', idea: 'idea1', link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}] },
@@ -91,6 +92,7 @@ var seedComments = [{
                   card: _cardId,
                   creator: _userArray[2]._id,
                   hit: [_userArray[1]._id],
+                  upvote: 1,
                   versions: [
                   {category: 2, title: 'Why do we use it?', idea: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to us',link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}]},
                   {category: 2, title: 'Why do we use it?(version1)', idea: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to us',link: [{title: 'Naver', url:'http://www.naver.com'}, {title: 'Daum', url: 'http://www.daum.net'}]},

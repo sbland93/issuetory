@@ -29,12 +29,8 @@ var CardSchema = new Schema({
 	creator: { type: Schema.Types.ObjectId, ref: 'User', required: true},
 	contributor: [{ type: Schema.Types.ObjectId, ref: 'User'}],
 	created_at: DateSchema,
-	//updated_at: DateSchema,
-	/*title: {type: String, required: true},
-	idea: {type: String, required: true},
-	link: [ReferenceSchema],
-	keyword: [{type:String}],*/
-	hit: [{type: Schema.Types.ObjectId, ref: 'User'}],
+	upvote: {type: Number, default: 0},
+	hit: {type: [{type: Schema.Types.ObjectId, ref: 'User'}], default: []},
 	comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
 	versions: [CardVersionSchema]
 });

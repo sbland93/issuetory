@@ -19,6 +19,7 @@
     vm.o.getCard = getCard;
     vm.o.create = create;
     vm.o.update = update;
+    vm.o.hit = hit;
  
     vm.o.viewAddForm = false;
     vm.o.currentUser = storage.get('currentUser');
@@ -67,6 +68,14 @@
         console.log('hit!');
       });
     }
+
+
+    function hit(cardId, params){
+      card.hit(cardId, params).then(function(card){
+        console.log('hit');
+      })
+    }
+
 
     function remove(cardId){
       card.remove(cardId).then(function(card){

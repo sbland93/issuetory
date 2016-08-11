@@ -14,6 +14,7 @@
     this.update = update;
     this.removeVersion = removeVersion;
     this.updateVersion = updateVersion;
+    this.hit = hit;
 
     function getCard(cardId, refreshingCache) {
       return Cards.one(cardId).get();    
@@ -42,6 +43,12 @@
     //it will delete the version of Card (of cardId)
     function removeVersion(cardId, version){
       return Cards.removeVersion(cardId).customPUT(version);
+    }
+
+    //params [ delete delete the upvote or  ]
+    function hit(cardId, params){
+      console.log('hit!');
+      return Cards.hit(cardId).customPUT(params);
     }
 
 

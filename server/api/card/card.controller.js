@@ -140,6 +140,7 @@ export function updateVersion(req, res){
       })
       .then(function(_card){
         if(_card) {
+          console.log('_card in updateVersion is',_card);
           return res.status(200).send(_card);
         }
       })
@@ -161,4 +162,42 @@ export function removeVersion(req, res){
     }
   return Card.update(conditions, update, callback);
 
+}
+
+
+
+export function hit(req, res){
+  console.log("For Test: hit function is called");
+  console.log("For Test: req.user is", req.user._id);
+  console.log("For Test: req.params.id", req.params.id);
+  Card.findById(req.params.id).exec()
+      .then(function(card){
+        if(card) {
+          console.log('upvote of card' ,card.upvote);
+          console.log('req.body.alreadyHit', req.body.alreadyHit);
+          if(!req.body.alreadyHit){
+            card.hit.push(req.user._id);
+            card.upvote = card.upvote + 1;
+          }
+          else if(req.body.alreadyHit){
+            var index = card.hit.indexOf(req.user._id);
+            card.hit.splice(index, 1);
+            card.upvote = card.upvote - 1;
+          }
+
+          console.log('upvote of card after updating', card.upvote);
+          return card.save();
+        }
+      }, function(err){
+        console.log('err', err);
+        if(err){
+          return res.status(500).send(err);
+        }
+      })
+      .then(function( card){
+        if(card) {
+          console.log('card', card);
+          return res.status(200).send(card);
+        }
+      })
 }

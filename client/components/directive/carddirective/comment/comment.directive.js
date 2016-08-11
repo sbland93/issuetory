@@ -11,14 +11,14 @@ angular.module('constructiveApp')
       	comment: '=info',
         currentUser:'=',
         removeComment: '&',
-        updateComment: '&',
+        hitComment : '&',
         controllView: '&',
         forVersion: '='
       },
       link: function (scope, element, attrs) {
       	
         scope.viewcommentversions = false;
-
+        console.log(scope.category);
         switch (scope.category) {
           case 1:
               scope.type = 'primary';
@@ -58,14 +58,18 @@ angular.module('constructiveApp')
           scope.viewcommentversions = !scope.viewcommentversions
         }
 
-        scope.hitComment = function(){
-          scope.comment.hit.push(scope.currentUser);
-          scope.updateComment({newVal: scope.comment}).then(
-            function(){
-              console.log('hi');
+        scope.$watch(
+          function(){
+            return scope.comment
+          },
+          function(value){ 
+            if(!(_.isEmpty(value))){
+              scope.alreadyHit = { alreadyHit: (value.hit.indexOf(scope.currentUser) > -1)}
             }
-          );
-        }
+          }
+        );
+
+
       	
       }
     };

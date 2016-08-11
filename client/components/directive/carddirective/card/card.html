@@ -11,7 +11,8 @@
 	<span class="badge">{{card.created_at}}</span>
 
 	<div class="pull-right">
-          <button class="btn btn-xs btn-primary" ng-click="hitCard()"><i class="glyphicon glyphicon-hand-up"> {{card.hit.length}}</i></button>
+          <button class="btn btn-xs btn-primary" ng-click="hitCard({newVal: alreadyHit})"><div ng-if="!alreadyHit.alreadyHit"><i class="glyphicon glyphicon-hand-up"> {{card.hit.length}}</i></div>
+    <div ng-if="alreadyHit.alreadyHit"><i class="glyphicon glyphicon-hand-up"> {{card.hit.length}} 취소</i></div></button>
 	</div>
 
 	<div class="pull-right"><span class="label label-danger">{{card.versions[0].keyword[0]}}</span> <span class="label label-primary">{{card.versions[0].keyword[1]}}</span> <span class="label label-success">{{card.versions[0].keyword[2]}}</span> <span class="label label-info">personal</span> <span class="label label-warning">{{card.versions[0].keyword[3]}}</span>
