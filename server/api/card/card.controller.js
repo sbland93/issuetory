@@ -194,7 +194,7 @@ export function hit(req, res){
           return res.status(500).send(err);
         }
       })
-      .then(function( card){
+      .then(function(card){
         if(card) {
           console.log('card', card);
           return res.status(200).send(card);

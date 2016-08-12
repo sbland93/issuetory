@@ -77,9 +77,8 @@
     }
 
     function hit(cardId, params){
-      console.log('hit!');
       card.hit(cardId, params).then(function(card){
-        console.log('hit');
+        vm.o.currentCard = card;
       })
     }
     
