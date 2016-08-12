@@ -8,7 +8,7 @@
     .controller('forumCtrl', forumCtrl);
 
   /* @ngInject */
-  function forumCtrl($scope, $stateParams, $state, Auth, card, comment, forum, cardCache, storage) {
+  function forumCtrl($scope, $stateParams, $state, card, comment, forum, cardCache, storage) {
 
   
     var vm = this;
@@ -50,7 +50,6 @@
         forum.sortByType(vm.o.currentCard.comments, vm.o)
         
         vm.o.represent = [vm.o.commentA[0].versions[0].title, vm.o.commentB[0].versions[0].title, vm.o.commentC[0].versions[0].title, vm.o.commentD[0].versions[0].title, vm.o.commentE[0].versions[0].title, vm.o.commentF[0].versions[0].title];
-        console.log('vm.o.represent', vm.o.represent);
       });
 
 
@@ -71,25 +70,18 @@
 
 
     function hitComment(commentId, params){
-      comment.hit(commentId, params).then(function(comment){
-        console.log('hit');
-      })
+      return comment.hit(commentId, params);
     }
 
     function hit(cardId, params){
-      card.hit(cardId, params).then(function(card){
-        vm.o.currentCard = card;
-      })
+      return card.hit(cardId, params);
     }
     
 
     function update(cardId, params){
-      console.log('For Test: params', params);
-      console.log('cardId for updating', cardId);
       card.update(cardId, params).then(function(card){
           console.log('update!' , card);
         });
-      console.log('For Test: vm.o.represent', [vm.o.commentA[0].title, vm.o.commentB[0].title, vm.o.commentC[0].title, vm.o.commentD[0].title, vm.o.commentE[0].title, vm.o.commentF[0].title]);
     }
 
     function remove(cardId){

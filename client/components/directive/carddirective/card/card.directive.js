@@ -27,6 +27,13 @@ angular.module('constructiveApp')
           }
         );
 
+
+        scope._hitCard = function(){
+          scope.hitCard({newVal:scope.alreadyHit}).then(function(card){
+            scope.card = card;
+          })
+        }
+
       }
     };
   });

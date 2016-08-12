@@ -18,7 +18,6 @@ angular.module('constructiveApp')
       link: function (scope, element, attrs) {
       	
         scope.viewcommentversions = false;
-        console.log(scope.category);
         switch (scope.category) {
           case 1:
               scope.type = 'primary';
@@ -68,6 +67,12 @@ angular.module('constructiveApp')
             }
           }
         );
+
+        scope._hitComment = function(){
+          scope.hitComment({newVal: scope.alreadyHit}).then(function(comment){
+            scope.comment = comment;
+          })
+        }
 
 
       	

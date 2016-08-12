@@ -20,7 +20,7 @@
     <div ng-if="currentUser === comment.creator._id">
     <label class="btn btn-primary btn-circle btn-xs pull-right" ng-click="removeComment({newVal: comment._id, someVal:category})" style="margin-left:10px"><i class="glyphicon glyphicon-remove"></i></label>
     </div>
-    <button class="btn btn-xs btn-primary pull-right" ng-click="hitComment({newVal: alreadyHit})" style="margin-left:10px"><div ng-if="!alreadyHit.alreadyHit"><i class="glyphicon glyphicon-hand-up"> {{comment.hit.length}}</i></div>
+    <button class="btn btn-xs btn-primary pull-right" ng-click="_hitComment()" style="margin-left:10px"><div ng-if="!alreadyHit.alreadyHit"><i class="glyphicon glyphicon-hand-up"> {{comment.hit.length}}</i></div>
     <div ng-if="alreadyHit.alreadyHit"><i class="glyphicon glyphicon-hand-up"> {{comment.hit.length}} 취소</i></div>
     </button>
     <label class="btn btn-xs btn-primary pull-right" style="margin-left:10px" ng-click = "controllView({newVal : category})"><i class="glyphicon glyphicon-sort"></i></label>
