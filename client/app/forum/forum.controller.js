@@ -45,6 +45,7 @@
       card.getCard($stateParams.id).then(function(card){
         vm.o.currentCard = card;
         
+
         //it will make vm.o.commentA ~ vm.o.commentF
         //이부분도 비동기식으로 바꿔야 한다.
         forum.sortByType(vm.o.currentCard.comments, vm.o)
@@ -139,3 +140,6 @@
   }
 
 })();
+
+
+

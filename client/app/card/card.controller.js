@@ -71,9 +71,7 @@
 
 
     function hit(cardId, params){
-      card.hit(cardId, params).then(function(card){
-        console.log('hit');
-      })
+      return card.hit(cardId, params);
     }
 
 

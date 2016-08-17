@@ -7,16 +7,19 @@
     //.constant('forum_LIMIT', {count: 5});
 
   /* @ngInject */
-  function forum($q) {
+  function forum(orderByFilter) {
     var vm = this;
     vm.sortByType = sortByType;
 
-    
     //Sorting By Type From A to F
     //It equip the controllerObj commentA ~commentF
     //It equip the represent(commentA[0]~commentF[0] For helping to make category during adding comments)
     
-    function sortByType(comments, commentObj){
+    function sortByType(_comments, commentObj){
+
+        var comments = orderByFilter(_comments, 'upvote', true);
+
+
         commentObj.commentA = [];
         commentObj.commentB = [];
         commentObj.commentC = [];
@@ -50,8 +53,15 @@
       })
 
         vm.representComment = [commentObj.commentA[0].versions[0].title, commentObj.commentB[0].versions[0].title, commentObj.commentC[0].versions[0].title, commentObj.commentD[0].versions[0].title, commentObj.commentE[0].versions[0].title, commentObj.commentF[0].versions[0].title];
-
     }
+
+
+
+
+
+
   
   }
+
+
 })();

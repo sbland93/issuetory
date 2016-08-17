@@ -64,7 +64,7 @@ function handleError(res, statusCode) {
 
 // Gets a list of Comments
 export function index(req, res) {
-  return Comment.find().exec()
+  return Comment.find().sort({ upvote: -1 }).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

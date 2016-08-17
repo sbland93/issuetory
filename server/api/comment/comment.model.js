@@ -31,7 +31,7 @@ var CommentSchema = new Schema({
 	card:  {type: Schema.Types.ObjectId, ref: 'Card'} ,
 	creator: { type:Schema.Types.ObjectId, ref: 'User'},
 	created_at: DateSchema,
-	upvote: {type: Number, default: 0},
+	upvote: {type: Number, default: 0, index: true},
 	hit: [{type:Schema.Types.ObjectId, ref: 'User'}] ,
 	versions: [CommentVersionSchema]
 });
