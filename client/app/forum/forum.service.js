@@ -46,6 +46,7 @@
           case 5:
               commentObj.commentE.push(comment);
               break;
+
           case 6:
               commentObj.commentF.push(comment);
               break;
