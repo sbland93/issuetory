@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.sendMail = sendMail;
 var nodemailer = require('nodemailer');
-var q = require('q');
+var q = require('Q');
 
 /*
 // create reusable transporter object using the default SMTP transport

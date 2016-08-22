@@ -23,7 +23,7 @@ class SignupController {
       })
       .then((user) => {
         // Account created, redirect to home
-        this.$state.go('emailvalidate');
+        this.$state.go('card');
       })
       .catch(err => {
         err = err.data;
