@@ -28,9 +28,6 @@
     _init();
 
 
-    vm.o.query = {}
-    vm.o.queryBy = '$'
- 
 
     //getCard list with _init()
     function _init() {

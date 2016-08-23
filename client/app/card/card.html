@@ -7,16 +7,38 @@
 
 
 
-    Search : <input ng-model="cardCtrl.o.query[queryBy]" />
+    <label>Title: <input ng-model="search.title"></label> <br>
+    <label>Including Idea <input ng-model="search.$"></label><br>
 
-    Search By:
-    <select ng-model="cardCtrl.o.queryBy">
-        <option value="$">All</option>
-        <option value="title">Title</option>
-        <option value="idea">idea</option>
-        <option value="keyword">keyword</option>
-    </select> 
+    <fieldset>
 
+    <!-- Form Name -->
+    <legend>Form Name</legend>
+
+    <!-- Text input-->
+
+    <label class="col-md-3" for="textinput">Title</label>  
+    <div class="col-md-9">
+    <input id="textinput" type="text" ng-model="search.title" class="form-control input-md">
+    </div>
+    <br>
+
+    <!-- Search input-->
+
+    <label class="col-md-3" for="searchinput">Keyword</label>
+    <div class="col-md-9">
+    <input id="searchinput" ng-model="search.keyword" class="form-control input-md">
+    </div>
+
+
+    <!-- Search input-->
+
+    <label class="col-md-3" for="searchinput">Including Idea</label>
+    <div class="col-md-9">
+    <input id="searchinput" ng-model="search.$" class="form-control input-md">
+    </div>
+
+    </fieldset>
 
 
     
@@ -40,7 +62,7 @@
 
 
 
-    <card info="card" hit-card="cardCtrl.o.hit(card._id , newVal)" ng-repeat="card in cardCtrl.o.cardlist | filter:query" current-user="cardCtrl.o.currentUser._id"></card>
+    <card info="card" hit-card="cardCtrl.o.hit(card._id , newVal)" ng-repeat="card in cardCtrl.o.cardlist | filter:search" current-user="cardCtrl.o.currentUser._id"></card>
 
 
 </div>
