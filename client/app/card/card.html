@@ -4,6 +4,21 @@
 <addcard ng-if="cardCtrl.o.viewAddForm" create="cardCtrl.o.create(newVal)" controll-view="cardCtrl.o.controllView()"></addcard>
 
 <div class="col-md-12">
+
+
+
+    Search : <input ng-model="cardCtrl.o.query[queryBy]" />
+
+    Search By:
+    <select ng-model="cardCtrl.o.queryBy">
+        <option value="$">All</option>
+        <option value="title">Title</option>
+        <option value="idea">idea</option>
+        <option value="keyword">keyword</option>
+    </select> 
+
+
+
     
     <!-- Example -->
     <a ui-sref="forum">
@@ -23,7 +38,9 @@
     <!-- -->
 
 
-    <card info="card" hit-card="cardCtrl.o.hit(card._id , newVal)" ng-repeat="card in cardCtrl.o.cardlist" current-user="cardCtrl.o.currentUser._id"></card>
+
+
+    <card info="card" hit-card="cardCtrl.o.hit(card._id , newVal)" ng-repeat="card in cardCtrl.o.cardlist | filter:query" current-user="cardCtrl.o.currentUser._id"></card>
 
 
 </div>

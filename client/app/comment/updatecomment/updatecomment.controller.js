@@ -22,11 +22,11 @@
 
     function _init(){
       comment.getComment($stateParams.id, true).then(function(comment){
-        vm.o.thisVersion.category = comment.versions[0].category;
-        vm.o.thisVersion.title = comment.versions[0].title;
-        vm.o.thisVersion.idea = comment.versions[0].idea;
-        //vm.o.thisVersion.contributor = comment.versions[0].contributor[comment.versions[0].contributor.length - 1];
-        vm.o.thisVersion.link = deepcopy.deepCopy(comment.versions[0].link);
+        vm.o.thisVersion.category = comment.category;
+        vm.o.thisVersion.title = comment.title;
+        vm.o.thisVersion.idea = comment.idea;
+        //vm.o.thisVersion.contributor = comment.contributor[comment.contributor.length - 1];
+        vm.o.thisVersion.link = deepcopy.deepCopy(comment.link);
         vm.o.currentComment = comment;
       });
     }

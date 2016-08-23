@@ -16,7 +16,6 @@ var makeUsers = MakeSeed.makeUsers;
 
 
 var _userArray;
-var _cardId;
 var _commentId;
 //var _card;
 var _cardArray
@@ -31,30 +30,21 @@ User.find({}).remove()
 .then(function(){
   return Card.create(makeCards(_userArray))
 })
-
-
-/*.then(function(card){
-  _card = card;
-  _cardId = _card._id;
-  return User.findById(_card.creator).exec()
-})
-.then(function(user){
-  user.cards.push(_cardId);
-  return user.save()
-})*/
-
 .then(function(cardArray){
   _cardArray = cardArray;
+
   for(var i = 0; i < cardArray.length; i++){
     
     var _cardCreator = _cardArray[i].creator;
-    (function(_cardCreator){
+    var _cardId = _cardArray[i]._id;
+  
+    (function(_cardCreator, _cardId){
        return User.findById(_cardCreator).exec()
               .then(function(user){
-                user.cards.push(_cardCreator);
+                user.cards.push(_cardId);
                 return user.save();
               })
-    })(_cardCreator);
+    })(_cardCreator , _cardId);
 
   }
   return console.log('equipping card to user is finsihed');

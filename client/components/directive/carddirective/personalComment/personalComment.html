@@ -1,0 +1,38 @@
+<!-- Separator -->
+<div class="separator text-muted">
+    <time>{{comment.created_at}}</time>
+</div>
+<!-- /Separator -->
+
+<!-- Panel For Comments -->
+<article class="panel panel-success">
+
+    <!-- Icon -->
+    <div class="panel-heading icon">
+        <i class="glyphicon glyphicon-plus"></i>
+    </div>
+    <!-- /Icon -->
+
+    <!-- Heading -->
+    <div class="panel-heading">
+        <h2 class="panel-title">New Comment Added</h2>
+    </div>
+    <!-- /Heading -->
+
+    <!-- Body -->
+    <div class="panel-body">
+       <a ui-sref="forum({id:comment.card})">{{comment.title}}</a>
+        <a ui-sref="commentVersions({id:comment._id})" class="pull-right">ControllVersions</a>
+    </div>
+    <!-- /Body -->
+
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">{{comment.idea}}</li>
+        <div ng-repeat="link in comment.link">
+        <li class="list-group-item"><a href="{{link.url}}">{{link.title}}</a></li>
+        </div>
+    </ul>
+
+</article>
+<!-- /Panel -->

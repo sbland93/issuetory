@@ -25,10 +25,10 @@
 
     function _init(){
       card.getCard($stateParams.id, true).then(function(card){
-        vm.o.thisVersion.title = card.versions[0].title;
-        vm.o.thisVersion.idea = card.versions[0].idea;
-        vm.o.thisVersion.link = deepcopy.deepCopy(card.versions[0].link);
-        vm.o.thisVersion.keyword = card.versions[0].keyword.slice(0);
+        vm.o.thisVersion.title = card.title;
+        vm.o.thisVersion.idea = card.idea;
+        vm.o.thisVersion.link = deepcopy.deepCopy(card.link);
+        vm.o.thisVersion.keyword = card.keyword.slice(0);
         vm.o.currentCard = card;
       });
     }

@@ -23,11 +23,13 @@
  
     vm.o.viewAddForm = false;
     vm.o.currentUser = storage.get('currentUser');
-    console.log('For Test: storage.get("currentUser")', storage.get('currentUser'));
 
     vm.o.cardlist = []; 
     _init();
 
+
+    vm.o.query = {}
+    vm.o.queryBy = '$'
  
 
     //getCard list with _init()

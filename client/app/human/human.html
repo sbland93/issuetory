@@ -41,95 +41,15 @@
     	
     	<div ng-repeat = "card in human.o.thisPageUser.cards">
 
-		<!-- Separator -->
-        <div class="separator text-muted">
-            <time>{{card.created_at}}</time>
+    		<personal-card info="card"></personal-card>
+        
         </div>
-        <!-- /Separator -->
-
-
-        <!-- Panel -->
-        <article class="panel panel-primary">
-    
-            <!-- Icon -->
-            <div class="panel-heading icon">
-                <i class="glyphicon glyphicon-plus"></i>
-            </div>
-            <!-- /Icon -->
-    
-            <!-- Heading -->
-            <div class="panel-heading">
-                <h2 class="panel-title">New Card Added</h2>
-            </div>
-            <!-- /Heading -->
-    
-            <!-- Body -->
-            <div class="panel-body">
-                <a ui-sref="forum({id:card._id})">{{card.versions[0].title}}</a>
-                <a ui-sref="versions({id:card._id})" class="pull-right">ControllVersions</a>
-            </div>
-            <!-- /Body -->
-
-            <!-- List group -->
-            <ul class="list-group">
-                <li class="list-group-item">{{card.versions[0].idea}}</li>
-                <div ng-repeat="link in card.versions[0].link">
-                <li class="list-group-item"><a href="{{link.url}}">{{link.title}}</a></li>
-                </div>
-            </ul>
-    
-    
-        </article>
-        <!-- /Panel -->
-        </div>
-
-
-
     	
-    	<div ng-repeat="comment in human.o.thisPageUser.comments">
+    	<div ng-repeat="comment1 in human.o.thisPageUser.comments">
 
-
-    	<!-- Separator -->
-        <div class="separator text-muted">
-            <time>{{comment.created_at}}</time>
-        </div>
-        <!-- /Separator -->
-
-        <!-- Panel For Comments -->
-        <article class="panel panel-success">
-    
-            <!-- Icon -->
-            <div class="panel-heading icon">
-                <i class="glyphicon glyphicon-plus"></i>
-            </div>
-            <!-- /Icon -->
-    
-            <!-- Heading -->
-            <div class="panel-heading">
-                <h2 class="panel-title">New Comment Added</h2>
-            </div>
-            <!-- /Heading -->
-    
-            <!-- Body -->
-            <div class="panel-body">
-               <a ui-sref="forum({id:comment.card})">{{comment.versions[0].title}}</a>
-                <a ui-sref="commentVersions({id:comment._id})" class="pull-right">ControllVersions</a>
-            </div>
-            <!-- /Body -->
-    
-            <!-- List group -->
-            <ul class="list-group">
-                <li class="list-group-item">{{comment.versions[0].idea}}</li>
-                <div ng-repeat="link in comment.versions[0].link">
-                <li class="list-group-item"><a href="{{link.url}}">{{link.title}}</a></li>
-                </div>
-            </ul>
-    
-        </article>
-        <!-- /Panel -->
+            <personal-comment info="comment1"></personal-comment>
+    	
     	</div>
-
-
 
 		<!-- Separator -->
 	    <div class="separator text-muted">

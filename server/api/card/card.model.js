@@ -33,6 +33,14 @@ var CardSchema = new Schema({
 	hit: {type: [{type: Schema.Types.ObjectId, ref: 'User'}], default: []},
 	comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
 	versions: [CardVersionSchema]
+},
+{
+	toObject: {
+	virtuals: true
+	},
+	toJSON: {
+	virtuals: true 
+	}
 });
 
 
@@ -43,6 +51,21 @@ CardSchema.path('versions').validate(function(versions){
 }, 'Card needs to have title and idea');
 
 
+CardSchema.virtual('title').get(function() {
+	return this.versions[0].title;
+})
+
+CardSchema.virtual('idea').get(function(){
+	return this.versions[0].idea;
+})
+
+CardSchema.virtual('keyword').get(function(){
+	return this.versions[0].keyword;
+})
+
+CardSchema.virtual('link').get(function(){
+	return this.versions[0].link;
+})
 
 
 CardSchema.plugin(deepPopulate);

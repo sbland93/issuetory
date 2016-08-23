@@ -50,7 +50,7 @@
         //이부분도 비동기식으로 바꿔야 한다.
         forum.sortByType(vm.o.currentCard.comments, vm.o)
         
-        vm.o.represent = [vm.o.commentA[0].versions[0].title, vm.o.commentB[0].versions[0].title, vm.o.commentC[0].versions[0].title, vm.o.commentD[0].versions[0].title, vm.o.commentE[0].versions[0].title, vm.o.commentF[0].versions[0].title];
+        vm.o.represent = [vm.o.commentA[0].title, vm.o.commentB[0].title, vm.o.commentC[0].title, vm.o.commentD[0].title, vm.o.commentE[0].title, vm.o.commentF[0].title];
       });
 
 
@@ -98,12 +98,12 @@
       comment.create(params, cardId).then(function(comment){
 
         console.log("For Test: comment is", comment);
-        if(comment.versions[0].category == 1) vm.o.commentA.push(comment);
-        if(comment.versions[0].category == 2) vm.o.commentB.push(comment);
-        if(comment.versions[0].category == 3) vm.o.commentC.push(comment);
-        if(comment.versions[0].category == 4) vm.o.commentD.push(comment);
-        if(comment.versions[0].category == 5) vm.o.commentE.push(comment);
-        if(comment.versions[0].category == 6) vm.o.commentF.push(comment);
+        if(comment.category == 1) vm.o.commentA.push(comment);
+        if(comment.category == 2) vm.o.commentB.push(comment);
+        if(comment.category == 3) vm.o.commentC.push(comment);
+        if(comment.category == 4) vm.o.commentD.push(comment);
+        if(comment.category == 5) vm.o.commentE.push(comment);
+        if(comment.category == 6) vm.o.commentF.push(comment);
         vm.o.addComment = !vm.o.addComment;
       });
 

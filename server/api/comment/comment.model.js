@@ -34,6 +34,14 @@ var CommentSchema = new Schema({
 	upvote: {type: Number, default: 0, index: true},
 	hit: [{type:Schema.Types.ObjectId, ref: 'User'}] ,
 	versions: [CommentVersionSchema]
+},
+{
+	toObject: {
+	virtuals: true
+	},
+	toJSON: {
+	virtuals: true 
+	}
 });
 
 
@@ -44,6 +52,27 @@ var ReplySchema = new Schema({
 	hit: [{type:Schema.Types.ObjectId, ref: 'User'}],
 	link: [ReferenceSchema]
 });
+
+
+CommentSchema.virtual('title').get(function() {
+	return this.versions[0].title;
+})
+
+CommentSchema.virtual('idea').get(function(){
+	return this.versions[0].idea;
+})
+
+CommentSchema.virtual('keyword').get(function(){
+	return this.versions[0].keyword;
+})
+
+CommentSchema.virtual('link').get(function(){
+	return this.versions[0].link;
+})
+
+CommentSchema.virtual('category').get(function(){
+	return this.versions[0].category;
+})
 
 
 CommentSchema.add({ replies: [ReplySchema]  });
