@@ -23,7 +23,7 @@
             <!-- Body -->
             <div class="panel-body">
                 <a ui-sref="forum({id:card._id})">{{card.title}}</a>
-                <a ui-sref="versions({id:card._id})" class="pull-right">ControllVersions</a>
+                <a ui-sref="versions({id:card._id})" class="pull-right" ng-if="auth">ControllVersions</a>
             </div>
             <!-- /Body -->
 

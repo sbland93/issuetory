@@ -152,6 +152,7 @@ export function updateVersion(req, res){
 
 
 export function removeVersion(req, res){
+
   console.log('req.params.id:',req.params.id);
   console.log('update:req.body.version', req.body.versionId );
     var conditions = {'_id' : req.params.id}
@@ -170,14 +171,9 @@ export function removeVersion(req, res){
 
 
 export function hit(req, res){
-  console.log("For Test: hit function is called");
-  console.log("For Test: req.user is", req.user._id);
-  console.log("For Test: req.params.id", req.params.id);
   Card.findById(req.params.id).exec()
       .then(function(card){
         if(card) {
-          console.log('upvote of card' ,card.upvote);
-          console.log('req.body.alreadyHit', req.body.alreadyHit);
           if(!req.body.alreadyHit){
             card.hit.push(req.user._id);
             card.upvote = card.upvote + 1;
@@ -188,18 +184,15 @@ export function hit(req, res){
             card.upvote = card.upvote - 1;
           }
 
-          console.log('upvote of card after updating', card.upvote);
           return card.save();
         }
       }, function(err){
-        console.log('err', err);
         if(err){
           return res.status(500).send(err);
         }
       })
       .then(function(card){
         if(card) {
-          console.log('card', card);
           return res.status(200).send(card);
         }
       })

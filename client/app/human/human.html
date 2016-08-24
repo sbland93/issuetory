@@ -10,13 +10,14 @@
             </div>            
             <div class="col-xs-12 divider text-center">
                 <div class="col-xs-6 col-sm-6 emphasis">
-                    <h2><strong> 20,7K </strong></h2>                    
+                    <h2><strong> {{human.o.thisPageUser.score}} </strong></h2>
                     <p><small>Contribute</small></p>
                 </div>
+            </div>
+            <div class="col-xs-12 divider text-center">
                 <div class="col-xs-6 col-sm-6 emphasis">
-                    <h2><strong>245</strong></h2>                    
-                    <p><small>Following</small></p>
-                    <button class="btn btn-info btn-block"><span class="fa fa-user"></span> Follow </button>
+                    <h2><strong> {{human.o.thisPageUser.score}} </strong></h2>
+                    <p><small>Power</small></p>
                 </div>
             </div>
     	 </div>                 
@@ -41,13 +42,13 @@
     	
     	<div ng-repeat = "card in human.o.thisPageUser.cards">
 
-    		<personal-card info="card"></personal-card>
+    		<personal-card info="card" auth="human.o.auth"></personal-card>
         
         </div>
     	
     	<div ng-repeat="comment1 in human.o.thisPageUser.comments">
 
-            <personal-comment info="comment1"></personal-comment>
+            <personal-comment info="comment1" auth="human.o.auth"></personal-comment>
     	
     	</div>
 

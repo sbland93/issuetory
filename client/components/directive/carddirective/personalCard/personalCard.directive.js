@@ -6,7 +6,8 @@ angular.module('constructiveApp')
       templateUrl: 'components/directive/carddirective/personalCard/personalCard.html',
       restrict: 'EA',
       scope : {
-      	card : '=info'
+      	card : '=info',
+        auth: '=auth'
       },
       link: function (scope, element, attrs) {
       	

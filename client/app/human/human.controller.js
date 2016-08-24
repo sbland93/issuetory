@@ -3,11 +3,6 @@
 //가져올때 sorting을 created로 한다
 //comment와 card의 UI는다르게 준다
 
-
-
-
-
-
 (function() {
   'use strict';
 
@@ -16,18 +11,20 @@
     .controller('humanCtrl', humanCtrl);
 
   /* @ngInject */
-  function humanCtrl($stateParams, user) {
+  function humanCtrl($stateParams, user, storage) {
 
   
     var vm = this;
     vm.o = {};
     _init();
 
+
+
     function _init(){
     	user.getUser($stateParams.id).then(function(thisPageUser){
-    		vm.o.thisPageUser = thisPageUser;
-      console.log('For Test: Comment Of Vm.o.thisPageUser', vm.o.thisPageUser.comments);
-      console.log('For Test: Cards Of Vm.o.thisPageUser', vm.o.thisPageUser.cards);
+    		
+        vm.o.thisPageUser = thisPageUser;
+        vm.o.auth = (thisPageUser._id == storage.get('currentUser')._id);
 
       })
     }

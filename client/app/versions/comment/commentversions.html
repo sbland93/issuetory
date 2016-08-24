@@ -7,18 +7,41 @@
 	</div>
 
 	<div ng-repeat="version in commentVersions.o.currentComment.versions">
+
+
 		<div class="col-md-7">
+
+			<div ng-hide="version.contributor._id === commentVersions.o.currentUser">
+
+
+			<div class="dropdown pull-right" style="margin-right: 10px">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">칭찬합니다
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+				<li><a class="btn" ng-click="commentVersions.o.updateScore(+5, version.contributor._id)">핵심적인 버전입니다.(+5)</a></li>
+				<li><a class="btn" ng-click="commentVersions.o.updateScore(+2, version.contributor._id)">멋진 버전입니다.(+2)</a></li>
+				<li><a class="btn" ng-click="commentVersions.o.updateScore(+1, version.contributor._id)">좋은 버전입니다.(+1)</a></li>
+				</ul>
+			</div>
+
+
+
+
 			<div class="dropdown pull-right">
 			  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">RemoveThisVersion
 			  <span class="caret"></span></button>
 			  <ul class="dropdown-menu">
-			    <li><a class="btn" ng-click="commentVersions.o.controllVersion($index,-10, version.contributor._id)">악의적 훼손입니다(-10)</a></li>
-			    <li><a class="btn" ng-click="commentVersions.o.controllVersion($index, -2, version.contributor._id)">논지와 많이 다릅니다(-2)</a></li>
+			    <li><a class="btn" ng-click="commentVersions.o.controllVersion($index,-20, version.contributor._id)">악의적 훼손입니다(-20)</a></li>
+			    <li><a class="btn" ng-click="commentVersions.o.controllVersion($index, -5, version.contributor._id)">논지와 많이 다릅니다(-5)</a></li>
 			    <li><a class="btn" ng-click="commentVersions.o.controllVersion($index, -1, version.contributor._id)">논지와 조금 다릅니다(-1)</a></li>
 			    <li><a class="btn" ng-click="commentVersions.o.controllVersion($index, 0, version.contributor._id)">단순히(+0)</a></li>
 			  </ul>
 			</div>
+
+			</div>
+
 			<commentversion info="version" my-style="'testimonial testimonial-danger'"></commentversion>
+
 		</div>
 	</div>
 

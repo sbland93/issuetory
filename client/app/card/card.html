@@ -1,19 +1,15 @@
 <div class="container">
-<button class="btn" ng-click="cardCtrl.o.controllView()">Spread your idea[Add]</button>
+<button class="btn pull-right" ng-click="cardCtrl.o.controllView()">Spread your idea[Add]</button>
 
 <addcard ng-if="cardCtrl.o.viewAddForm" create="cardCtrl.o.create(newVal)" controll-view="cardCtrl.o.controllView()"></addcard>
 
 <div class="col-md-12">
 
 
-
-    <label>Title: <input ng-model="search.title"></label> <br>
-    <label>Including Idea <input ng-model="search.$"></label><br>
-
     <fieldset>
 
-    <!-- Form Name -->
-    <legend>Form Name</legend>
+    <!-- Search -->
+    <legend>Search</legend>
 
     <!-- Text input-->
 

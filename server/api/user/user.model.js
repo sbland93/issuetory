@@ -36,7 +36,7 @@ var UserSchema = new Schema({
       }
     }
   },
-  score: {type: Number, default: 10},
+  score: {type: Number, default: 20},
   provider: String,
   salt: String,
   facebook: {},
@@ -75,6 +75,7 @@ UserSchema
   .virtual('profile')
   .get(function() {
     return {
+      '_id' : this._id,
       'name': this.name,
       'role': this.role,
       'cards': this.cards,
