@@ -91,16 +91,3 @@ export function setTokenCookie(req, res) {
   res.cookie('token', token);
   res.redirect('/');
 }
-
-export function isYours(req, res, next){
-  console.log('req.user', req.user);
-  console.log('req.params.id', req.params.id)
-  
-  if(req.user._id == req.params.id){
-    next();
-  }
-  else{
-    return res.status(404).send('i don\'t think it\'s not yours, please try other stuf000fs.')
-  }
-
-}
