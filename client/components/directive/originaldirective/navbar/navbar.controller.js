@@ -4,7 +4,7 @@
 class NavbarController {
   //start-non-standard
   menu = [{
-    'title': 'Home',
+    'title': 'glory',
     'state': 'card'
   },
   {
@@ -13,7 +13,7 @@ class NavbarController {
   },
   {
     'title': 'Glory',
-    'state': 'main'
+    'state': 'glory'
   },
   {
     'title': 'Newest',

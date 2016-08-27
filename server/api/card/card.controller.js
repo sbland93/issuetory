@@ -67,10 +67,11 @@ function handleError(res, statusCode) {
 
 // Gets a list of Cards
 export function index(req, res) {
-  return Card.find().populate('creator', '_id').populate({
+  console.log('req.params.queryOptions', req.params.queryOptions);
+  return Card.find(req.params.queryOptions).populate('creator', '_id').populate({
     path: 'comments'
   , options: { sort: { upvote: -1 }}
-}).sort({upvote: -1}).exec()
+}).sort({created_at: -1}).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

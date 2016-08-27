@@ -37,6 +37,15 @@ User.find({}).remove()
     
     var _cardCreator = _cardArray[i].creator;
     var _cardId = _cardArray[i]._id;
+
+
+    for(var k = 0; k< i; k++){
+
+      _cardArray[i].hit.push(_userArray[k]._id);
+    
+    }
+    _cardArray[i].upvote = (i+1);
+    _cardArray[i].save();
   
     (function(_cardCreator, _cardId){
        return User.findById(_cardCreator).exec()

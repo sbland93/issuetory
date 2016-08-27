@@ -12,7 +12,7 @@
 	        templateUrl: 'app/card/card.html',
 	        controller: 'cardCtrl',
 		    controllerAs: 'cardCtrl'
-      });
+      	});
   });
 
 	function Cards(Restangular){

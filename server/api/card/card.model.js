@@ -12,12 +12,9 @@ var ReferenceSchema = new Schema({
 });
 
 
-var DateSchema = { type: Date, default: Date.now};
-
-
 var CardVersionSchema = new Schema({
 	contributor: { type: Schema.Types.ObjectId, ref:'User'},
-	created_at: DateSchema,
+	updated_at: { type: Date, default: Date.now },
 	title: {type: String, required: true},
 	idea: {type: String, required: true},
 	link: [ReferenceSchema],
@@ -28,8 +25,8 @@ var CardVersionSchema = new Schema({
 var CardSchema = new Schema({
 	creator: { type: Schema.Types.ObjectId, ref: 'User', required: true},
 	contributor: [{ type: Schema.Types.ObjectId, ref: 'User'}],
-	created_at: DateSchema,
-	upvote: {type: Number, default: 0, index: true},
+	created_at: { type: Date, default: Date.now, index: true},
+	upvote: {type: Number, default: 0},
 	hit: {type: [{type: Schema.Types.ObjectId, ref: 'User'}], default: []},
 	comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
 	versions: [CardVersionSchema]
