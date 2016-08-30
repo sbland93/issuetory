@@ -1,4 +1,4 @@
-
+/*
 'use strict';
 
 class NavbarController {
@@ -27,12 +27,45 @@ class NavbarController {
   isCollapsed = true;
   //end-non-standard
 
-  constructor(Auth) {
+  constructor(Auth, card) {
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
+    this.cardTest = card.test;
   }
 }
 
 angular.module('constructiveApp')
-  .controller('NavbarController', NavbarController);
+  .controller('NavbarController', NavbarController);*/
+
+
+(function() {
+  'use strict';
+
+  angular
+    .module('constructiveApp')
+    .controller('NavbarController', NavbarController);
+
+  /* @ngInject */
+  function NavbarController(Auth, card) {
+  
+    var vm = this;
+    
+    vm.menu = [{
+    'title': 'Card',
+    'state': 'card'
+  },
+  {
+    'title': 'TeamWiki',
+    'state': 'main'
+  }];
+
+  vm.isCollapsed = true;
+
+  vm.isLoggedIn = Auth.isLoggedIn;
+  vm.isAdmin = Auth.isAdmin;
+  vm.getCurrentUser = Auth.getCurrentUser;
+
+  }
+
+})();

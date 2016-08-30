@@ -17,38 +17,49 @@
 
     vm.o.controllView = controllView;
     vm.o.getCard = getCard;
+    vm.o.getCards = getCards;
     vm.o.create = create;
     vm.o.update = update;
     vm.o.hit = hit;
+
+    //sort
+    vm.o.sortGlory = sortGlory;
+    vm.o.sortHistory = sortHistory;
+    vm.o.sortAll = sortAll;
  
     vm.o.viewAddForm = false;
     vm.o.currentUser = storage.get('currentUser');
 
-    vm.o.cardlist = []; 
+    vm.o.cardlist = [];
     _init();
 
 
 
     //getCard list with _init()
     function _init() {
-      _getCards();
+    
+      getCards();
+    
     }
 
 
-    function _getCards(){
 
-      card.getCards().then(function(cards){
+    //params including sorting option and query options;
+    function getCards(params){
+
+      card.getCards(params).then(function(cards){
         vm.o.cardlist = cards;
-        console.log('vm.o.cardlist', vm.o.cardlist);
       });
     
     }
 
 
     function getCard(cardId){
+
       card.getCard(cardId).then(function(card){
         vm.o.currentCard = card;
       })
+    
     }
 
 
@@ -84,6 +95,20 @@
 
     function controllView(){
       vm.o.viewAddForm = !vm.o.viewAddForm;
+    }
+
+
+
+    function sortGlory(gloryStandard){
+      getCards({ queryOptions: {upvote: {$gte: gloryStandard}}, sortOptions : {created_at: -1}});
+    }
+
+    function sortAll(){
+      getCards();
+    }
+
+    function sortHistory(){
+      getCards({sortOptions: {upvote: -1}});
     }
 
 

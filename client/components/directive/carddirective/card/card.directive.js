@@ -14,7 +14,8 @@ angular.module('constructiveApp')
         forVersion: '='
       },
       link: function (scope, element, attrs) {
-        
+   
+
 
         scope.$watch(
           function(){
@@ -22,7 +23,9 @@ angular.module('constructiveApp')
           },
           function(value){ 
             if(!(_.isEmpty(value))){
+            
               scope.alreadyHit = { alreadyHit: (value.hit.indexOf(scope.currentUser) > -1)}
+              value.created_at = moment(value.created_at).format('YYYY년 MM월 DD일 HH시 MM분');
             }
           }
         );

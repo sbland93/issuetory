@@ -44,7 +44,7 @@ User.find({}).remove()
       _cardArray[i].hit.push(_userArray[k]._id);
     
     }
-    _cardArray[i].upvote = (i+1);
+    _cardArray[i].upvote = i;
     _cardArray[i].save();
   
     (function(_cardCreator, _cardId){

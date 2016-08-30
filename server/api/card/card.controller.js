@@ -67,11 +67,19 @@ function handleError(res, statusCode) {
 
 // Gets a list of Cards
 export function index(req, res) {
-  console.log('req.params.queryOptions', req.params.queryOptions);
-  return Card.find(req.params.queryOptions).populate('creator', '_id').populate({
+  console.log('req.query.queryOptions', req.query.queryOptions);
+  var queryOptions = undefined,
+      sortOptions = undefined;
+  if(req.query.queryOptions){
+     queryOptions = JSON.parse(req.query.queryOptions);
+  }
+  if(req.query.sortOptions){
+    sortOptions = JSON.parse(req.query.sortOptions);
+  }
+  return Card.find(queryOptions).populate('creator', '_id').populate({
     path: 'comments'
   , options: { sort: { upvote: -1 }}
-}).sort({created_at: -1}).exec()
+}).sort(sortOptions).exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

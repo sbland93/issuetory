@@ -8,7 +8,7 @@
     <reference info="reference" ng-repeat = "reference in card.link"></reference>
     
     <div>
-	<span class="badge">{{card.created_at}}</span>
+	<span class="badge" type="time">{{card.created_at}}</span>
 
 	<div class="pull-right">
           <button class="btn btn-xs btn-primary" ng-click="_hitCard()"><div ng-if="!alreadyHit.alreadyHit"><i class="glyphicon glyphicon-hand-up"> {{card.hit.length}}</i></div>

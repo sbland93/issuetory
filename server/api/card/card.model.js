@@ -6,6 +6,9 @@ var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 var Schema = mongoose.Schema;
 
+var date = new Date();
+var koreanDate = date.toLocaleTimeString('ko-KR');
+
 var ReferenceSchema = new Schema({
 	title: {type: String, required: true},
 	url: {type: String, required: true}

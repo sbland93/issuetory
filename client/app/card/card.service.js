@@ -16,11 +16,12 @@
     this.updateVersion = updateVersion;
     this.hit = hit;
 
-    function getCard(cardId, refreshingCache) {
+    function getCard(cardId) {
       return Cards.one(cardId).get();    
     }
 
-    function getCards(groupId, params, refreshingCache) {
+    function getCards(params) {
+      console.log('params', params);
       return Cards.customGET('', params);
     }
 

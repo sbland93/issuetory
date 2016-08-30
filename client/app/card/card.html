@@ -1,5 +1,6 @@
 <div class="container">
-<button class="btn pull-right" ng-click="cardCtrl.o.controllView()">Spread your idea[Add]</button>
+<button class="btn btn-danger pull-right" ng-click="cardCtrl.o.controllView()">Spread your idea[Add]</button>
+
 
 <addcard ng-if="cardCtrl.o.viewAddForm" create="cardCtrl.o.create(newVal)" controll-view="cardCtrl.o.controllView()"></addcard>
 
@@ -9,7 +10,7 @@
     <fieldset>
 
     <!-- Search -->
-    <legend>Search</legend>
+    <legend>Search & Sort</legend>
 
     <!-- Text input-->
 
@@ -34,11 +35,26 @@
     <input id="searchinput" ng-model="search.$" class="form-control input-md">
     </div>
 
+    
+    <label class="col-md-6" style="margin-top: 15px">
+        CardSort
+    </label>
+
+
+    <div class="col-md-6" style="margin-top: 15px">
+    <button class="btn btn-info pull-right" ng-click="cardCtrl.o.sortAll()" style="margin-right: 10px">Show All</button>
+    <button class="btn btn-warning pull-right" ng-click="cardCtrl.o.sortGlory(3)" style="margin-right: 10px">Sort Glory</button>
+    <button class="btn btn-info pull-right" ng-click="cardCtrl.o.sortHistory()" style="margin-right: 10px">Sort From History</button>
+    </div>
+    
+
     </fieldset>
 
 
     
     <!-- Example -->
+    <div style="margin-top:50px">
+        
     <a ui-sref="forum">
     <label class="btn btn-warning btn-xs pull-right"><i class="glyphicon glyphicon-remove"></i></label>
     <label class="btn btn-warning btn-xs pull-right" style="margin-right:10px" ui-sref="update"><i class="glyphicon glyphicon-pencil"></i></label>
@@ -48,14 +64,14 @@
     'I never said I didn't!' interrupted Alice.
     'You did,' said the Mock Turtle.</p>
     <div>
-	<span class="badge">Posted 2012-08-02 20:47:04</span><div class="pull-right"><span class="label label-warning">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
-	<span class="label label-danger">Danger</span></div>         
+    <span class="badge">Posted 2012-08-02 20:47:04</span><div class="pull-right"><span class="label label-warning">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span></div>         
      </div>
     <hr>
     </a>
+
+    </div>
     <!-- -->
-
-
 
 
     <card info="card" hit-card="cardCtrl.o.hit(card._id , newVal)" ng-repeat="card in cardCtrl.o.cardlist | filter:search" current-user="cardCtrl.o.currentUser._id"></card>
