@@ -3,8 +3,11 @@ exports.makeCards = makeCards;
 exports.makeUsers = makeUsers;
 
 
-function makeUsers(){
 
+var seedUsers = [];
+
+function makeUsers(numberOfUsers){
+  /*
 	var seedUsers = [{
 	      provider: 'local',
 	      name: 'Test User',
@@ -81,8 +84,24 @@ function makeUsers(){
 	      name: 'Admin',
 	      email: 'admin@example.com',
 	      password: 'admin'
-	    }];
+	    }];*/
 
+  for(var i = 0; i < numberOfUsers; i++){
+      seedUsers.push({
+        provider: 'local',
+        name: 'Test User'+i,
+        email: 'test'+i+'@example.com',
+        password: 'test'+i
+    });
+  }
+
+  seedUsers.push({
+        provider: 'local',
+        role: 'admin',
+        name: 'Admin',
+        email: 'admin@example.com',
+        password: 'admin'
+      });
 
 	return seedUsers;
 

@@ -1,0 +1,18 @@
+<div class="bs-calltoaction bs-calltoaction-default">
+    <div class="row">
+        <div class="col-md-9 cta-contents">
+            <h1 class="cta-title">
+            <span class="glyphicon glyphicon-lock" ng-if="project.private"></span>{{project.name}}</h1>
+            <div class="cta-desc">
+                <p>Project Creator: {{project.creator.name}}</p>
+                <p>Where : {{project.where}} Who: {{project.who}}</p>
+                <p>Team: {{project.contributor}}</p>
+                <p>Created_at: {{project.created_at}}</p>
+                <p>Keyword: {{project.keyword}}</p>
+            </div>
+        </div>
+        <div class="col-md-3 cta-button">
+            <a ui-sref="project({ id: project._id })" class="btn btn-lg btn-block btn-default">Go for It!</a>
+        </div>
+     </div>
+</div>

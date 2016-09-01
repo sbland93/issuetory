@@ -27,7 +27,6 @@ var CardVersionSchema = new Schema({
 
 var CardSchema = new Schema({
 	creator: { type: Schema.Types.ObjectId, ref: 'User', required: true},
-	contributor: [{ type: Schema.Types.ObjectId, ref: 'User'}],
 	created_at: { type: Date, default: Date.now, index: true},
 	upvote: {type: Number, default: 0},
 	hit: {type: [{type: Schema.Types.ObjectId, ref: 'User'}], default: []},

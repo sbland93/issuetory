@@ -57,7 +57,7 @@ angular.module('constructiveApp')
   },
   {
     'title': 'TeamWiki',
-    'state': 'main'
+    'state': 'teamwiki'
   }];
 
   vm.isCollapsed = true;

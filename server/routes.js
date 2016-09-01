@@ -9,6 +9,7 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/teamwikis', require('./api/teamwiki'));
   app.use('/api/comments', require('./api/comment'));
   app.use('/api/cards', require('./api/card'));
   app.use('/api/things', require('./api/thing'));

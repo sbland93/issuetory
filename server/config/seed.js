@@ -8,11 +8,14 @@ import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import Card from '../api/card/card.model';
 import Comment from '../api/comment/comment.model';
-import MakeSeed from './makeseed';
+import Teamwiki from '../api/teamwiki/teamwiki.model';
+import MakeSeedCard from './makeseedcard';
+import MakeSeedProject from './makeseedproject';
 
-var makeComments = MakeSeed.makeComments;
-var makeCards = MakeSeed.makeCards;
-var makeUsers = MakeSeed.makeUsers;
+var makeProjects = MakeSeedProject.makeProjects;
+var makeComments = MakeSeedCard.makeComments;
+var makeCards = MakeSeedCard.makeCards;
+var makeUsers = MakeSeedCard.makeUsers;
 
 
 var _userArray;
@@ -21,10 +24,11 @@ var _commentId;
 var _cardArray
 User.find({}).remove()
 .then(function(){
-  return User.create(makeUsers())
+  return User.create(makeUsers(20))
 })
 .then(function(_user){
   _userArray = _user;
+  makeProjectSeed(_userArray);
   return Card.find({}).remove()
 })
 .then(function(){
@@ -45,7 +49,9 @@ User.find({}).remove()
     
     }
     _cardArray[i].upvote = i;
-    _cardArray[i].save();
+    _cardArray[i].save(function(err){
+      if(err) return 'error!';
+    });
   
     (function(_cardCreator, _cardId){
        return User.findById(_cardCreator).exec()
@@ -88,6 +94,44 @@ User.find({}).remove()
   for(var l = 0; l<(_cardArray.length); ++l){
     _cardArray[l].save();
   }
-
-
 })
+
+
+
+//Below Code is for making Team Project
+
+var _projectArray;
+function makeProjectSeed(_userArray){
+  console.log('Start makeProjectSeed;');
+ (Teamwiki.find({}).remove()
+.then(function(){
+  return Teamwiki.create(makeProjects(_userArray))
+})
+.then(function(project){
+  _projectArray = project;
+  for(var i = 0; i < _projectArray.length; i++){
+    
+    var _projectCreator = _projectArray[i].creator;
+    var _projectId = _projectArray[i]._id;
+
+
+    for(var k = 0; k< i; k++){
+
+      _projectArray[i].hit.push(_userArray[k]._id);
+    
+    }
+    _projectArray[i].upvote = i;
+    _projectArray[i].save();
+  
+    (function(_projectCreator, _projectId){
+       return User.findById(_projectCreator).exec()
+              .then(function(user){
+                user.cards.push(_projectId);
+                return user.save();
+              })
+    })(_projectCreator , _projectId);
+
+  }
+  return console.log('equipping card to user is finsihed');
+})
+)}
